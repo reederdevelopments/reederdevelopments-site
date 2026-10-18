@@ -84,6 +84,18 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0EA5E9;
         }
+        
+        /* Modal Custom Scrollbar */
+        .modal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #0f172a; /* slate-900 */
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #334155; /* slate-700 */
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-white">
@@ -125,7 +137,7 @@
                 <a href="index.html#about" class="text-slate-300 hover:text-cyan-400 transition-colors">Why ReederDev</a>
                 <a href="index.html#process" class="text-slate-300 hover:text-cyan-400 transition-colors">Process</a>
                 <a href="index.html#contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
-				<a href="showcase.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">Showcase</a>
+                <a href="showcase.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">Showcase</a>
             </nav>
 
             <!-- CTA Button & Mobile Menu Trigger -->
@@ -180,8 +192,6 @@
                 <!-- Showcase Item 1 -->
                 <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
                     <div>
-                        <!-- Optional: Replace bg-slate-800 with an actual image tag when you have screenshots -->
-                        <!-- <img src="screenshot1.jpg" alt="Site Name" class="w-full h-48 object-cover rounded-xl mb-5 border border-slate-700/50"> -->
                         <img src="images/1.png" alt="MBayHoliday Events over December" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50">
                         
                         <h3 class="text-xl font-bold text-white mb-2">MBayHoliday!</h3>
@@ -206,7 +216,7 @@
                     <div>
                         <img src="images/2.png" alt="Attorney Website for Wenrtzel Wagener Law" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50">
                         
-                        <h3 class="text-xl font-bold text-white mb-2">Wentzel wagener Inc</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Wentzel Wagener Inc</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
                             Corporate landing page designed to highlight core business services.
                         </p>
@@ -223,12 +233,75 @@
                     </div>
                 </div>
 
-                
-                <!-- Add more showcase items here following the same structure -->
+                <!-- Showcase Item 3: Carters Electrical (In Progress) -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <img src="images/3.png" alt="Carters Electrical" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50 cursor-pointer" onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])">
+                        
+                        <h3 class="text-xl font-bold text-white mb-2">Carters Electrical</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            In-progress digital storefront and service page for an electrical contracting business.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                        <div class="flex gap-2 text-xs text-slate-500">
+                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800 text-amber-500/80"><i class="fa-solid fa-hourglass-half mr-1"></i> In Progress</span>
+                        </div>
+                        <button onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])" class="text-teal-400 hover:text-teal-300 text-sm font-bold flex items-center transition">
+                            View Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 4: The Pastry Chef (In Progress) -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <img src="images/4.png" alt="The Pastry Chef" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50 cursor-pointer" onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])">
+                        
+                        <h3 class="text-xl font-bold text-white mb-2">The Pastry Chef</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            An elegant, in-progress web design for a local bakery and pastry shop.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                        <div class="flex gap-2 text-xs text-slate-500">
+                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800 text-amber-500/80"><i class="fa-solid fa-hourglass-half mr-1"></i> In Progress</span>
+                        </div>
+                        <button onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])" class="text-teal-400 hover:text-teal-300 text-sm font-bold flex items-center transition">
+                            View Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Image Gallery Modal -->
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity">
+        <div class="relative w-full max-w-4xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]">
+            
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b border-slate-800 bg-slate-900 shrink-0">
+                <div>
+                    <h3 id="gallery-title" class="text-xl font-bold text-white">Project Gallery</h3>
+                    <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-paintbrush mr-1"></i> Design in progress</p>
+                </div>
+                <button onclick="closeGallery()" class="text-slate-400 hover:text-white transition text-2xl focus:outline-none w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 overflow-y-auto modal-scroll flex-grow bg-slate-950 space-y-8">
+                <img id="gallery-img-1" src="" alt="Screenshot 1" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
+                <img id="gallery-img-2" src="" alt="Screenshot 2" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
+                <img id="gallery-img-3" src="" alt="Screenshot 3" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-sm">
@@ -295,6 +368,38 @@
 
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Gallery Modal Logic
+        const modal = document.getElementById('gallery-modal');
+        
+        function openGallery(title, imagesArray) {
+            document.getElementById('gallery-title').innerText = title;
+            document.getElementById('gallery-img-1').src = imagesArray[0];
+            document.getElementById('gallery-img-2').src = imagesArray[1];
+            document.getElementById('gallery-img-3').src = imagesArray[2];
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeGallery() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore background scrolling
+        }
+
+        // Close modal when clicking outside the modal content window
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) {
+                closeGallery();
+            }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeGallery();
+            }
         });
     </script>
 </body>
