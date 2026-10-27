@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase | ReederDevelopments</title>
+    <title>Showcase | ReederDevelopments — Futuristic Web & Digital Portfolio</title>
     <!-- Favicon -->
     <link rel="icon" href="images/ReederDevLogo.jpeg" type="image/jpeg">
     <!-- Tailwind CSS -->
@@ -13,7 +13,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Futuristic Styles -->
+    <link rel="stylesheet" href="css/styles.css">
 
     <script>
         tailwind.config = {
@@ -21,103 +23,50 @@
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        darkBg: '#12161F',
-                        cardBg: '#1A202C',
+                        darkBg: '#060913',
+                        cardBg: '#0D1326',
                         accentBlue: '#1E6BE6',
-                        accentCyan: '#0EA5E9',
+                        accentCyan: '#00F2FE',
                         accentTeal: '#10B981',
-                    },
-                    boxShadow: {
-                        glowBlue: '0 0 25px -5px rgba(30, 107, 230, 0.4)',
-                        glowCyan: '0 0 25px -5px rgba(14, 165, 233, 0.4)',
-                        glowTeal: '0 0 20px -3px rgba(16, 185, 129, 0.3)',
                     }
                 }
             }
         }
     </script>
-
-    <style>
-        body {
-            background-color: #12161F;
-            color: #F8FAFC;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .glass-card {
-            background: rgba(26, 32, 44, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card-hover:hover {
-            transform: translateY(-5px);
-            border-color: rgba(14, 165, 233, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.25);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #38BDF8 0%, #1E6BE6 50%, #10B981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #12161F;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2D3748;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0EA5E9;
-        }
-        
-        /* Modal Custom Scrollbar */
-        .modal-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        .modal-scroll::-webkit-scrollbar-track {
-            background: #0f172a; /* slate-900 */
-        }
-        .modal-scroll::-webkit-scrollbar-thumb {
-            background: #334155; /* slate-700 */
-            border-radius: 10px;
-        }
-    </style>
 </head>
-<body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-white">
+<body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Glowing Cursor -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- Interactive Background Particle Network -->
+    <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <div class="fixed inset-0 cyber-grid-bg pointer-events-none z-0"></div>
 
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-500/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Brand Logo -->
-            <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
-                <!-- Custom Geometric 3D R Logo SVG -->
-                <div class="w-10 h-10 relative flex items-center justify-center">
-                    <svg viewBox="0 0 100 100" class="w-full h-full filter drop-shadow-[0_2px_8px_rgba(30,107,230,0.5)] transition-transform duration-300 group-hover:scale-105">
+            <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300">
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                         <polygon points="50,15 15,45 25,45 50,23 75,45 85,45" fill="url(#gradBlue)" />
                         <path d="M 28,40 L 48,24 L 48,78 L 38,78 L 38,55 L 28,55 Z" fill="#1E6BE6" />
-                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#0EA5E9" opacity="0.9"/>
+                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#00F2FE" opacity="0.95"/>
                         <polygon points="38,54 58,78 46,78 28,55" fill="#1D4ED8" />
                         <polygon points="55,20 75,35 75,70 65,78 65,38 55,30" fill="#64748B" />
                         <polygon points="42,78 52,70 60,78" fill="#10B981" />
                         <defs>
                             <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#38BDF8" />
+                                <stop offset="0%" stop-color="#00F2FE" />
                                 <stop offset="50%" stop-color="#1E6BE6" />
                                 <stop offset="100%" stop-color="#10B981" />
                             </linearGradient>
@@ -125,152 +74,245 @@
                     </svg>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-slate-400 font-light">DEVELOPMENTS</span></span>
-                    <span class="text-[10px] tracking-widest text-cyan-400 font-semibold uppercase -mt-1">Software & Technology Solutions</span>
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
+                    <span class="text-[10px] tracking-[0.2em] text-slate-400 font-mono uppercase -mt-0.5 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Next-Gen Digital & Data Studio
+                    </span>
                 </div>
             </a>
 
-            <!-- Desktop Nav Links (Pointing back to index.html) -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="index.html#home" class="text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
-                <a href="index.html#services" class="text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
-                <a href="index.html#about" class="text-slate-300 hover:text-cyan-400 transition-colors">Why ReederDev</a>
-                <a href="index.html#process" class="text-slate-300 hover:text-cyan-400 transition-colors">Process</a>
-                <a href="index.html#contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
-                <a href="showcase.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">Showcase</a>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/70 border border-slate-800/90 rounded-full px-3 py-1.5 text-sm font-medium">
+                <a href="index.html#home" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
+                <a href="index.html#services" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Services</a>
+                <a href="index.html#architect" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Solution Builder</a>
+                <a href="index.html#about" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Why ReederDev</a>
+                <a href="index.html#process" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Process</a>
+                <a href="showcase.html" class="px-3.5 py-1.5 rounded-full text-cyan-400 bg-cyan-500/15 font-semibold transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-sparkles text-xs"></i> Showcase
+                </a>
             </nav>
 
             <!-- CTA Button & Mobile Menu Trigger -->
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/27742625644" target="_blank" class="hidden lg:inline-flex text-slate-300 hover:text-green-400 text-lg transition-colors">
-                    <i class="fa-brands fa-whatsapp"></i>
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/27742625644" target="_blank" aria-label="WhatsApp" class="hidden sm:inline-flex w-10 h-10 rounded-xl glass-card border border-slate-700/80 items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
                 </a>
-                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-sky-500 to-teal-500 rounded-xl hover:shadow-glowCyan transition-all duration-300 hover:scale-105">
-                    <i class="fa-solid fa-envelope mr-2"></i> Contact for Pricing
+                <a href="index.html#contact" class="hidden sm:inline-flex btn-cyber items-center justify-center px-5 py-2.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 rounded-xl transition-all duration-300 hover:scale-105">
+                    <i class="fa-solid fa-bolt mr-2"></i> Start a Project
                 </a>
                 
-                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden text-slate-300 hover:text-white text-2xl focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Nav -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-            <a href="index.html#home" class="mobile-link block py-2 text-slate-300 hover:text-cyan-400">Home</a>
-            <a href="index.html#services" class="mobile-link block py-2 text-slate-300 hover:text-cyan-400">Services</a>
-            <a href="index.html#about" class="mobile-link block py-2 text-slate-300 hover:text-cyan-400">Why ReederDev</a>
-            <a href="showcase.html" class="mobile-link block py-2 text-cyan-400 font-medium">Showcase</a>
-            <a href="index.html#process" class="mobile-link block py-2 text-slate-300 hover:text-cyan-400">Process</a>
-            <a href="index.html#contact" class="mobile-link block py-2 text-slate-300 hover:text-cyan-400">Contact</a>
-            <a href="https://wa.me/27742625644" target="_blank" class="mobile-link block py-2 text-green-400 font-medium"><i class="fa-brands fa-whatsapp mr-2"></i>+27 74 262 5644</a>
-            <a href="index.html#contact" class="mobile-link block w-full text-center py-2.5 mt-2 text-sm font-semibold text-white bg-blue-600 rounded-lg">Contact for Pricing</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="index.html#home" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Home</a>
+            <a href="index.html#services" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Services</a>
+            <a href="index.html#architect" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Interactive Solution Builder</a>
+            <a href="showcase.html" class="mobile-link block py-2.5 px-3 rounded-lg bg-cyan-500/10 text-cyan-400 font-semibold">Showcase</a>
+            <a href="index.html#process" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Process</a>
+            <a href="index.html#contact" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Contact</a>
+            <a href="https://wa.me/27742625644" target="_blank" class="mobile-link block py-2.5 px-3 rounded-lg text-green-400 font-medium"><i class="fa-brands fa-whatsapp mr-2"></i>+27 74 262 5644</a>
+            <a href="index.html#contact" class="mobile-link block w-full text-center py-3 mt-2 text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl">Contact for Pricing</a>
         </div>
     </header>
 
-    <!-- Showcase Header Section -->
-    <section class="relative pt-32 pb-12 overflow-hidden border-b border-slate-800/80">
-        <!-- Background Ambient Lighting -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+    <!-- ==========================================================================
+         SHOWCASE HERO HEADER
+         ========================================================================== -->
+    <section class="relative pt-36 pb-12 overflow-hidden z-10">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/15 rounded-full blur-[130px] pointer-events-none"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-5 reveal active">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest">
+                <i class="fa-solid fa-layer-group"></i> Digital Craftsmanship
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 Web Design <span class="text-gradient">Showcase</span>
             </h1>
             <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Explore a collection of websites and web applications designed and developed by ReederDevelopments.
+                Explore live production platforms and in-progress concepts architected and designed by ReederDevelopments.
             </p>
+
+            <!-- Interactive Filter Bar -->
+            <div class="pt-4 flex flex-wrap justify-center gap-3">
+                <button onclick="filterShowcase('all', this)" class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_20px_rgba(0,242,254,0.25)] transition">
+                    All Projects (4)
+                </button>
+                <button onclick="filterShowcase('live', this)" class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-900/80 text-slate-400 border border-slate-800 hover:text-white transition">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span>Live Production (2)
+                </button>
+                <button onclick="filterShowcase('wip', this)" class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-900/80 text-slate-400 border border-slate-800 hover:text-white transition">
+                    <i class="fa-solid fa-hourglass-half text-amber-400 mr-1.5"></i>In-Progress Labs (2)
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- Showcase Grid Section -->
-    <section class="py-16 relative min-h-[50vh]">
+    <!-- ==========================================================================
+         SHOWCASE GRID SECTION
+         ========================================================================== -->
+    <section class="py-12 pb-24 relative min-h-[55vh] z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="showcase-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Showcase Item 1 -->
-                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                <!-- Showcase Item 1: MBayHoliday -->
+                <div data-category="live" class="showcase-card glass-card spotlight-card tilt-card rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 reveal">
                     <div>
-                        <img src="images/1.png" alt="MBayHoliday Events over December" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50">
-                        
-                        <h3 class="text-xl font-bold text-white mb-2">MBayHoliday!</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            A events planner and viewer for Mosselbay over the holidays!
-                        </p>
+                        <!-- Browser Mockup Chrome -->
+                        <div class="bg-slate-950/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-900 px-3 py-0.5 rounded-md border border-slate-800">https://mbayholiday.co.za</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-500/15 text-emerald-400 rounded border border-emerald-500/30">LIVE</span>
+                        </div>
+
+                        <div class="relative overflow-hidden h-64 group">
+                            <img src="images/1.png" alt="MBayHoliday Events over December" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">MBayHoliday!</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                An interactive holiday events planner and discovery portal built for Mossel Bay visitors over the festive season.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
-                        <div class="flex gap-2 text-xs text-slate-500">
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800">HTML</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800">Tailwind</span>
+                    <div class="px-6 pb-6 pt-4 flex items-center justify-between border-t border-slate-800/80">
+                        <div class="flex gap-2 text-xs font-mono">
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-cyan-300">HTML5</span>
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-sky-300">Tailwind CSS</span>
                         </div>
-                        <a href="https://mbayholiday.co.za/" target="_blank" class="text-cyan-400 hover:text-cyan-300 text-sm font-bold flex items-center transition">
-                            Visit Site <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        <a href="https://mbayholiday.co.za/" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 text-xs sm:text-sm font-bold flex items-center transition">
+                            Launch Live Site <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Showcase Item 2 -->
-                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                <!-- Showcase Item 2: Wentzel Wagener Inc -->
+                <div data-category="live" class="showcase-card glass-card spotlight-card tilt-card rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 reveal reveal-delay-1">
                     <div>
-                        <img src="images/2.png" alt="Attorney Website for Wenrtzel Wagener Law" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50">
-                        
-                        <h3 class="text-xl font-bold text-white mb-2">Wentzel Wagener Inc</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Corporate landing page designed to highlight core business services.
-                        </p>
+                        <div class="bg-slate-950/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-900 px-3 py-0.5 rounded-md border border-slate-800">wwlaw.reederdevelopments</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-500/15 text-emerald-400 rounded border border-emerald-500/30">LIVE</span>
+                        </div>
+
+                        <div class="relative overflow-hidden h-64 group">
+                            <img src="images/2.png" alt="Wentzel Wagener Law" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Wentzel Wagener Inc</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                High-trust corporate legal landing page crafted to highlight practice areas, professional credentials, and client contact channels.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
-                        <div class="flex gap-2 text-xs text-slate-500">
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800">Web</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800">Design</span>
+                    <div class="px-6 pb-6 pt-4 flex items-center justify-between border-t border-slate-800/80">
+                        <div class="flex gap-2 text-xs font-mono">
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-purple-300">Corporate UI</span>
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-emerald-300">Cloudflare Edge</span>
                         </div>
-                        <a href="https://wwlaw.reederdevelopments.workers.dev/" target="_blank" class="text-cyan-400 hover:text-cyan-300 text-sm font-bold flex items-center transition">
-                            Visit Site <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        <a href="https://wwlaw.reederdevelopments.workers.dev/" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 text-xs sm:text-sm font-bold flex items-center transition">
+                            Launch Live Site <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Showcase Item 3: Carters Electrical (In Progress) -->
-                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                <!-- Showcase Item 3: Carters Electrical -->
+                <div data-category="wip" class="showcase-card glass-card spotlight-card tilt-card rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 reveal">
                     <div>
-                        <img src="images/3.png" alt="Carters Electrical" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50 cursor-pointer" onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])">
-                        
-                        <h3 class="text-xl font-bold text-white mb-2">Carters Electrical</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            In-progress digital storefront and service page for an electrical contracting business.
-                        </p>
+                        <div class="bg-slate-950/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-900 px-3 py-0.5 rounded-md border border-slate-800">preview://carters-electrical</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono bg-amber-500/15 text-amber-400 rounded border border-amber-500/30">IN PROGRESS</span>
+                        </div>
+
+                        <div class="relative overflow-hidden h-64 group cursor-pointer" onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])">
+                            <img src="images/3.png" alt="Carters Electrical" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <span class="px-4 py-2 rounded-xl bg-slate-950/90 border border-teal-400 text-teal-300 text-xs font-mono font-bold">
+                                    <i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> Inspect 3 Concept Screens
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Carters Electrical</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Modern digital storefront and service booking showcase engineered for a commercial and residential electrical contracting business.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
-                        <div class="flex gap-2 text-xs text-slate-500">
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800 text-amber-500/80"><i class="fa-solid fa-hourglass-half mr-1"></i> In Progress</span>
+                    <div class="px-6 pb-6 pt-4 flex items-center justify-between border-t border-slate-800/80">
+                        <div class="flex gap-2 text-xs font-mono">
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-amber-400"><i class="fa-solid fa-hourglass-half mr-1"></i> Concept Lab</span>
                         </div>
-                        <button onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])" class="text-teal-400 hover:text-teal-300 text-sm font-bold flex items-center transition">
-                            View Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
+                        <button onclick="openGallery('Carters Electrical', ['images/3.png', 'images/3.1.png', 'images/3.2.png'])" class="px-4 py-2 rounded-xl bg-teal-500/15 border border-teal-500/40 text-teal-300 hover:bg-teal-400 hover:text-slate-950 text-xs sm:text-sm font-bold flex items-center transition">
+                            Open 3-Screen Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Showcase Item 4: The Pastry Chef (In Progress) -->
-                <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between">
+                <!-- Showcase Item 4: The Pastry Chef -->
+                <div data-category="wip" class="showcase-card glass-card spotlight-card tilt-card rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 reveal reveal-delay-1">
                     <div>
-                        <img src="images/4.png" alt="The Pastry Chef" class="w-full h-48 object-cover object-top rounded-xl mb-5 border border-slate-700/50 cursor-pointer" onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])">
-                        
-                        <h3 class="text-xl font-bold text-white mb-2">The Pastry Chef</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            An elegant, in-progress web design for a local bakery and pastry shop.
-                        </p>
+                        <div class="bg-slate-950/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-900 px-3 py-0.5 rounded-md border border-slate-800">preview://the-pastry-chef</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono bg-amber-500/15 text-amber-400 rounded border border-amber-500/30">IN PROGRESS</span>
+                        </div>
+
+                        <div class="relative overflow-hidden h-64 group cursor-pointer" onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])">
+                            <img src="images/4.png" alt="The Pastry Chef" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <span class="px-4 py-2 rounded-xl bg-slate-950/90 border border-teal-400 text-teal-300 text-xs font-mono font-bold">
+                                    <i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> Inspect 3 Concept Screens
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">The Pastry Chef</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                An artisan, visually rich web experience crafted for a boutique bakery and patisserie brand.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center justify-between border-t border-slate-800 pt-4">
-                        <div class="flex gap-2 text-xs text-slate-500">
-                            <span class="px-2 py-1 bg-slate-900 rounded-md border border-slate-800 text-amber-500/80"><i class="fa-solid fa-hourglass-half mr-1"></i> In Progress</span>
+                    <div class="px-6 pb-6 pt-4 flex items-center justify-between border-t border-slate-800/80">
+                        <div class="flex gap-2 text-xs font-mono">
+                            <span class="px-2.5 py-1 bg-slate-900 rounded-lg border border-slate-800 text-amber-400"><i class="fa-solid fa-hourglass-half mr-1"></i> Concept Lab</span>
                         </div>
-                        <button onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])" class="text-teal-400 hover:text-teal-300 text-sm font-bold flex items-center transition">
-                            View Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
+                        <button onclick="openGallery('The Pastry Chef', ['images/4.png', 'images/4.1.png', 'images/4.2.png'])" class="px-4 py-2 rounded-xl bg-teal-500/15 border border-teal-500/40 text-teal-300 hover:bg-teal-400 hover:text-slate-950 text-xs sm:text-sm font-bold flex items-center transition">
+                            Open 3-Screen Gallery <i class="fa-solid fa-images ml-2 text-xs"></i>
                         </button>
                     </div>
                 </div>
@@ -279,96 +321,106 @@
         </div>
     </section>
 
-    <!-- Image Gallery Modal -->
-    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity">
-        <div class="relative w-full max-w-4xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]">
+    <!-- ==========================================================================
+         IMAGE GALLERY MODAL
+         ========================================================================== -->
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 transition-opacity">
+        <div class="relative w-full max-w-5xl bg-slate-950 border border-cyan-500/40 rounded-3xl shadow-[0_0_60px_rgba(0,242,254,0.2)] overflow-hidden flex flex-col max-h-[90vh]">
             
             <!-- Modal Header -->
-            <div class="flex justify-between items-center p-5 border-b border-slate-800 bg-slate-900 shrink-0">
+            <div class="flex justify-between items-center p-5 border-b border-slate-800 bg-slate-900/90 shrink-0">
                 <div>
                     <h3 id="gallery-title" class="text-xl font-bold text-white">Project Gallery</h3>
-                    <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-paintbrush mr-1"></i> Design in progress</p>
+                    <p class="text-xs font-mono text-cyan-400 mt-0.5"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> High-Resolution Concept Preview</p>
                 </div>
-                <button onclick="closeGallery()" class="text-slate-400 hover:text-white transition text-2xl focus:outline-none w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800">
+                <button onclick="closeGallery()" aria-label="Close Gallery" class="text-slate-400 hover:text-white transition text-2xl focus:outline-none w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-800 border border-slate-700">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
-            <!-- Modal Content (Scrollable) -->
-            <div class="p-6 overflow-y-auto modal-scroll flex-grow bg-slate-950 space-y-8">
-                <img id="gallery-img-1" src="" alt="Screenshot 1" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
-                <img id="gallery-img-2" src="" alt="Screenshot 2" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
-                <img id="gallery-img-3" src="" alt="Screenshot 3" class="w-full h-auto rounded-xl border border-slate-700 shadow-lg object-contain bg-slate-900">
+            <!-- Modal Scrollable Images -->
+            <div class="p-6 overflow-y-auto flex-grow bg-slate-950 space-y-8">
+                <img id="gallery-img-1" src="" alt="Screenshot 1" class="w-full h-auto rounded-2xl border border-slate-800 shadow-2xl object-contain bg-slate-900">
+                <img id="gallery-img-2" src="" alt="Screenshot 2" class="w-full h-auto rounded-2xl border border-slate-800 shadow-2xl object-contain bg-slate-900">
+                <img id="gallery-img-3" src="" alt="Screenshot 3" class="w-full h-auto rounded-2xl border border-slate-800 shadow-2xl object-contain bg-slate-900">
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-sm">
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="bg-slate-950/95 border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-sm relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
                 
-                <!-- Footer Brand Column -->
                 <div class="md:col-span-6 space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white">R</div>
-                        <span class="text-lg font-extrabold tracking-wider text-white">REEDER<span class="text-slate-400 font-light">DEVELOPMENTS</span></span>
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-extrabold text-slate-950">R</div>
+                        <span class="text-lg font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-                        Comprehensive software and web solutions. Dedicated single-developer service offering tailored PC apps, mobile apps, websites, and technical consulting.
+                        Next-generation software, web design, and data engineering studio. Direct 1-on-1 engineering for custom websites, data environments, Jasper BI reporting, Go/Wails PC apps, and Flutter mobile solutions.
                     </p>
-                    <div class="text-xs text-slate-300 space-y-2">
+                    <div class="text-xs text-slate-300 space-y-2 font-mono">
                         <div><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> <a href="mailto:reederdevelopments@gmail.com" class="text-cyan-400 hover:underline">reederdevelopments@gmail.com</a></div>
                         <div><i class="fa-brands fa-whatsapp text-green-400 mr-2"></i> <a href="https://wa.me/27742625644" target="_blank" class="text-green-400 hover:underline">+27 74 262 5644</a></div>
                     </div>
                 </div>
 
-                <!-- Footer Quick Links -->
                 <div class="md:col-span-3 space-y-3">
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Quick Links</h4>
+                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Navigation</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="index.html#home" class="hover:text-cyan-400 transition">Home</a></li>
                         <li><a href="index.html#services" class="hover:text-cyan-400 transition">Services</a></li>
-                        <li><a href="index.html#about" class="hover:text-cyan-400 transition">Why ReederDev</a></li>
-                        <li><a href="index.html#process" class="hover:text-cyan-400 transition">Process</a></li>
+                        <li><a href="index.html#architect" class="hover:text-cyan-400 transition">Solution Builder</a></li>
+                        <li><a href="showcase.html" class="text-cyan-400 hover:underline transition">Web Design Showcase</a></li>
                         <li><a href="index.html#contact" class="hover:text-cyan-400 transition">Contact for Pricing</a></li>
                     </ul>
                 </div>
 
-                <!-- Tech Stack Badges Column -->
                 <div class="md:col-span-3 space-y-3">
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Specialization</h4>
-                    <div class="flex flex-wrap gap-2 pt-1 text-xs">
-                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-slate-300">HTML / Web Design</span>
-                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-slate-300">Go / Wails</span>
-                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-slate-300">SQL / GCP</span>
-                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-slate-300">Jasper Reports</span>
-                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-slate-300"><i class="fa-brands fa-android text-emerald-400 mr-1"></i> Android / Flutter</span>
+                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Core Stack</h4>
+                    <div class="flex flex-wrap gap-2 pt-1 text-xs font-mono">
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-cyan-300">Data Engineering</span>
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-purple-300">Web & UI Design</span>
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-amber-300">Jasper Reports</span>
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-sky-300">SQL & GCP</span>
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-indigo-300">Go / Wails</span>
+                        <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-emerald-300">Flutter</span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Copyright Line -->
-            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4 font-mono">
                 <p>&copy; 2026 ReederDevelopments. All rights reserved.</p>
-                <p class="text-slate-400">Independent Software & Web Studio</p>
+                <p class="text-slate-400">SYS.STATUS: <span class="text-emerald-400">OPTIMAL</span> // SOUTH AFRICA &amp; GLOBAL</p>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Effects Script -->
+    <script src="js/effects.js"></script>
     <script>
-        // Mobile Navigation Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Category Filter Logic
+        function filterShowcase(category, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-cyan-500/20', 'text-cyan-300', 'border-cyan-400', 'shadow-[0_0_20px_rgba(0,242,254,0.25)]');
+                btn.classList.add('bg-slate-900/80', 'text-slate-400', 'border-slate-800');
+            });
+            btnEl.classList.add('bg-cyan-500/20', 'text-cyan-300', 'border-cyan-400', 'shadow-[0_0_20px_rgba(0,242,254,0.25)]');
+            btnEl.classList.remove('bg-slate-900/80', 'text-slate-400', 'border-slate-800');
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
+            document.querySelectorAll('.showcase-card').forEach(card => {
+                const itemCat = card.getAttribute('data-category');
+                if (category === 'all' || itemCat === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
 
         // Gallery Modal Logic
         const modal = document.getElementById('gallery-modal');
@@ -380,26 +432,20 @@
             document.getElementById('gallery-img-3').src = imagesArray[2];
             
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeGallery() {
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore background scrolling
+            document.body.style.overflow = '';
         }
 
-        // Close modal when clicking outside the modal content window
         modal.addEventListener('click', (e) => {
-            if(e.target === modal) {
-                closeGallery();
-            }
+            if (e.target === modal) closeGallery();
         });
         
-        // Close modal on Escape key
         document.addEventListener('keydown', (e) => {
-            if(e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeGallery();
-            }
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeGallery();
         });
     </script>
 </body>
