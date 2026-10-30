@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelfMed — Privacy-First Family Medicine Cabinet & Dosage Tracker | ReederDevelopments</title>
+    <meta name="description" content="ShelfMed v1.1.0 by ReederDevelopments — Privacy-first, offline-capable family medicine cabinet, OCR box scanner, AES-256 QR family sync, and dosage tracker on Google Play.">
+    <!-- Favicon -->
+    <link rel="icon" href="images/shelfmed-icon.png" type="image/png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Futuristic Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkBg: '#060913',
+                        cardBg: '#0D1326',
+                        shelfPrimary: '#227C9D',
+                        shelfDeep: '#1A5F7A',
+                        shelfCoral: '#FF715B',
+                        shelfTeal: '#17C3B2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Glowing Cursor -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- Interactive Background Particle Network -->
+    <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <div class="fixed inset-0 cyber-grid-bg pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-500/15 overflow-visible">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300">
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                        <polygon points="50,15 15,45 25,45 50,23 75,45 85,45" fill="url(#gradBlue)" />
+                        <path d="M 28,40 L 48,24 L 48,78 L 38,78 L 38,55 L 28,55 Z" fill="#1E6BE6" />
+                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#00F2FE" opacity="0.95"/>
+                        <polygon points="38,54 58,78 46,78 28,55" fill="#1D4ED8" />
+                        <polygon points="55,20 75,35 75,70 65,78 65,38 55,30" fill="#64748B" />
+                        <polygon points="42,78 52,70 60,78" fill="#10B981" />
+                        <defs>
+                            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="50%" stop-color="#1E6BE6" />
+                                <stop offset="100%" stop-color="#10B981" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
+                    <span class="text-[10px] tracking-[0.2em] text-slate-400 font-mono uppercase -mt-0.5 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Next-Gen Digital & Data Studio
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/70 border border-slate-800/90 rounded-full px-3 py-1.5 text-sm font-medium">
+                <a href="index.html#home" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
+                <a href="index.html#services" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Services</a>
+                <a href="index.html#about" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Why ReederDev</a>
+                <a href="index.html#process" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Process</a>
+                <a href="index.html#contact" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+                <a href="showcase.html" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Showcase</a>
+
+                <!-- Apps Dropdown Menu -->
+                <div class="relative group">
+                    <button type="button" class="px-4 py-1.5 rounded-full text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 font-semibold transition-all flex items-center gap-1.5 focus:outline-none">
+                        <i class="fa-brands fa-google-play text-xs"></i>
+                        <span>Apps</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+
+                    <!-- Dropdown Panel -->
+                    <div class="absolute right-0 mt-2 w-72 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-cyan-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.85)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 z-50 p-2">
+                        <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-400 border-b border-slate-800/80 mb-1 flex items-center justify-between">
+                            <span>Google Play Store Apps</span>
+                            <i class="fa-brands fa-android text-emerald-400"></i>
+                        </div>
+
+                        <!-- 1st Dropdown Item: ShelfMed -->
+                        <a href="shelfmed.html" class="flex items-start gap-3 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition group/item">
+                            <img src="images/shelfmed-icon.png" alt="ShelfMed" class="w-10 h-10 rounded-xl object-cover shrink-0 shadow-[0_0_15px_rgba(34,124,157,0.45)] border border-cyan-500/30">
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover/item:text-emerald-300 transition">ShelfMed</span>
+                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.1.0</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Family Medicine Cabinet &amp; Dosage Tracker</p>
+                            </div>
+                        </a>
+
+                        <!-- Direct Play Store Quick Link -->
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="mt-1.5 flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono text-cyan-300 hover:bg-slate-900 transition">
+                            <span><i class="fa-brands fa-google-play mr-1.5 text-emerald-400"></i>Get ShelfMed on Play Store</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA Button & Mobile Menu Trigger -->
+            <div class="flex items-center gap-3">
+                <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="hidden sm:inline-flex btn-cyber items-center justify-center px-5 py-2.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 rounded-xl transition-all duration-300 hover:scale-105">
+                    <i class="fa-brands fa-google-play mr-2"></i> Download on Google Play
+                </a>
+                
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden text-slate-300 hover:text-white text-2xl focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="index.html#home" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Home</a>
+            <a href="index.html#services" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Services</a>
+            <a href="index.html#about" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Why ReederDev</a>
+            <a href="index.html#process" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Process</a>
+            <a href="showcase.html" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Showcase</a>
+            <div class="pt-1 pb-1 px-3 border-l-2 border-emerald-500/50 ml-2 space-y-1">
+                <div class="text-[10px] font-mono uppercase tracking-widest text-emerald-400">Apps (Google Play)</div>
+                <a href="shelfmed.html" class="mobile-link block py-2 px-3 rounded-lg bg-emerald-500/15 text-emerald-300 font-bold">
+                    <i class="fa-solid fa-capsules mr-2"></i>ShelfMed
+                </a>
+            </div>
+            <a href="index.html#contact" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         SHELFMED HERO SECTION
+         ========================================================================== -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden z-10">
+        <!-- Ambient Neon Glows matching ShelfMed Teal/Blue & Coral -->
+        <div class="absolute top-24 left-1/4 w-[520px] h-[520px] bg-[#227C9D]/25 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-[#17C3B2]/15 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: App Promotion Info -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal active">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border border-cyan-400/40 text-cyan-300 text-xs font-mono tracking-wide shadow-[0_0_25px_rgba(34,124,157,0.3)]">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        VERSION 1.1.0 LIVE ON GOOGLE PLAY // PRIVACY-FIRST &amp; OFFLINE-CAPABLE
+                    </div>
+
+                    <!-- App Icon & Title -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+                        <img src="images/shelfmed-icon.png" alt="ShelfMed App Icon" class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl object-cover shadow-[0_0_35px_rgba(34,124,157,0.6)] border-2 border-cyan-400/40 shrink-0">
+                        <div>
+                            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
+                                Shelf<span class="text-gradient">Med</span>
+                            </h1>
+                            <p class="text-sm sm:text-base font-mono text-cyan-300 mt-1">
+                                Family Medicine Cabinet, OCR Scanner &amp; Dosage Tracker
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A <span class="text-white font-semibold">privacy-first, offline-capable</span> household medicine cabinet and dosage tracker. Scan medicine boxes with <span class="text-cyan-300 font-semibold">AI OCR &amp; Barcode lookup</span>, autocomplete from <span class="text-cyan-300 font-semibold">190+ South African &amp; global medicines</span>, track family dosages &amp; expiry dates, and sync across household devices using <span class="text-emerald-300 font-semibold">AES-256 encrypted QR peer-to-peer sync</span>—without your medical data ever touching an unencrypted central server.
+                    </p>
+
+                    <!-- Primary Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="w-full sm:w-auto btn-cyber px-8 py-4 text-base font-extrabold text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 text-center shadow-[0_10px_30px_-5px_rgba(23,195,178,0.45)] flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-google-play text-2xl"></i>
+                            <div class="text-left leading-tight">
+                                <div class="text-[10px] uppercase tracking-wider font-mono opacity-80">Download Free On</div>
+                                <div class="text-base font-black">Google Play Store</div>
+                            </div>
+                        </a>
+
+                        <a href="#features" class="w-full sm:w-auto px-7 py-4 text-sm font-bold text-white glass-card hover:bg-slate-800/80 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-Compass text-cyan-400"></i> Explore App Features
+                        </a>
+                    </div>
+
+                    <!-- Authentic Technical Specs Bar -->
+                    <div class="pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+                        <div class="p-3.5 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-[10px] font-mono text-slate-400 uppercase">Local Database</div>
+                            <div class="text-sm font-bold text-white mt-0.5"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1.5"></i>SQLite + AES-256</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-[10px] font-mono text-slate-400 uppercase">Smart Input</div>
+                            <div class="text-sm font-bold text-cyan-300 mt-0.5"><i class="fa-solid fa-expand text-cyan-400 mr-1.5"></i>ML Kit OCR &amp; QR</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-[10px] font-mono text-slate-400 uppercase">Catalog</div>
+                            <div class="text-sm font-bold text-white mt-0.5"><i class="fa-solid fa-capsules text-[#FF715B] mr-1.5"></i>190+ SA &amp; FDA</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-[10px] font-mono text-slate-400 uppercase">Household Sync</div>
+                            <div class="text-sm font-bold text-emerald-400 mt-0.5"><i class="fa-solid fa-wifi mr-1.5"></i>Zero-Cloud P2P</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Multi-Screen ShelfMed Simulator -->
+                <div class="lg:col-span-5 flex flex-col items-center reveal reveal-delay-2">
+                    <div class="relative w-full max-w-[345px] animate-float">
+                        <div class="absolute -inset-2 bg-gradient-to-b from-[#227C9D] via-[#17C3B2] to-[#FF715B] rounded-[52px] blur-xl opacity-30"></div>
+
+                        <!-- Phone Frame -->
+                        <div class="relative bg-slate-950 border-[10px] border-slate-800 rounded-[48px] shadow-2xl overflow-hidden ring-1 ring-cyan-500/40">
+                            <!-- Speaker Notch -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-slate-800 rounded-b-2xl z-30 flex items-center justify-center">
+                                <div class="w-10 h-1 bg-slate-900 rounded-full"></div>
+                            </div>
+
+                            <!-- Authentic ShelfMed Light/Medical UI Inside Phone -->
+                            <div class="relative pt-8 pb-4 px-4 bg-[#F8F9FA] text-slate-800 min-h-[600px] flex flex-col justify-between">
+                                
+                                <!-- App Header matching ShelfMed AppTheme (#1A5F7A) -->
+                                <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+                                    <div class="flex items-center gap-2.5">
+                                        <img src="images/shelfmed-icon.png" alt="ShelfMed" class="w-8 h-8 rounded-lg object-cover shadow-sm">
+                                        <div>
+                                            <div class="text-xs font-extrabold text-[#1A5F7A] leading-none">ShelfMed</div>
+                                            <div class="text-[9px] font-semibold text-[#227C9D] mt-0.5">Reeder Family • P2P Synced</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="px-2 py-0.5 rounded-full bg-[#17C3B2]/15 text-[#1A5F7A] text-[9px] font-bold">v1.1.0</span>
+                                    </div>
+                                </div>
+
+                                <!-- Screen 0: Home & Quick Stats -->
+                                <div id="sim-screen-0" class="sim-screen my-auto space-y-3 py-2">
+                                    <div class="text-[10px] font-bold uppercase tracking-wider text-[#1A5F7A]">Quick Cabinet Overview</div>
+                                    <div class="grid grid-cols-3 gap-2 text-center">
+                                        <div class="p-2.5 rounded-2xl bg-white shadow-sm border border-slate-200/80">
+                                            <div class="text-lg font-extrabold text-[#227C9D]">18</div>
+                                            <div class="text-[9px] font-semibold text-slate-500">In Cabinet</div>
+                                        </div>
+                                        <div class="p-2.5 rounded-2xl bg-white shadow-sm border border-amber-200">
+                                            <div class="text-lg font-extrabold text-amber-600">2</div>
+                                            <div class="text-[9px] font-semibold text-slate-500">Low Stock</div>
+                                        </div>
+                                        <div class="p-2.5 rounded-2xl bg-white shadow-sm border border-[#FF715B]/40">
+                                            <div class="text-lg font-extrabold text-[#FF715B]">1</div>
+                                            <div class="text-[9px] font-semibold text-slate-500">Expiring</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Medicine Cards -->
+                                    <div class="flex items-center justify-between pt-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-[#1A5F7A]">Household Cabinet</span>
+                                        <span class="text-[9px] text-[#227C9D] font-bold">FEFO Auto-Select</span>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <div class="p-3 rounded-2xl bg-white shadow-sm border border-slate-200/80 flex items-center justify-between">
+                                            <div class="flex items-center gap-2.5">
+                                                <div class="w-9 h-9 rounded-xl bg-[#227C9D]/10 text-[#227C9D] flex items-center justify-center text-sm font-bold">
+                                                    <i class="fa-solid fa-tablets"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="text-xs font-bold text-slate-800">Panado Paracetamol 500mg</div>
+                                                    <div class="text-[10px] text-slate-500">S0 • Pain &amp; Fever • 24 Tabs left</div>
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">11/2027</span>
+                                        </div>
+
+                                        <div class="p-3 rounded-2xl bg-white shadow-sm border border-slate-200/80 flex items-center justify-between">
+                                            <div class="flex items-center gap-2.5">
+                                                <div class="w-9 h-9 rounded-xl bg-[#17C3B2]/15 text-[#1A5F7A] flex items-center justify-center text-sm font-bold">
+                                                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="text-xs font-bold text-slate-800">Corenza C Effervescent</div>
+                                                    <div class="text-[10px] text-slate-500">S2 • Cold &amp; Flu • 8 Tabs left</div>
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">08/2027</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recent Activity Log -->
+                                    <div class="p-3 rounded-2xl bg-[#1A5F7A]/5 border border-[#1A5F7A]/15 space-y-1.5">
+                                        <div class="text-[9px] font-bold uppercase tracking-wider text-[#1A5F7A]">Household Dose Log</div>
+                                        <div class="flex items-center justify-between text-[10px]">
+                                            <span class="font-semibold text-slate-700"><span class="inline-block w-4 h-4 rounded-full bg-[#227C9D] text-white text-[8px] leading-4 text-center mr-1">NR</span>logged 2x Panado</span>
+                                            <span class="text-slate-400">08:30 AM</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Screen 1: OCR Scanner & 190+ SA Catalog -->
+                                <div id="sim-screen-1" class="sim-screen hidden my-auto space-y-3 py-2">
+                                    <div class="p-3.5 rounded-2xl bg-gradient-to-r from-[#1A5F7A] to-[#227C9D] text-white shadow-md">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[10px] font-mono uppercase tracking-wider opacity-85">Google ML Kit OCR</span>
+                                            <i class="fa-solid fa-camera"></i>
+                                        </div>
+                                        <div class="text-sm font-bold mt-1">Scan Medicine Box or Label</div>
+                                        <div class="text-[10px] opacity-90 mt-1">Auto-extracts Name, Schedule (S0–S6), Quantity &amp; Expiry Date</div>
+                                    </div>
+
+                                    <div class="p-3 rounded-2xl bg-white border border-slate-200 space-y-2">
+                                        <div class="text-[10px] font-bold text-[#1A5F7A]">190+ SA Medicines Autocomplete</div>
+                                        <div class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-[11px] font-mono text-slate-700 flex items-center justify-between">
+                                            <span>Allergex / Panado / Myprodol...</span>
+                                            <i class="fa-solid fa-magnifying-glass text-[#227C9D]"></i>
+                                        </div>
+                                        <div class="flex flex-wrap gap-1 pt-1">
+                                            <span class="px-2 py-0.5 rounded bg-[#227C9D]/10 text-[#1A5F7A] text-[9px] font-bold">Schedule S0-S6</span>
+                                            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 text-[9px] font-bold">Barcode EAN-13</span>
+                                            <span class="px-2 py-0.5 rounded bg-[#FF715B]/15 text-[#FF715B] text-[9px] font-bold">OpenFDA / WHO INN</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900">
+                                        <strong class="block text-emerald-800 mb-0.5"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Smart Bottle Deduction</strong>
+                                        When logging doses, ShelfMed automatically picks the earliest-expiring bottle first.
+                                    </div>
+                                </div>
+
+                                <!-- Screen 2: Clinical Reports (fl_chart) -->
+                                <div id="sim-screen-2" class="sim-screen hidden my-auto space-y-3 py-2">
+                                    <div class="text-[10px] font-bold uppercase tracking-wider text-[#1A5F7A]">Clinical Reports &amp; Doctor Export</div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                            <i class="fa-solid fa-chart-pie text-[#1A5F7A] text-base"></i>
+                                            <div class="text-xs font-bold text-slate-800 mt-1.5">Total Usage</div>
+                                            <div class="text-[9px] text-slate-500">By family member</div>
+                                        </div>
+                                        <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                            <i class="fa-solid fa-triangle-exclamation text-[#FF715B] text-base"></i>
+                                            <div class="text-xs font-bold text-slate-800 mt-1.5">Expired Check</div>
+                                            <div class="text-[9px] text-slate-500">Safety &amp; disposal</div>
+                                        </div>
+                                        <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                            <i class="fa-solid fa-boxes-stacked text-amber-600 text-base"></i>
+                                            <div class="text-xs font-bold text-slate-800 mt-1.5">Low Stock</div>
+                                            <div class="text-[9px] text-slate-500">Refill checklist</div>
+                                        </div>
+                                        <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                            <i class="fa-solid fa-user-doctor text-[#227C9D] text-base"></i>
+                                            <div class="text-xs font-bold text-slate-800 mt-1.5">Cabinet Summary</div>
+                                            <div class="text-[9px] text-slate-500">Doctor-ready view</div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 rounded-2xl bg-white border border-slate-200">
+                                        <div class="text-[10px] font-bold text-slate-700 mb-1.5">30-Day Family Consumption</div>
+                                        <div class="flex items-end gap-2 h-16 px-2">
+                                            <div class="w-full bg-[#227C9D] rounded-t h-[80%]"></div>
+                                            <div class="w-full bg-[#17C3B2] rounded-t h-[55%]"></div>
+                                            <div class="w-full bg-[#FF715B] rounded-t h-[40%]"></div>
+                                            <div class="w-full bg-[#6C63FF] rounded-t h-[65%]"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Screen 3: Family QR Sync & Emergency Directory -->
+                                <div id="sim-screen-3" class="sim-screen hidden my-auto space-y-3 py-2">
+                                    <div class="p-3.5 rounded-2xl bg-white border border-slate-200 text-center space-y-2 shadow-sm">
+                                        <div class="w-12 h-12 rounded-2xl bg-[#1A5F7A]/10 text-[#1A5F7A] flex items-center justify-center text-2xl mx-auto">
+                                            <i class="fa-solid fa-qrcode"></i>
+                                        </div>
+                                        <div class="text-xs font-extrabold text-[#1A5F7A]">Encrypted Household QR Sync</div>
+                                        <p class="text-[10px] text-slate-500 leading-relaxed">
+                                            Link family devices over local Wi-Fi using AES-256 encryption + Google Drive encrypted backups.
+                                        </p>
+                                    </div>
+
+                                    <div class="p-3 rounded-2xl bg-rose-50 border border-rose-200 space-y-1">
+                                        <div class="flex items-center justify-between text-xs font-bold text-rose-700">
+                                            <span><i class="fa-solid fa-truck-medical mr-1"></i>Emergency &amp; Poison Hub</span>
+                                            <span class="text-[9px] bg-rose-200/70 px-1.5 py-0.5 rounded">1-Tap Dial</span>
+                                        </div>
+                                        <p class="text-[10px] text-rose-800">
+                                            Built-in Poison Control &amp; Emergency numbers (SA, US, UK, Global 112/911) + Drug Interaction Checker.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Interactive Phone Bottom Navigation Bar -->
+                                <div class="pt-2 border-t border-slate-200 flex justify-around items-center text-[10px] font-bold">
+                                    <button type="button" onclick="switchSimScreen(0)" class="sim-nav-btn flex flex-col items-center gap-0.5 text-[#227C9D]">
+                                        <i class="fa-solid fa-house text-sm"></i>
+                                        <span>Home</span>
+                                    </button>
+                                    <button type="button" onclick="switchSimScreen(1)" class="sim-nav-btn flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#1A5F7A]">
+                                        <i class="fa-solid fa-camera text-sm"></i>
+                                        <span>OCR Scan</span>
+                                    </button>
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-r from-[#1A5F7A] to-[#227C9D] text-white flex items-center justify-center shadow-md cursor-pointer" onclick="switchSimScreen(1)">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <button type="button" onclick="switchSimScreen(2)" class="sim-nav-btn flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#1A5F7A]">
+                                        <i class="fa-solid fa-chart-pie text-sm"></i>
+                                        <span>Reports</span>
+                                    </button>
+                                    <button type="button" onclick="switchSimScreen(3)" class="sim-nav-btn flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#1A5F7A]">
+                                        <i class="fa-solid fa-qrcode text-sm"></i>
+                                        <span>Family QR</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-mono text-cyan-400 mt-4"><i class="fa-solid fa-hand-pointer mr-1.5"></i>Click the bottom tabs on the phone to explore ShelfMed screens</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOW TO GUIDE (3 STEPS FROM SHELFMED ABOUT_SCREEN)
+         ========================================================================== -->
+    <section class="py-16 bg-slate-950/70 border-y border-slate-800/80 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card spotlight-card p-6 rounded-3xl border border-slate-800 flex items-start gap-4 reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-[#227C9D]/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">1. Build Your Cabinet</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                            Scan medicine boxes with OCR or barcode to auto-fill details, or select from 190+ South African medicines. ShelfMed tracks your inventory safely offline.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card spotlight-card p-6 rounded-3xl border border-slate-800 flex items-start gap-4 reveal reveal-delay-1">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-people-roof"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">2. Link Your Family</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                            Add family members and generate a secure AES-256 encrypted QR code to seamlessly link household devices over Wi-Fi without cloud servers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card spotlight-card p-6 rounded-3xl border border-slate-800 flex items-start gap-4 reveal reveal-delay-2">
+                    <div class="w-12 h-12 rounded-2xl bg-[#FF715B]/15 text-[#FF715B] border border-[#FF715B]/30 flex items-center justify-center text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">3. Log Doses &amp; Reminders</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                            Create Once-off, Daily, or Weekly medication alarms and log taken doses. ShelfMed automatically deducts from your earliest-expiring stock.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SHELFMED FULL FEATURE MATRIX (FROM FLUTTER CODEBASE)
+         ========================================================================== -->
+    <section id="features" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16 reveal">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Engineered for Household Safety</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Inside the <span class="text-gradient">ShelfMed Architecture</span></h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Every feature in ShelfMed is purpose-built to make managing family health effortless, private, and medically organized.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Feature 1: ML Kit OCR & Barcode Scanner -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-camera-viewfinder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">AI OCR Box &amp; Barcode Scanner</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Point your camera at any medicine box or pharmacy label. On-device Google ML Kit text recognition and barcode scanning auto-detect the medicine name, schedule (S0–S6), quantity, and expiry date.
+                    </p>
+                </div>
+
+                <!-- Feature 2: 190+ SA Medicines & Clinical Lookup -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal reveal-delay-1">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-book-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">190+ SA Medicines Catalog</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Includes an embedded offline catalog of over 190 common South African medications plus OpenFDA &amp; WHO INN clinical lookups for active ingredients, schedules, and standard uses.
+                    </p>
+                </div>
+
+                <!-- Feature 3: AES-256 Encrypted P2P Family Sync -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal reveal-delay-2">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/15 text-purple-400 border border-purple-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Zero-Cloud QR Family Sync</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Your medical records stay in local SQLite storage. Scan a family QR code to pair household phones and sync doses &amp; inventory peer-to-peer with AES-256 encryption, plus optional encrypted Google Drive backup.
+                    </p>
+                </div>
+
+                <!-- Feature 4: Smart Multi-Medication Dose Logging -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-Notes-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">FEFO Smart Dose Logging</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Log single or multiple medications at once for any family member. ShelfMed automatically selects the earliest-expiring bottle first (FEFO) and deducts remaining tablets or milliliters.
+                    </p>
+                </div>
+
+                <!-- Feature 5: Drug Interaction & Emergency Poison Hub -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal reveal-delay-1">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Interaction Checker &amp; SOS Hub</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Built-in medication interaction alerts alongside a rapid-dial Emergency &amp; Poison Control directory (South Africa, US, UK, Global 112/911) and custom family emergency contacts.
+                    </p>
+                </div>
+
+                <!-- Feature 6: Clinical Reports & Doctor Summaries -->
+                <div class="glass-card spotlight-card tilt-card p-7 rounded-3xl border border-slate-800 reveal reveal-delay-2">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-500/15 text-sky-400 border border-sky-500/30 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Clinical Reports &amp; Charts</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Generate visual usage charts by family member, inspect expired or expiring-soon items for safe disposal, check low-stock refills, and view a clean Doctor-Ready Cabinet Summary.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Play Store Banner -->
+            <div class="mt-16 glass-card spotlight-card rounded-3xl p-8 sm:p-12 border border-emerald-500/30 text-center space-y-6 reveal">
+                <img src="images/shelfmed-icon.png" alt="ShelfMed" class="w-16 h-16 rounded-2xl mx-auto shadow-lg border border-cyan-400/40">
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Ready to Organize Your Family Medicine Cabinet?</h3>
+                <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+                    Download <strong class="text-white">ShelfMed</strong> on Google Play today and experience private, intelligent household medication management.
+                </p>
+                <div class="flex justify-center">
+                    <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="btn-cyber inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-slate-950 font-extrabold text-base shadow-[0_10px_30px_-5px_rgba(16,185,129,0.45)] hover:scale-105 transition">
+                        <i class="fa-brands fa-google-play text-xl"></i>
+                        <span>Get ShelfMed on Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="bg-slate-950/95 border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-sm relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
+                
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-extrabold text-slate-950">R</div>
+                        <span class="text-lg font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Next-generation software, web design, and data engineering studio. Official developer and publisher of ShelfMed on Google Play.
+                    </p>
+                    <div class="text-xs text-slate-300 space-y-2 font-mono">
+                        <div><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> <a href="mailto:reederdevelopments@gmail.com" class="text-cyan-400 hover:underline">reederdevelopments@gmail.com</a></div>
+                        <div><i class="fa-brands fa-whatsapp text-green-400 mr-2"></i> <a href="https://wa.me/27742625644" target="_blank" class="text-green-400 hover:underline">+27 74 262 5644</a></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html#home" class="hover:text-cyan-400 transition">Home</a></li>
+                        <li><a href="index.html#services" class="hover:text-cyan-400 transition">Services</a></li>
+                        <li><a href="showcase.html" class="hover:text-cyan-400 transition">Web Design Showcase</a></li>
+                        <li><a href="shelfmed.html" class="text-emerald-400 font-bold hover:underline transition">ShelfMed App</a></li>
+                        <li><a href="index.html#contact" class="hover:text-cyan-400 transition">Contact for Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Play Store Apps</h4>
+                    <div class="flex flex-col gap-2 pt-1 text-xs">
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="bg-slate-900 border border-emerald-500/30 px-3 py-2 rounded-xl text-emerald-300 hover:border-emerald-400 transition flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <img src="images/shelfmed-icon.png" alt="ShelfMed" class="w-5 h-5 rounded-md">
+                                <span>ShelfMed</span>
+                            </span>
+                            <i class="fa-brands fa-google-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4 font-mono">
+                <p>&copy; 2026 ReederDevelopments. All rights reserved.</p>
+                <p class="text-slate-400">SHELFMED v1.1.0 // COM.REEDERDEVELOPMENTS.SHELFMED</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Effects Script -->
+    <script src="js/effects.js"></script>
+    <script>
+        function switchSimScreen(index) {
+            const screens = document.querySelectorAll('.sim-screen');
+            const buttons = document.querySelectorAll('.sim-nav-btn');
+
+            screens.forEach((sc, i) => {
+                if (i === index) {
+                    sc.classList.remove('hidden');
+                } else {
+                    sc.classList.add('hidden');
+                }
+            });
+
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('text-[#227C9D]');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('text-[#227C9D]');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
