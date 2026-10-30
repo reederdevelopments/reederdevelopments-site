@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy for ShelfMed | ReederDevelopments</title>
+    <meta name="description" content="Official Privacy Policy for ShelfMed by ReederDevelopments — Privacy-first, local-first family medicine cabinet and dosage tracker.">
+    <!-- Favicon -->
+    <link rel="icon" href="../images/shelfmed-icon.png" type="image/png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Futuristic Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkBg: '#060913',
+                        cardBg: '#0D1326',
+                        shelfPrimary: '#227C9D',
+                        shelfDeep: '#1A5F7A',
+                        shelfCoral: '#FF715B',
+                        shelfTeal: '#17C3B2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Glowing Cursor -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- Interactive Background Particle Network -->
+    <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <div class="fixed inset-0 cyber-grid-bg pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-500/15 overflow-visible">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="../index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300">
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                        <polygon points="50,15 15,45 25,45 50,23 75,45 85,45" fill="url(#gradBlue)" />
+                        <path d="M 28,40 L 48,24 L 48,78 L 38,78 L 38,55 L 28,55 Z" fill="#1E6BE6" />
+                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#00F2FE" opacity="0.95"/>
+                        <polygon points="38,54 58,78 46,78 28,55" fill="#1D4ED8" />
+                        <polygon points="55,20 75,35 75,70 65,78 65,38 55,30" fill="#64748B" />
+                        <polygon points="42,78 52,70 60,78" fill="#10B981" />
+                        <defs>
+                            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="50%" stop-color="#1E6BE6" />
+                                <stop offset="100%" stop-color="#10B981" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
+                    <span class="text-[10px] tracking-[0.2em] text-slate-400 font-mono uppercase -mt-0.5 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Next-Gen Digital &amp; Data Studio
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/70 border border-slate-800/90 rounded-full px-3 py-1.5 text-sm font-medium">
+                <a href="../index.html#home" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
+                <a href="../index.html#services" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Services</a>
+                <a href="../index.html#about" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Why ReederDev</a>
+                <a href="../index.html#process" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Process</a>
+                <a href="../index.html#contact" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+                <a href="../showcase.html" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Showcase</a>
+
+                <!-- Apps Dropdown Menu -->
+                <div class="relative group">
+                    <button type="button" class="px-4 py-1.5 rounded-full text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 font-semibold transition-all flex items-center gap-1.5 focus:outline-none">
+                        <i class="fa-brands fa-google-play text-xs"></i>
+                        <span>Apps</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+
+                    <!-- Dropdown Panel -->
+                    <div class="absolute right-0 mt-2 w-72 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-cyan-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.85)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 z-50 p-2">
+                        <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-400 border-b border-slate-800/80 mb-1 flex items-center justify-between">
+                            <span>Google Play Store Apps</span>
+                            <i class="fa-brands fa-android text-emerald-400"></i>
+                        </div>
+
+                        <!-- 1st Dropdown Item: ShelfMed -->
+                        <a href="../shelfmed.html" class="flex items-start gap-3 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition group/item">
+                            <img src="../images/shelfmed-icon.png" alt="ShelfMed" class="w-10 h-10 rounded-xl object-cover shrink-0 shadow-[0_0_15px_rgba(34,124,157,0.45)] border border-cyan-500/30">
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover/item:text-emerald-300 transition">ShelfMed</span>
+                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.1.0</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Family Medicine Cabinet &amp; Dosage Tracker</p>
+                            </div>
+                        </a>
+
+                        <!-- Direct Play Store Quick Link -->
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="mt-1.5 flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono text-cyan-300 hover:bg-slate-900 transition">
+                            <span><i class="fa-brands fa-google-play mr-1.5 text-emerald-400"></i>Get ShelfMed on Play Store</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA Button & Mobile Menu Trigger -->
+            <div class="flex items-center gap-3">
+                <a href="../shelfmed.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-cyan-300 glass-card border border-cyan-500/30 hover:border-cyan-400 rounded-xl transition-all">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to ShelfMed
+                </a>
+                
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden text-slate-300 hover:text-white text-2xl focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="../index.html#home" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Home</a>
+            <a href="../index.html#services" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Services</a>
+            <a href="../index.html#about" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Why ReederDev</a>
+            <a href="../index.html#process" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Process</a>
+            <a href="../showcase.html" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Showcase</a>
+            <div class="pt-1 pb-1 px-3 border-l-2 border-emerald-500/50 ml-2 space-y-1">
+                <div class="text-[10px] font-mono uppercase tracking-widest text-emerald-400">Apps (Google Play)</div>
+                <a href="../shelfmed.html" class="mobile-link block py-2 px-3 rounded-lg bg-emerald-500/15 text-emerald-300 font-bold">
+                    <i class="fa-solid fa-capsules mr-2"></i>ShelfMed
+                </a>
+            </div>
+            <a href="../index.html#contact" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         PRIVACY POLICY HEADER & CONTENT
+         ========================================================================== -->
+    <main class="relative pt-32 pb-24 z-10">
+        <div class="absolute top-20 left-1/3 w-[500px] h-[500px] bg-[#227C9D]/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <!-- Breadcrumb & Header Card -->
+            <div class="glass-card spotlight-card rounded-3xl p-8 sm:p-10 border border-cyan-500/30 reveal active">
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                    <a href="../shelfmed.html" class="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition">
+                        <i class="fa-solid fa-arrow-left"></i> Back to ShelfMed App Page
+                    </a>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+                        Effective Date: September 22, 2026
+                    </span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-6">
+                    <img src="../images/shelfmed-icon.png" alt="ShelfMed Icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover shadow-[0_0_25px_rgba(34,124,157,0.5)] border border-cyan-400/40 shrink-0">
+                    <div>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                            Privacy Policy for <span class="text-gradient">ShelfMed</span>
+                        </h1>
+                        <p class="text-sm text-slate-400 font-mono mt-1.5">
+                            Published by ReederDevelopments • Package: <code class="text-cyan-300">com.reederdevelopments.shelfmed</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy Document Sections -->
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800 space-y-10 leading-relaxed text-slate-300">
+
+                <!-- 1. Introduction -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">1</span>
+                        Introduction
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ReederDevelopments respects your privacy. We built <strong class="text-white">ShelfMed</strong> with a privacy-first, local-first architecture. This Privacy Policy outlines how your information is handled, collected, and protected when using the ShelfMed mobile application.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 2. Data Storage & Medical Privacy (Zero Cloud Policy) -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-mono text-sm flex items-center justify-center">2</span>
+                        Data Storage &amp; Medical Privacy (Zero Cloud Policy)
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ShelfMed operates without central cloud servers or remote databases storing your personal health information.
+                    </p>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-database text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Local Storage:</strong> All personal details, family profiles, medicine cabinet inventories, and consumption logs remain stored locally on your device using an encrypted local database.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-user-shield text-cyan-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">No Server Access:</strong> We cannot view, access, store, or sell your medical cabinet data or history.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 3. Device-to-Device Synchronization & Encryption -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">3</span>
+                        Device-to-Device Synchronization &amp; Encryption
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ShelfMed supports household synchronization between devices without uploading unencrypted data to external servers.
+                    </p>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-wifi text-cyan-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Local Network Sync:</strong> Devices connected to the same local Wi-Fi network communicate directly with each other using peer-to-peer protocols (mDNS/Bonjour).
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-network-wired text-purple-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Remote Relay:</strong> When devices are on separate networks (e.g., cellular data), data payloads pass through a WebSockets routing relay to locate your family device.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-lock text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">End-to-End Encryption (E2EE):</strong> All sync payloads are encrypted on-device using an AES-256 key before transmission. The relay server cannot read or decrypt your synchronization data.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 4. Third-Party Services -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">4</span>
+                        Third-Party Services
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ShelfMed integrates with specific third-party SDKs and APIs to provide application functionality:
+                    </p>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-brands fa-google text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Google AdMob:</strong> Serves advertisements within the app. AdMob may collect device identifiers and usage metrics to serve ads. View <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener" class="text-cyan-400 hover:underline font-semibold">Google's Privacy &amp; Terms</a>.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-camera-viewfinder text-cyan-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Google ML Kit:</strong> Performs on-device text recognition for scanning medication labels. ML Kit processes image frame data entirely on your local device without sending camera images to external servers.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-capsules text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">OpenFDA API:</strong> Used to query public clinical medicine details for auto-populating medication information. Search queries sent to OpenFDA include standard network request metadata (such as IP address) required for HTTP transmission.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 5. Permissions Requested -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">5</span>
+                        Permissions Requested
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        To deliver its features, ShelfMed requests the following device permissions:
+                    </p>
+                    <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-900/90 text-cyan-300 font-mono text-xs uppercase border-b border-slate-800">
+                                    <th class="py-3.5 px-5">Permission</th>
+                                    <th class="py-3.5 px-5">Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/80 bg-slate-950/60">
+                                <tr>
+                                    <td class="py-3.5 px-5 font-bold text-white whitespace-nowrap">
+                                        <i class="fa-solid fa-camera text-cyan-400 mr-2"></i>Camera
+                                    </td>
+                                    <td class="py-3.5 px-5 text-slate-300">Scans medicine bottle labels and QR codes for family sync pairing.</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3.5 px-5 font-bold text-white whitespace-nowrap">
+                                        <i class="fa-solid fa-bell text-amber-400 mr-2"></i>Notifications &amp; Alarms
+                                    </td>
+                                    <td class="py-3.5 px-5 text-slate-300">Delivers scheduled medication reminders on time.</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3.5 px-5 font-bold text-white whitespace-nowrap">
+                                        <i class="fa-solid fa-wifi text-emerald-400 mr-2"></i>Network &amp; Wi-Fi State
+                                    </td>
+                                    <td class="py-3.5 px-5 text-slate-300">Discovers family devices on local Wi-Fi networks and routes encrypted sync messages.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 6. Data Control & Deletion -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">6</span>
+                        Data Control &amp; Deletion
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        You maintain complete ownership of your data. Because all database records reside on your physical device, you can permanently wipe all stored app data at any time by:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 text-sm sm:text-base text-slate-200 bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
+                        <li>Clearing app data via your Android System Settings, or</li>
+                        <li>Uninstalling the ShelfMed application from your device.</li>
+                    </ol>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 7. Changes to This Policy -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">7</span>
+                        Changes to This Policy
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        We may update our Privacy Policy periodically. Any changes will be published directly to this page with an updated effective date.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 8. Contact Us -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-mono text-sm flex items-center justify-center">8</span>
+                        Contact Us
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        If you have questions or feedback regarding this Privacy Policy, please reach out:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                        <a href="mailto:reederdevelopments@gmail.com" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition flex items-center gap-3.5 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[10px] font-mono uppercase text-slate-400">Email</div>
+                                <div class="text-xs sm:text-sm font-bold text-white break-all">reederdevelopments@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/reederdevelopments/shelfmed-privacy/issues" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition flex items-center gap-3.5 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[10px] font-mono uppercase text-slate-400">GitHub Issues</div>
+                                <div class="text-xs sm:text-sm font-bold text-cyan-300 break-all leading-snug">github.com/reederdevelopments/shelfmed-privacy/issues</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="bg-slate-950/95 border-t border-slate-800/80 pt-12 pb-10 text-slate-400 text-sm relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono">
+            <p>&copy; 2026 ReederDevelopments. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="../shelfmed.html" class="text-cyan-400 hover:underline">ShelfMed Overview</a>
+                <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">Google Play Store</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Effects Script -->
+    <script src="../js/effects.js"></script>
+</body>
+</html>
