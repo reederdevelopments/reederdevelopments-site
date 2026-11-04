@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service for ShelfMed | ReederDevelopments</title>
+    <meta name="description" content="Official Terms of Service and End-User License Agreement for ShelfMed (com.reederdevelopments.shelfmed) by ReederDevelopments.">
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#060913" />
+    <link rel="canonical" href="https://reederdevelopments.co.za/shelfmed/tos.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ReederDevelopments" />
+    <meta property="og:url" content="https://reederdevelopments.co.za/shelfmed/tos.html" />
+    <meta property="og:title" content="Terms of Service for ShelfMed | ReederDevelopments" />
+    <meta property="og:description" content="Official Terms of Service for the ShelfMed mobile application by ReederDevelopments." />
+    <meta property="og:image" content="https://reederdevelopments.co.za/images/shelfmed-icon.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/shelfmed-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../images/shelfmed-icon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Futuristic Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkBg: '#060913',
+                        cardBg: '#0D1326',
+                        shelfPrimary: '#227C9D',
+                        shelfDeep: '#1A5F7A',
+                        shelfCoral: '#FF715B',
+                        shelfTeal: '#17C3B2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-slate-200 selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Glowing Cursor -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- Interactive Background Particle Network -->
+    <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <div class="fixed inset-0 cyber-grid-bg pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-500/15 overflow-visible">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="../index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300">
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                        <polygon points="50,15 15,45 25,45 50,23 75,45 85,45" fill="url(#gradBlue)" />
+                        <path d="M 28,40 L 48,24 L 48,78 L 38,78 L 38,55 L 28,55 Z" fill="#1E6BE6" />
+                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#00F2FE" opacity="0.95"/>
+                        <polygon points="38,54 58,78 46,78 28,55" fill="#1D4ED8" />
+                        <polygon points="55,20 75,35 75,70 65,78 65,38 55,30" fill="#64748B" />
+                        <polygon points="42,78 52,70 60,78" fill="#10B981" />
+                        <defs>
+                            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="50%" stop-color="#1E6BE6" />
+                                <stop offset="100%" stop-color="#10B981" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
+                    <span class="text-[10px] tracking-[0.2em] text-slate-400 font-mono uppercase -mt-0.5 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Next-Gen Digital &amp; Data Studio
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/70 border border-slate-800/90 rounded-full px-3 py-1.5 text-sm font-medium">
+                <a href="../index.html#home" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
+                <a href="../index.html#services" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Services</a>
+                <a href="../index.html#about" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Why ReederDev</a>
+                <a href="../index.html#process" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Process</a>
+                <a href="../index.html#contact" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+                <a href="../showcase.html" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Showcase</a>
+
+                <!-- Apps Dropdown Menu -->
+                <div class="relative group">
+                    <button type="button" class="px-4 py-1.5 rounded-full text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 font-semibold transition-all flex items-center gap-1.5 focus:outline-none">
+                        <i class="fa-brands fa-google-play text-xs"></i>
+                        <span>Apps</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+
+                    <!-- Dropdown Panel -->
+                    <div class="absolute right-0 mt-2 w-72 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-cyan-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.85)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 z-50 p-2">
+                        <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-400 border-b border-slate-800/80 mb-1 flex items-center justify-between">
+                            <span>Google Play Store Apps</span>
+                            <i class="fa-brands fa-android text-emerald-400"></i>
+                        </div>
+
+                        <!-- 1st Dropdown Item: ShelfMed -->
+                        <a href="../shelfmed.html" class="flex items-start gap-3 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition group/item">
+                            <img src="../images/shelfmed-icon.png" alt="ShelfMed" class="w-10 h-10 rounded-xl object-cover shrink-0 shadow-[0_0_15px_rgba(34,124,157,0.45)] border border-cyan-500/30">
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover/item:text-emerald-300 transition">ShelfMed</span>
+                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.1.0</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Family Medicine Cabinet &amp; Dosage Tracker</p>
+                            </div>
+                        </a>
+
+                        <!-- Direct Play Store Quick Link -->
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="mt-1.5 flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono text-cyan-300 hover:bg-slate-900 transition">
+                            <span><i class="fa-brands fa-google-play mr-1.5 text-emerald-400"></i>Get ShelfMed on Play Store</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA Button & Mobile Menu Trigger -->
+            <div class="flex items-center gap-3">
+                <a href="../shelfmed.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-cyan-300 glass-card border border-cyan-500/30 hover:border-cyan-400 rounded-xl transition-all">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to ShelfMed
+                </a>
+                
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden text-slate-300 hover:text-white text-2xl focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="../index.html#home" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Home</a>
+            <a href="../index.html#services" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Services</a>
+            <a href="../index.html#about" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Why ReederDev</a>
+            <a href="../index.html#process" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Process</a>
+            <a href="../showcase.html" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Showcase</a>
+            <div class="pt-1 pb-1 px-3 border-l-2 border-emerald-500/50 ml-2 space-y-1">
+                <div class="text-[10px] font-mono uppercase tracking-widest text-emerald-400">Apps (Google Play)</div>
+                <a href="../shelfmed.html" class="mobile-link block py-2 px-3 rounded-lg bg-emerald-500/15 text-emerald-300 font-bold">
+                    <i class="fa-solid fa-capsules mr-2"></i>ShelfMed
+                </a>
+            </div>
+            <a href="../index.html#contact" class="mobile-link block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-900">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         TERMS OF SERVICE HEADER & CONTENT
+         ========================================================================== -->
+    <main class="relative pt-32 pb-24 z-10">
+        <div class="absolute top-20 left-1/3 w-[500px] h-[500px] bg-[#227C9D]/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <!-- Breadcrumb & Header Card -->
+            <div class="glass-card spotlight-card rounded-3xl p-8 sm:p-10 border border-cyan-500/30 reveal active">
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                    <div class="flex items-center gap-4">
+                        <a href="../shelfmed.html" class="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition">
+                            <i class="fa-solid fa-arrow-left"></i> Back to ShelfMed App Page
+                        </a>
+                        <span class="text-slate-600">|</span>
+                        <a href="privacy.html" class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 hover:text-emerald-300 transition">
+                            <i class="fa-solid fa-user-shield"></i> Privacy Policy
+                        </a>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+                        Effective Date: November 4, 2026
+                    </span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-6">
+                    <img src="../images/shelfmed-icon.png" alt="ShelfMed Icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover shadow-[0_0_25px_rgba(34,124,157,0.5)] border border-cyan-400/40 shrink-0">
+                    <div>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                            Terms of Service for <span class="text-gradient">ShelfMed</span>
+                        </h1>
+                        <p class="text-sm text-slate-400 font-mono mt-1.5">
+                            Published by ReederDevelopments (Trader) • Package: <code class="text-cyan-300">com.reederdevelopments.shelfmed</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms Document Sections -->
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800 space-y-10 leading-relaxed text-slate-300">
+
+                <!-- 1. Agreement to Terms & Application Scope -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">1</span>
+                        Agreement to Terms &amp; Application Scope
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        These Terms of Service ("Terms") constitute a legally binding agreement between you ("User" or "you") and <strong class="text-white">ReederDevelopments</strong> ("Developer", "Trader", "we", "us", or "our") governing your download, installation, access, and use of the <strong class="text-white">ShelfMed</strong> mobile application (Android package identifier: <code class="text-cyan-300">com.reederdevelopments.shelfmed</code>), including all associated features, local databases, optical character recognition (OCR) scanners, peer-to-peer synchronization tools, and updates (collectively, the "App").
+                    </p>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        By downloading, installing, or using <strong class="text-white">ShelfMed</strong> from Google Play, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="privacy.html" class="text-cyan-400 hover:underline font-semibold">ShelfMed Privacy Policy</a>. If you do not agree to these Terms, please do not install or use the App and uninstall it from your device immediately.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 2. Important Medical Disclaimer -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-rose-500/15 border border-rose-500/30 text-rose-400 font-mono text-sm flex items-center justify-center">2</span>
+                        Important Medical &amp; Healthcare Disclaimer
+                    </h2>
+                    <div class="p-5 rounded-2xl bg-rose-950/30 border border-rose-500/40 space-y-3 text-sm sm:text-base">
+                        <div class="font-bold text-rose-300 flex items-center gap-2">
+                            <i class="fa-solid fa-triangle-exclamation text-rose-400"></i>
+                            <span>SHELFMED IS NOT A MEDICAL DEVICE AND DOES NOT PROVIDE MEDICAL ADVICE</span>
+                        </div>
+                        <p class="text-slate-200">
+                            <strong class="text-white">ShelfMed</strong> is a personal and household inventory organizer and dosage log designed solely for informational and record-keeping purposes. It is <strong class="text-white">not</strong> intended to be a substitute for professional medical advice, clinical diagnosis, prescription verification, or medical treatment.
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-user-doctor text-cyan-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Consult Qualified Professionals:</strong> Always seek the advice of your physician, pharmacist, or other qualified healthcare provider with any questions you may have regarding a medical condition, medication dosage, drug interaction, or adverse reaction. Never disregard professional medical advice or delay seeking it because of information displayed within ShelfMed.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-camera-viewfinder text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Verify All Scanned &amp; Auto-Populated Data:</strong> Features such as AI OCR box scanning, barcode lookup, the embedded medication catalog, OpenFDA clinical lookups, FEFO (First-Expired, First-Out) suggestions, and interaction alerts are provided as convenience aids only. Optical character recognition and public databases can contain errors or omissions. <strong class="text-white">You must manually verify every medication name, strength, dosage instruction, schedule, and expiry date against the physical manufacturer packaging and your pharmacist's label before administering any medication.</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-truck-medical text-rose-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Medical Emergencies:</strong> Do not rely on ShelfMed for medical emergencies. If you suspect an overdose, poisoning, or life-threatening emergency, call your local emergency services or poison control center immediately.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 3. License Grant & Acceptable Use -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">3</span>
+                        License Grant &amp; Acceptable Use
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        Subject to your compliance with these Terms, ReederDevelopments grants you a personal, limited, non-exclusive, non-transferable, revocable license to download, install, and use <strong class="text-white">ShelfMed</strong> on Android devices that you own or control, strictly for personal, household, and non-commercial use.
+                    </p>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        You agree that you will not:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-slate-300 bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
+                        <li>Copy, modify, translate, adapt, or create derivative works based on the App or its embedded medication databases;</li>
+                        <li>Reverse-engineer, decompile, disassemble, or attempt to extract the source code of ShelfMed, except to the extent expressly permitted by applicable law;</li>
+                        <li>Abuse, disrupt, or overload the encrypted peer-to-peer WebSockets routing relay used for household device synchronization;</li>
+                        <li>Use the App for unlawful distribution of scheduled pharmaceuticals or any commercial pharmacy dispensing operations;</li>
+                        <li>Remove, alter, or obscure any copyright, trademark, or proprietary notices embedded within the App.</li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 4. Local-First Data Storage, Backups & Synchronization -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-mono text-sm flex items-center justify-center">4</span>
+                        Local-First Data Storage, Backups &amp; Synchronization
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ShelfMed is architected as a privacy-first, local-first application. All household medicine cabinet records, family member profiles, and dosage logs are stored locally on your device in an encrypted SQLite database.
+                    </p>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-hard-drive text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">User Responsibility for Backups:</strong> Because ReederDevelopments does not maintain a central cloud database of your medical records, we cannot recover your data if your device is lost, damaged, factory-reset, or if you uninstall the App without maintaining a paired household device or an encrypted backup.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-qrcode text-cyan-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Household QR Pairing Security:</strong> When you generate or scan a ShelfMed Family Sync QR code, you authorize encrypted peer-to-peer data synchronization with the paired device. You are solely responsible for only sharing or scanning pairing QR codes with trusted members of your household.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-bell text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Device Reminders &amp; Notifications:</strong> Scheduled dosage and expiry reminders depend on your Android device's operating system, battery optimization settings, and notification permissions. You remain solely responsible for remembering and administering scheduled medications on time.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 5. Monetization, Advertisements & Google Play Terms -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">5</span>
+                        Advertisements, Purchases &amp; Google Play Terms
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        ShelfMed is distributed via the Google Play Store and may be supported by advertisements served via Google AdMob or optional in-app purchases/features where offered.
+                    </p>
+                    <ul class="space-y-3 text-sm sm:text-base">
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-brands fa-google-play text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Google Play Terms of Service:</strong> Your download and use of ShelfMed is also subject to the <a href="https://play.google.com/intl/en_us/about/play-terms/" target="_blank" rel="noopener" class="text-cyan-400 hover:underline font-semibold">Google Play Terms of Service</a>. Any in-app purchases, subscriptions, billing inquiries, or refund requests processed through Google Play are governed by Google Play's payment and refund policies as well as applicable mandatory consumer protection laws.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-rectangle-ad text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white">Third-Party Services &amp; Links:</strong> The App integrates with third-party services including Google AdMob, on-device Google ML Kit, and the public OpenFDA clinical API. ReederDevelopments is not responsible for the availability, accuracy, or content of external third-party services or advertisements.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 6. Intellectual Property Rights -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">6</span>
+                        Intellectual Property Rights
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        All rights, title, and interest in and to <strong class="text-white">ShelfMed</strong>, including its application code, user interface design, graphics, logos, custom curation, and branding, are and shall remain the exclusive property of <strong class="text-white">ReederDevelopments</strong>. You retain full ownership of all personal cabinet inventories, photos, and dosage logs that you enter into the App on your device.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 7. Disclaimer of Warranties & Limitation of Liability -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">7</span>
+                        Disclaimer of Warranties &amp; Limitation of Liability
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        To the maximum extent permitted by applicable law, <strong class="text-white">ShelfMed</strong> is provided on an <strong class="text-white">"AS IS"</strong> and <strong class="text-white">"AS AVAILABLE"</strong> basis without warranties of any kind, whether express, implied, or statutory, including implied warranties of merchantability, fitness for a particular purpose, clinical accuracy, or non-infringement.
+                    </p>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        To the fullest extent permitted by law, <strong class="text-white">ReederDevelopments</strong> shall not be liable for any indirect, incidental, special, consequential, or exemplary damages—including but not limited to adverse health outcomes, missed or duplicate medication doses, inaccurate OCR/catalog results, or loss of local device data—arising out of or in connection with your use of or inability to use ShelfMed. Nothing in these Terms excludes or limits any statutory consumer rights or liability that cannot be excluded or limited under the laws of your country of residence.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 8. Updates, Modifications & Termination -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">8</span>
+                        Updates, Modifications &amp; Termination
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        We may release updates, patches, or new versions of ShelfMed via Google Play to improve functionality, security, or compliance, and we may update these Terms from time to time. When we make changes to these Terms, we will publish the updated Terms at <code class="text-cyan-300">https://reederdevelopments.co.za/shelfmed/tos.html</code> and update the "Effective Date" at the top of this page. Your continued use of ShelfMed after any changes become effective constitutes your acceptance of the revised Terms. You may terminate these Terms at any time by uninstalling ShelfMed from all of your devices.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 9. Governing Law & Consumer Rights -->
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 font-mono text-sm flex items-center justify-center">9</span>
+                        Governing Law &amp; International Consumer Rights
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        These Terms are governed by and construed in accordance with the laws of the <strong class="text-white">Republic of South Africa</strong>, without regard to conflict of law principles. If you are a consumer residing in the European Economic Area (EEA), the United Kingdom, or another jurisdiction with mandatory consumer protection laws, you also benefit from any mandatory provisions of the law of your country of residence.
+                    </p>
+                </section>
+
+                <hr class="border-slate-800/80">
+
+                <!-- 10. Developer / Trader Disclosure & Contact Information -->
+                <section class="space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-mono text-sm flex items-center justify-center">10</span>
+                        Developer &amp; Trader Contact Information
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300">
+                        In accordance with Google Play Trader Status requirements, <strong class="text-white">ShelfMed</strong> is developed, published, and supported by <strong class="text-white">ReederDevelopments</strong> (operating in South Africa). For support, legal notices, or questions regarding these Terms of Service, please contact us via any of the channels below:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+                        <a href="mailto:reederdevelopments@gmail.com" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition flex items-center gap-3.5 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[10px] font-mono uppercase text-slate-400">Support Email</div>
+                                <div class="text-xs sm:text-sm font-bold text-white break-all">reederdevelopments@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="tel:+27742625644" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition flex items-center gap-3.5 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[10px] font-mono uppercase text-slate-400">Phone / WhatsApp</div>
+                                <div class="text-xs sm:text-sm font-bold text-emerald-300 break-all">+27 74 262 5644</div>
+                            </div>
+                        </a>
+                        <a href="https://reederdevelopments.co.za/shelfmed.html" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition flex items-center gap-3.5 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[10px] font-mono uppercase text-slate-400">Official App Website</div>
+                                <div class="text-xs sm:text-sm font-bold text-cyan-300 break-all">reederdevelopments.co.za</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="bg-slate-950/95 border-t border-slate-800/80 pt-12 pb-10 text-slate-400 text-sm relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono">
+            <p>&copy; 2026 ReederDevelopments. All rights reserved.</p>
+            <div class="flex flex-wrap items-center gap-6">
+                <a href="../shelfmed.html" class="text-cyan-400 hover:underline">ShelfMed Overview</a>
+                <a href="privacy.html" class="text-cyan-400 hover:underline">Privacy Policy</a>
+                <a href="tos.html" class="text-emerald-400 font-bold hover:underline">Terms of Service</a>
+                <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">Google Play Store</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Effects Script -->
+    <script src="../js/effects.js"></script>
+</body>
+</html>
