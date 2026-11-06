@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="b_TQuzPocu5M2Kw7-a4jzGiVH7ZjriSHmRepISu38Ys" />
     <title>ShelfMed — Privacy-First Family Medicine Cabinet & Dosage Tracker | ReederDevelopments</title>
-    <meta name="description" content="ShelfMed v1.1.0 by ReederDevelopments — Privacy-first, offline-capable family medicine cabinet, OCR box scanner, AES-256 QR family sync, and dosage tracker on Google Play.">
+    <meta name="description" content="ShelfMed v1.1.2 by ReederDevelopments — Privacy-first, offline-capable family medicine cabinet, OCR box scanner with cropper, AES-256 QR family sync, and dosage tracker on Google Play.">
     <meta name="keywords" content="ShelfMed, family medicine cabinet app, dosage tracker Android, medicine expiry tracker South Africa, offline medication tracker, ReederDevelopments" />
     <meta name="author" content="ReederDevelopments" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -31,7 +31,7 @@
     <link rel="icon" href="images/shelfmed-icon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/shelfmed-icon.png">
 
-    <!-- Structured Data (JSON-LD) for MobileApplication & Breadcrumb -->
+    <!-- Structured Data (JSON-LD) for MobileApplication, VideoObject & Breadcrumb -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,7 +41,7 @@
           "name": "ShelfMed",
           "operatingSystem": "Android",
           "applicationCategory": "MedicalApplication",
-          "softwareVersion": "1.1.0",
+          "softwareVersion": "1.1.2",
           "description": "Privacy-first, offline-capable household medicine cabinet and dosage tracker with AI OCR box scanning, 190+ South African and global medicines, expiry alerts, and AES-256 encrypted peer-to-peer QR family sync.",
           "url": "https://reederdevelopments.co.za/shelfmed.html",
           "installUrl": "https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed",
@@ -57,6 +57,15 @@
             "price": "0",
             "priceCurrency": "ZAR"
           }
+        },
+        {
+          "@type": "VideoObject",
+          "name": "ShelfMed — Official Family Medicine Cabinet & Dosage Tracker Demo",
+          "description": "Watch how ShelfMed v1.1.2 organizes your household medicine cabinet offline with AI OCR box scanning, 190+ South African medicines, FEFO dosage logging, and AES-256 QR peer-to-peer family sync.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/iy4GZOi2yrk/maxresdefault.jpg",
+          "uploadDate": "2026-11-06T00:00:00+02:00",
+          "contentUrl": "https://www.youtube.com/watch?v=iy4GZOi2yrk",
+          "embedUrl": "https://www.youtube.com/embed/iy4GZOi2yrk"
         },
         {
           "@type": "BreadcrumbList",
@@ -129,22 +138,8 @@
             
             <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300">
-                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                        <polygon points="50,15 15,45 25,45 50,23 75,45 85,45" fill="url(#gradBlue)" />
-                        <path d="M 28,40 L 48,24 L 48,78 L 38,78 L 38,55 L 28,55 Z" fill="#1E6BE6" />
-                        <path d="M 38,42 L 58,42 C 68,42 68,54 58,54 L 38,54 Z" fill="#00F2FE" opacity="0.95"/>
-                        <polygon points="38,54 58,78 46,78 28,55" fill="#1D4ED8" />
-                        <polygon points="55,20 75,35 75,70 65,78 65,38 55,30" fill="#64748B" />
-                        <polygon points="42,78 52,70 60,78" fill="#10B981" />
-                        <defs>
-                            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00F2FE" />
-                                <stop offset="50%" stop-color="#1E6BE6" />
-                                <stop offset="100%" stop-color="#10B981" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                <div class="w-11 h-11 relative flex items-center justify-center rounded-xl bg-slate-900/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(14,165,233,0.25)] group-hover:border-cyan-400 transition-all duration-300 overflow-hidden">
+                    <img src="images/Icon.png" alt="ReederDevelopments Logo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
@@ -185,7 +180,7 @@
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
                                     <span class="text-sm font-bold text-white group-hover/item:text-emerald-300 transition">ShelfMed</span>
-                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.1.0</span>
+                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.1.2</span>
                                 </div>
                                 <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Family Medicine Cabinet &amp; Dosage Tracker</p>
                             </div>
@@ -197,7 +192,7 @@
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
                                     <span class="text-sm font-bold text-white group-hover/item:text-emerald-300 transition">Slip Tracker ZA</span>
-                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.0.0</span>
+                                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v1.0.1</span>
                                 </div>
                                 <p class="text-[11px] text-slate-400 leading-tight mt-0.5">SA Receipt OCR, Budget &amp; Price Compare</p>
                             </div>
@@ -253,7 +248,7 @@
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal active">
                     <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border border-cyan-400/40 text-cyan-300 text-xs font-mono tracking-wide shadow-[0_0_25px_rgba(34,124,157,0.3)]">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                        VERSION 1.1.0 LIVE ON GOOGLE PLAY // PRIVACY-FIRST &amp; OFFLINE-CAPABLE
+                        VERSION 1.1.2 LIVE ON GOOGLE PLAY // PRIVACY-FIRST &amp; OFFLINE-CAPABLE
                     </div>
 
                     <!-- App Icon & Title -->
@@ -270,7 +265,7 @@
                     </div>
 
                     <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        A <span class="text-white font-semibold">privacy-first, offline-capable</span> household medicine cabinet and dosage tracker. Scan medicine boxes with <span class="text-cyan-300 font-semibold">AI OCR &amp; Barcode lookup</span>, autocomplete from <span class="text-cyan-300 font-semibold">190+ South African &amp; global medicines</span>, track family dosages &amp; expiry dates, and sync across household devices using <span class="text-emerald-300 font-semibold">AES-256 encrypted QR peer-to-peer sync</span>—without your medical data ever touching an unencrypted central server.
+                        A <span class="text-white font-semibold">privacy-first, offline-capable</span> household medicine cabinet and dosage tracker. Crop &amp; scan medicine boxes with <span class="text-cyan-300 font-semibold">AI OCR &amp; Barcode lookup</span>, autocomplete from <span class="text-cyan-300 font-semibold">190+ South African &amp; global medicines</span>, track family dosages &amp; expiry dates, and sync across household devices using <span class="text-emerald-300 font-semibold">AES-256 encrypted QR peer-to-peer sync</span>—without your medical data ever touching an unencrypted central server.
                     </p>
 
                     <!-- Primary Action Buttons -->
@@ -283,8 +278,8 @@
                             </div>
                         </a>
 
-                        <a href="#features" class="w-full sm:w-auto px-7 py-4 text-sm font-bold text-white glass-card hover:bg-slate-800/80 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-compass text-cyan-400"></i> Explore App Features
+                        <a href="#video-demo" class="w-full sm:w-auto px-6 py-4 text-sm font-bold text-white glass-card hover:bg-slate-800/80 rounded-2xl border border-rose-500/40 hover:border-rose-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-youtube text-rose-500 text-lg"></i> Watch Video Demo
                         </a>
 
                         <a href="shelfmed/privacy.html" class="w-full sm:w-auto px-6 py-4 text-sm font-bold text-emerald-300 glass-card hover:bg-slate-800/80 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
@@ -342,7 +337,7 @@
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-1.5">
-                                        <span class="px-2 py-0.5 rounded-full bg-[#17C3B2]/15 text-[#1A5F7A] text-[9px] font-bold">v1.1.0</span>
+                                        <span class="px-2 py-0.5 rounded-full bg-[#17C3B2]/15 text-[#1A5F7A] text-[9px] font-bold">v1.1.2</span>
                                     </div>
                                 </div>
 
@@ -530,6 +525,43 @@
     </section>
 
     <!-- ==========================================================================
+         OFFICIAL YOUTUBE VIDEO WALKTHROUGH
+         ========================================================================== -->
+    <section id="video-demo" class="py-20 relative z-10 border-t border-slate-800/80 bg-slate-950/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-10 reveal">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs font-mono uppercase tracking-widest">
+                    <i class="fa-brands fa-youtube"></i> Official Video Tour
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Watch <span class="text-gradient">ShelfMed v1.1.2</span> in Action</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    See how ShelfMed scans medicine boxes offline, tracks household dosages, and syncs across family phones with AES-256 encrypted QR pairing.
+                </p>
+            </div>
+
+            <div class="glass-card spotlight-card p-3 sm:p-5 rounded-3xl border border-cyan-500/30 shadow-[0_0_50px_rgba(34,124,157,0.25)] reveal">
+                <div class="relative w-full overflow-hidden rounded-2xl bg-slate-950" style="padding-top: 56.25%;">
+                    <iframe
+                        class="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/iy4GZOi2yrk?rel=0"
+                        title="ShelfMed — Family Medicine Cabinet & Dosage Tracker Official Demo"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 px-2 text-xs text-slate-400 font-mono">
+                    <span><i class="fa-solid fa-circle-play text-cyan-400 mr-1.5"></i>ShelfMed v1.1.2 • Official Product Walkthrough</span>
+                    <a href="https://www.youtube.com/watch?v=iy4GZOi2yrk" target="_blank" rel="noopener" class="text-rose-400 hover:text-rose-300 font-bold flex items-center gap-1.5">
+                        <i class="fa-brands fa-youtube"></i> Watch directly on YouTube <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
          HOW TO GUIDE (3 STEPS FROM SHELFMED ABOUT_SCREEN)
          ========================================================================== -->
     <section class="py-16 bg-slate-950/70 border-y border-slate-800/80 relative z-10">
@@ -691,11 +723,11 @@
                 
                 <div class="md:col-span-6 space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-extrabold text-slate-950">R</div>
+                        <img src="images/Icon.png" alt="ReederDevelopments Logo" class="w-9 h-9 rounded-xl object-cover border border-cyan-500/30">
                         <span class="text-lg font-extrabold tracking-wider text-white">REEDER<span class="text-cyan-400 font-light">DEVELOPMENTS</span></span>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-                        Next-generation software, web design, and data engineering studio. Official developer and publisher of ShelfMed on Google Play.
+                        Next-generation software, web design, and data engineering studio. Official developer and publisher of ShelfMed and Slip Tracker ZA on Google Play.
                     </p>
                     <div class="text-xs text-slate-300 space-y-2 font-mono">
                         <div><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> <a href="mailto:reederdevelopments@gmail.com" class="text-cyan-400 hover:underline">reederdevelopments@gmail.com</a></div>
@@ -712,7 +744,7 @@
                         <li><a href="shelfmed.html" class="text-emerald-400 font-bold hover:underline transition">ShelfMed App</a></li>
                         <li><a href="shelfmed/privacy.html" class="text-cyan-400 hover:underline transition">ShelfMed Privacy Policy</a></li>
                         <li><a href="shelfmed/tos.html" class="text-cyan-400 hover:underline transition">ShelfMed Terms of Service</a></li>
-                        <li><a href="index.html#contact" class="hover:text-cyan-400 transition">Contact for Pricing</a></li>
+                        <li><a href="sliptrackerza.html" class="hover:text-cyan-400 transition">Slip Tracker ZA App</a></li>
                     </ul>
                 </div>
 
@@ -726,6 +758,13 @@
                             </span>
                             <i class="fa-brands fa-google-play"></i>
                         </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza" target="_blank" rel="noopener" class="bg-slate-900 border border-slate-800 px-3 py-2 rounded-xl text-cyan-300 hover:border-cyan-400 transition flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <img src="images/sliptrackerza-icon.png" alt="Slip Tracker ZA" class="w-5 h-5 rounded-md">
+                                <span>Slip Tracker ZA</span>
+                            </span>
+                            <i class="fa-brands fa-google-play"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -733,7 +772,7 @@
 
             <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4 font-mono">
                 <p>&copy; 2026 ReederDevelopments. All rights reserved.</p>
-                <p class="text-slate-400">SHELFMED v1.1.0 // COM.REEDERDEVELOPMENTS.SHELFMED</p>
+                <p class="text-slate-400">SHELFMED v1.1.2 // COM.REEDERDEVELOPMENTS.SHELFMED</p>
             </div>
         </div>
     </footer>
