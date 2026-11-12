@@ -23,8 +23,9 @@ reederdevelopments-site/
 ├── images/                     # Optimized app icons, logos & Play Store screenshots
 ├── shelfmed/                   # All ShelfMed subpages, guides, legal docs & international SEO
 │   ├── guide.html              # "The 10 Biggest Medicine Tracking Problems Solved (2026 Guide)"
-│   ├── privacy.html            # ShelfMed Privacy Policy
-│   ├── tos.html                # ShelfMed Terms of Service
+│   ├── privacy.html            # ShelfMed Privacy Policy (POPIA, GDPR, CCPA, COPPA — 9 Languages)
+│   ├── tos.html                # ShelfMed Terms of Service & EULA (9 Languages)
+│   ├── legal-translations.js   # Multilingual legal translations dictionary (EN, AF, ZU, SW, ES, FR, DE, PT, NL)
 │   └── lang/                   # Localized international SEO landing pages
 │       ├── af.html             # Afrikaans (Suid-Afrika)
 │       ├── zu.html             # isiZulu (South Africa)
