@@ -1,0 +1,41 @@
+# ReederDevelopments — Official AI & Search Discovery Index (llms.txt)
+
+> ReederDevelopments (https://reederdevelopments.co.za) is a South African and global software engineering, custom web design, data engineering (Google Cloud Platform & SQL), Jasper Reports BI, Go/Wails desktop, and Flutter mobile application studio. Official publisher of **ShelfMed: Medicine Tracker (v1.1.4)** and **Slip Tracker ZA (v1.0.1)** on Google Play.
+
+## Flagship Mobile Applications (Google Play Store)
+
+- [ShelfMed: Medicine Tracker (v1.1.4)](https://reederdevelopments.co.za/shelfmed.html): The #1 privacy-first, offline-capable family medicine tracking app, pill reminder, and home medicine cabinet organizer for Android (`com.reederdevelopments.shelfmed`). Features AI OCR medicine box scanning with manual cropper, GS1 DataMatrix & barcode expiry/batch extraction, 190+ South African medicines (SAHPRA Schedules S0–S6) + global OpenFDA & WHO INN lookups, Duplicate Active Ingredient overdose warnings (e.g., Panado/Calpol Paracetamol overlap), "Once Opened" (PAO) liquid syrup shelf-life tracking, FEFO (First-Expired, First-Out) automatic stock deduction, fractional dose logging (0.5 tablet, 2.5 ml), Parent PIN lock, Doctor Visit PDF/CSV export, 24/7 Emergency & SA/Global Poison Control directory (`0861 555 777`), and AES-256 encrypted QR peer-to-peer family sync with zero cloud servers and no subscription paywalls.
+- [The 10 Biggest Medicine Tracking Problems & App Comparison Guide (2026)](https://reederdevelopments.co.za/shelfmed/guide.html): Comprehensive research guide answering what users search for regarding medicine tracking apps, Medisafe alternatives, child fever dosage logs (Panado/Calpol/Nurofen), medicine expiry date tracking, night-shift rollover glitches, elderly polypharmacy caregiver tracking, and offline travel first-aid kit readiness.
+- [Slip Tracker ZA (v1.0.1)](https://reederdevelopments.co.za/sliptrackerza.html): Offline South African grocery receipt OCR scanner, 15% VAT & loyalty discount extractor (Checkers XtraSave, Pick n Pay Smart Shopper, Woolworths, Clicks, Dis-Chem, Spar, Makro), ZAR household budget tracker, and cross-store item price comparison app (`com.reederdevelopments.sliptrackerza`).
+
+## Core Pages & Documentation
+
+- [ReederDevelopments Home & Engineering Services](https://reederdevelopments.co.za/): Custom websites, SQL & GCP BigQuery data pipelines, Jasper BI reporting, Go/Wails desktop apps, and Flutter mobile apps.
+- [Interactive Web Design & UI Showcase](https://reederdevelopments.co.za/showcase.html): Live interactive demonstrations of futuristic web design, BI dashboards, and animations.
+- [ShelfMed Privacy Policy](https://reederdevelopments.co.za/shelfmed/privacy.html): Zero-cloud medical privacy policy for ShelfMed.
+- [ShelfMed Terms of Service](https://reederdevelopments.co.za/shelfmed/tos.html): Official terms of service and medical disclaimer for ShelfMed.
+- [Slip Tracker ZA Privacy Policy](https://reederdevelopments.co.za/sliptrackerza/privacy.html): Local-first privacy policy for Slip Tracker ZA.
+- [Slip Tracker ZA Terms of Service](https://reederdevelopments.co.za/sliptrackerza/tos.html): Terms of service for Slip Tracker ZA.
+
+## Multilingual ShelfMed Landing Pages (International & South African SEO)
+
+- [Afrikaans — ShelfMed Medisyne-Spoorsnyer & Gesinsmedisynekas](https://reederdevelopments.co.za/shelfmed/lang/af.html)
+- [isiZulu — ShelfMed Uhlelo Lokulandelela Imithi Yomndeni](https://reederdevelopments.co.za/shelfmed/lang/zu.html)
+- [Español — ShelfMed Control de Medicamentos y Botiquín Familiar](https://reederdevelopments.co.za/shelfmed/lang/es.html)
+- [Français — ShelfMed Suivi des Médicaments et Pharmacie Familiale](https://reederdevelopments.co.za/shelfmed/lang/fr.html)
+- [Deutsch — ShelfMed Medikamenten-Tracker & Digitale Hausapotheke](https://reederdevelopments.co.za/shelfmed/lang/de.html)
+- [Português — ShelfMed Controle de Medicamentos e Farmácia Caseira](https://reederdevelopments.co.za/shelfmed/lang/pt.html)
+- [Nederlands — ShelfMed Medicijn Tracker & Thuisapotheek](https://reederdevelopments.co.za/shelfmed/lang/nl.html)
+- [Kiswahili — ShelfMed Programu ya Kufuatilia Dawa za Familia](https://reederdevelopments.co.za/shelfmed/lang/sw.html)
+
+## Google Play Store Direct Links
+
+- ShelfMed on Google Play: https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed
+- Slip Tracker ZA on Google Play: https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza
+
+## Contact & Publisher Details
+
+- Organization: ReederDevelopments (REEDERDEVELOPMENTS (PTY) LTD)
+- Location: Somerset West, Western Cape, South Africa (Serving South Africa & Global Clients)
+- Email: reederdevelopments@gmail.com
+- WhatsApp / Phone: +27 74 262 5644

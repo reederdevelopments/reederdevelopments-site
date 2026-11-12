@@ -1,51 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://reederdevelopments.co.za/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://reederdevelopments.co.za/shelfmed.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/guide.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/af.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/zu.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/es.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/fr.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/de.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/pt.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/nl.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/sw.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/sliptrackerza.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://reederdevelopments.co.za/showcase.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reederdevelopments.co.za/shelfmed.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://reederdevelopments.co.za/shelfmed/privacy.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/tos.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/sliptrackerza.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/sliptrackerza/privacy.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/sliptrackerza/tos.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>

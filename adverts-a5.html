@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable A5 Adverts — ShelfMed & Slip Tracker ZA | ReederDevelopments</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="images/Icon.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Standalone Vector QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+    <style id="dynamic-page-style">
+        @page {
+            size: A5 portrait;
+            margin: 0;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #060913;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-mono-tech {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .preview-stage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            padding: 32px 20px 64px;
+        }
+
+        /* Exact A5 Sheet (148mm x 210mm) */
+        .a5-sheet {
+            width: 148mm;
+            height: 210mm;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 9mm 8.5mm 7.5mm;
+            border-radius: 14px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.12);
+            page-break-after: always;
+            break-after: page;
+        }
+
+        /* ShelfMed Pharmacy Theme */
+        .theme-shelfmed {
+            background: radial-gradient(circle at 85% 15%, rgba(23, 195, 178, 0.32) 0%, transparent 48%),
+                        radial-gradient(circle at 15% 88%, rgba(255, 113, 91, 0.25) 0%, transparent 48%),
+                        linear-gradient(165deg, #06121C 0%, #0A2133 55%, #06121E 100%);
+        }
+
+        /* Slip Tracker ZA Shopping Centre Theme */
+        .theme-sliptracker {
+            background: radial-gradient(circle at 85% 15%, rgba(52, 211, 153, 0.32) 0%, transparent 48%),
+                        radial-gradient(circle at 15% 88%, rgba(245, 158, 11, 0.22) 0%, transparent 48%),
+                        linear-gradient(165deg, #061510 0%, #0A261C 55%, #06140F 100%);
+        }
+
+        /* Light / Ink-Saver Mode */
+        body.ink-saver .theme-shelfmed {
+            background: linear-gradient(165deg, #F0FDFA 0%, #FFFFFF 55%, #ECFEFF 100%) !important;
+            color: #0F172A !important;
+            border: 1px solid #CBD5E1;
+        }
+        body.ink-saver .theme-sliptracker {
+            background: linear-gradient(165deg, #ECFDF5 0%, #FFFFFF 55%, #F0FDF4 100%) !important;
+            color: #0F172A !important;
+            border: 1px solid #CBD5E1;
+        }
+        body.ink-saver .ink-text-main { color: #0F172A !important; }
+        body.ink-saver .ink-text-sub { color: #334155 !important; }
+        body.ink-saver .ink-card {
+            background: #F8FAFC !important;
+            border-color: #CBD5E1 !important;
+            color: #0F172A !important;
+        }
+        body.ink-saver .ink-accent-teal { color: #0D9488 !important; }
+        body.ink-saver .ink-accent-emerald { color: #059669 !important; }
+
+        /* A4 2-Up Side-by-Side Layout */
+        .a4-2up-stage .preview-stage { gap: 0; }
+        .a4-2up-stage .a5-sheet {
+            border-radius: 0;
+            box-shadow: none;
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+        .a4-2up-stage #sheet-shelfmed {
+            border-right: 1px dashed rgba(255, 255, 255, 0.35);
+        }
+        body.ink-saver.a4-2up-stage #sheet-shelfmed {
+            border-right: 1px dashed #64748B;
+        }
+
+        .qr-box svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        @media print {
+            html, body {
+                background: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .no-print { display: none !important; }
+            .preview-stage {
+                padding: 0 !important;
+                margin: 0 !important;
+                gap: 0 !important;
+                display: block !important;
+            }
+            .a5-sheet {
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 148mm !important;
+                height: 210mm !important;
+            }
+            body.a4-2up-stage .preview-stage {
+                display: flex !important;
+                flex-direction: row !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                overflow: hidden !important;
+            }
+            body.a4-2up-stage .a5-sheet {
+                width: 148.5mm !important;
+                height: 210mm !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Top Print Studio Toolbar (Hidden on Print) -->
+    <header class="no-print sticky top-0 z-50 bg-[#0A0F1E]/95 backdrop-blur-md border-b border-white/10 px-4 py-3 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2.5 text-white hover:text-cyan-400 transition">
+                <img src="images/Icon.png" alt="ReederDevelopments" class="w-9 h-9 rounded-lg border border-cyan-500/30">
+                <div>
+                    <span class="font-extrabold text-sm tracking-tight block leading-none">REEDER<span class="text-cyan-400">DEVELOPMENTS</span></span>
+                    <span class="font-mono-tech text-[10px] text-gray-400 tracking-widest uppercase">A5 Print Studio</span>
+                </div>
+            </a>
+
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                <div class="flex items-center bg-slate-900/90 border border-white/10 rounded-lg p-1 text-xs">
+                    <button onclick="setFlyerFilter('both')" id="btn-filter-both" class="px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition">Both Flyers</button>
+                    <button onclick="setFlyerFilter('shelfmed')" id="btn-filter-shelfmed" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">ShelfMed Only</button>
+                    <button onclick="setFlyerFilter('sliptracker')" id="btn-filter-sliptracker" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">Slip Tracker Only</button>
+                </div>
+
+                <div class="flex items-center bg-slate-900/90 border border-white/10 rounded-lg p-1 text-xs">
+                    <button onclick="setPaperMode('a5')" id="btn-mode-a5" class="px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition">A5 Pages</button>
+                    <button onclick="setPaperMode('a4-2up')" id="btn-mode-a4" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">A4 Side-by-Side (2-Up)</button>
+                </div>
+
+                <button onclick="toggleInkMode()" class="px-3 py-2 rounded-lg text-xs font-semibold bg-slate-900 border border-white/15 text-gray-300 hover:text-white transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-droplet text-cyan-400"></i>
+                    <span id="ink-mode-label">Vibrant Dark</span>
+                </button>
+
+                <button onclick="window.print()" class="px-4 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 hover:brightness-110 transition shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Print / Save PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- PRINTABLE STAGE: BOLD, MINIMAL, HIGH-IMPACT A5 FLYERS                  -->
+    <!-- ===================================================================== -->
+    <main class="preview-stage">
+
+        <!-- ================================================================= -->
+        <!-- FLYER 1: SHELFMED (PHARMACIES)                                    -->
+        <!-- ================================================================= -->
+        <section id="sheet-shelfmed" class="a5-sheet theme-shelfmed">
+
+            <!-- TOP HOOK & BRAND -->
+            <div>
+                <div class="inline-flex items-center gap-2 bg-[#FF715B] text-white font-black text-[10pt] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                    <i class="fa-solid fa-notes-medical"></i> WAITING FOR YOUR MEDS?
+                </div>
+
+                <!-- App Identity -->
+                <div class="mt-4 flex items-center gap-4">
+                    <img src="images/shelfmed-icon.png" alt="ShelfMed" class="w-[22mm] h-[22mm] rounded-2xl shadow-xl border-2 border-[#17C3B2]">
+                    <div>
+                        <h2 class="font-black text-[26pt] leading-none tracking-tight ink-text-main">
+                            Shelf<span class="text-[#17C3B2] ink-accent-teal">Med</span>
+                        </h2>
+                        <p class="font-bold text-[10.5pt] text-teal-200 ink-text-sub mt-1">
+                            Smart Family Medicine Cabinet
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Giant Impact Headline -->
+                <h1 class="mt-5 font-black text-[23pt] leading-[1.1] tracking-tight text-white ink-text-main">
+                    Never Guess Doses or Use Expired Meds Again.
+                </h1>
+            </div>
+
+            <!-- 3 SIMPLE, PUNCHY BULLETS -->
+            <div class="space-y-2.5 my-2">
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-[#17C3B2]/20 text-[#17C3B2] ink-accent-teal flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Snap Any Medicine Box</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">Instant AI scanner • 190+ SA &amp; global meds</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-[#FF715B]/20 text-[#FF715B] flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Track Family Doses Safely</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">Know who took what &amp; when — stops double-dosing</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Automatic Expiry Alerts</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">100% private &amp; offline • Sync with spouse via QR</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASSIVE QR CODE CALL-TO-ACTION -->
+            <div>
+                <div class="p-4 rounded-3xl bg-gradient-to-br from-[#0E2B3D] to-[#081A26] border-2 border-[#17C3B2] shadow-2xl flex items-center justify-between gap-4 ink-card">
+                    <div class="flex-1">
+                        <span class="inline-block bg-[#17C3B2] text-slate-950 font-black text-[8.5pt] uppercase tracking-wider px-3 py-1 rounded-full">
+                            100% FREE APP
+                        </span>
+                        <div class="font-black text-[18pt] leading-[1.1] text-white ink-text-main mt-2">
+                            Scan to Download
+                        </div>
+                        <div class="flex items-center gap-1.5 text-[10pt] font-bold text-[#17C3B2] ink-accent-teal mt-1.5">
+                            <i class="fa-brands fa-google-play"></i> Google Play Store
+                        </div>
+                        <div class="text-[8pt] font-mono-tech font-bold text-gray-300 ink-text-sub mt-2">
+                            NO ADS • NO SIGN-UP • OFFLINE
+                        </div>
+                    </div>
+
+                    <!-- Giant Scannable QR -->
+                    <div class="shrink-0 bg-white p-2.5 rounded-2xl shadow-lg border-2 border-[#17C3B2]">
+                        <div id="qr-shelfmed" class="qr-box w-[42mm] h-[42mm] relative flex items-center justify-center"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 198"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="M1,1l4,0 0,4 -4,0 0,-4z M5,1l4,0 0,4 -4,0 0,-4z M9,1l4,0 0,4 -4,0 0,-4z M13,1l4,0 0,4 -4,0 0,-4z M17,1l4,0 0,4 -4,0 0,-4z M21,1l4,0 0,4 -4,0 0,-4z M25,1l4,0 0,4 -4,0 0,-4z M33,1l4,0 0,4 -4,0 0,-4z M41,1l4,0 0,4 -4,0 0,-4z M49,1l4,0 0,4 -4,0 0,-4z M53,1l4,0 0,4 -4,0 0,-4z M57,1l4,0 0,4 -4,0 0,-4z M61,1l4,0 0,4 -4,0 0,-4z M65,1l4,0 0,4 -4,0 0,-4z M73,1l4,0 0,4 -4,0 0,-4z M77,1l4,0 0,4 -4,0 0,-4z M81,1l4,0 0,4 -4,0 0,-4z M85,1l4,0 0,4 -4,0 0,-4z M105,1l4,0 0,4 -4,0 0,-4z M109,1l4,0 0,4 -4,0 0,-4z M121,1l4,0 0,4 -4,0 0,-4z M125,1l4,0 0,4 -4,0 0,-4z M133,1l4,0 0,4 -4,0 0,-4z M137,1l4,0 0,4 -4,0 0,-4z M141,1l4,0 0,4 -4,0 0,-4z M149,1l4,0 0,4 -4,0 0,-4z M161,1l4,0 0,4 -4,0 0,-4z M169,1l4,0 0,4 -4,0 0,-4z M173,1l4,0 0,4 -4,0 0,-4z M177,1l4,0 0,4 -4,0 0,-4z M181,1l4,0 0,4 -4,0 0,-4z M185,1l4,0 0,4 -4,0 0,-4z M189,1l4,0 0,4 -4,0 0,-4z M193,1l4,0 0,4 -4,0 0,-4z M1,5l4,0 0,4 -4,0 0,-4z M25,5l4,0 0,4 -4,0 0,-4z M33,5l4,0 0,4 -4,0 0,-4z M37,5l4,0 0,4 -4,0 0,-4z M45,5l4,0 0,4 -4,0 0,-4z M49,5l4,0 0,4 -4,0 0,-4z M65,5l4,0 0,4 -4,0 0,-4z M85,5l4,0 0,4 -4,0 0,-4z M89,5l4,0 0,4 -4,0 0,-4z M93,5l4,0 0,4 -4,0 0,-4z M97,5l4,0 0,4 -4,0 0,-4z M105,5l4,0 0,4 -4,0 0,-4z M109,5l4,0 0,4 -4,0 0,-4z M113,5l4,0 0,4 -4,0 0,-4z M145,5l4,0 0,4 -4,0 0,-4z M149,5l4,0 0,4 -4,0 0,-4z M153,5l4,0 0,4 -4,0 0,-4z M157,5l4,0 0,4 -4,0 0,-4z M161,5l4,0 0,4 -4,0 0,-4z M169,5l4,0 0,4 -4,0 0,-4z M193,5l4,0 0,4 -4,0 0,-4z M1,9l4,0 0,4 -4,0 0,-4z M9,9l4,0 0,4 -4,0 0,-4z M13,9l4,0 0,4 -4,0 0,-4z M17,9l4,0 0,4 -4,0 0,-4z M25,9l4,0 0,4 -4,0 0,-4z M37,9l4,0 0,4 -4,0 0,-4z M65,9l4,0 0,4 -4,0 0,-4z M69,9l4,0 0,4 -4,0 0,-4z M77,9l4,0 0,4 -4,0 0,-4z M81,9l4,0 0,4 -4,0 0,-4z M85,9l4,0 0,4 -4,0 0,-4z M89,9l4,0 0,4 -4,0 0,-4z M97,9l4,0 0,4 -4,0 0,-4z M117,9l4,0 0,4 -4,0 0,-4z M125,9l4,0 0,4 -4,0 0,-4z M129,9l4,0 0,4 -4,0 0,-4z M133,9l4,0 0,4 -4,0 0,-4z M137,9l4,0 0,4 -4,0 0,-4z M141,9l4,0 0,4 -4,0 0,-4z M157,9l4,0 0,4 -4,0 0,-4z M161,9l4,0 0,4 -4,0 0,-4z M169,9l4,0 0,4 -4,0 0,-4z M177,9l4,0 0,4 -4,0 0,-4z M181,9l4,0 0,4 -4,0 0,-4z M185,9l4,0 0,4 -4,0 0,-4z M193,9l4,0 0,4 -4,0 0,-4z M1,13l4,0 0,4 -4,0 0,-4z M9,13l4,0 0,4 -4,0 0,-4z M13,13l4,0 0,4 -4,0 0,-4z M17,13l4,0 0,4 -4,0 0,-4z M25,13l4,0 0,4 -4,0 0,-4z M33,13l4,0 0,4 -4,0 0,-4z M41,13l4,0 0,4 -4,0 0,-4z M53,13l4,0 0,4 -4,0 0,-4z M61,13l4,0 0,4 -4,0 0,-4z M65,13l4,0 0,4 -4,0 0,-4z M77,13l4,0 0,4 -4,0 0,-4z M89,13l4,0 0,4 -4,0 0,-4z M97,13l4,0 0,4 -4,0 0,-4z M109,13l4,0 0,4 -4,0 0,-4z M121,13l4,0 0,4 -4,0 0,-4z M125,13l4,0 0,4 -4,0 0,-4z M133,13l4,0 0,4 -4,0 0,-4z M149,13l4,0 0,4 -4,0 0,-4z M157,13l4,0 0,4 -4,0 0,-4z M169,13l4,0 0,4 -4,0 0,-4z M177,13l4,0 0,4 -4,0 0,-4z M181,13l4,0 0,4 -4,0 0,-4z M185,13l4,0 0,4 -4,0 0,-4z M193,13l4,0 0,4 -4,0 0,-4z M1,17l4,0 0,4 -4,0 0,-4z M9,17l4,0 0,4 -4,0 0,-4z M13,17l4,0 0,4 -4,0 0,-4z M17,17l4,0 0,4 -4,0 0,-4z M25,17l4,0 0,4 -4,0 0,-4z M33,17l4,0 0,4 -4,0 0,-4z M41,17l4,0 0,4 -4,0 0,-4z M57,17l4,0 0,4 -4,0 0,-4z M61,17l4,0 0,4 -4,0 0,-4z M69,17l4,0 0,4 -4,0 0,-4z M73,17l4,0 0,4 -4,0 0,-4z M81,17l4,0 0,4 -4,0 0,-4z M85,17l4,0 0,4 -4,0 0,-4z M89,17l4,0 0,4 -4,0 0,-4z M93,17l4,0 0,4 -4,0 0,-4z M97,17l4,0 0,4 -4,0 0,-4z M101,17l4,0 0,4 -4,0 0,-4z M105,17l4,0 0,4 -4,0 0,-4z M117,17l4,0 0,4 -4,0 0,-4z M121,17l4,0 0,4 -4,0 0,-4z M133,17l4,0 0,4 -4,0 0,-4z M145,17l4,0 0,4 -4,0 0,-4z M169,17l4,0 0,4 -4,0 0,-4z M177,17l4,0 0,4 -4,0 0,-4z M181,17l4,0 0,4 -4,0 0,-4z M185,17l4,0 0,4 -4,0 0,-4z M193,17l4,0 0,4 -4,0 0,-4z M1,21l4,0 0,4 -4,0 0,-4z M25,21l4,0 0,4 -4,0 0,-4z M33,21l4,0 0,4 -4,0 0,-4z M45,21l4,0 0,4 -4,0 0,-4z M53,21l4,0 0,4 -4,0 0,-4z M61,21l4,0 0,4 -4,0 0,-4z M69,21l4,0 0,4 -4,0 0,-4z M77,21l4,0 0,4 -4,0 0,-4z M85,21l4,0 0,4 -4,0 0,-4z M89,21l4,0 0,4 -4,0 0,-4z M105,21l4,0 0,4 -4,0 0,-4z M109,21l4,0 0,4 -4,0 0,-4z M125,21l4,0 0,4 -4,0 0,-4z M129,21l4,0 0,4 -4,0 0,-4z M133,21l4,0 0,4 -4,0 0,-4z M137,21l4,0 0,4 -4,0 0,-4z M141,21l4,0 0,4 -4,0 0,-4z M145,21l4,0 0,4 -4,0 0,-4z M149,21l4,0 0,4 -4,0 0,-4z M153,21l4,0 0,4 -4,0 0,-4z M169,21l4,0 0,4 -4,0 0,-4z M193,21l4,0 0,4 -4,0 0,-4z M1,25l4,0 0,4 -4,0 0,-4z M5,25l4,0 0,4 -4,0 0,-4z M9,25l4,0 0,4 -4,0 0,-4z M13,25l4,0 0,4 -4,0 0,-4z M17,25l4,0 0,4 -4,0 0,-4z M21,25l4,0 0,4 -4,0 0,-4z M25,25l4,0 0,4 -4,0 0,-4z M33,25l4,0 0,4 -4,0 0,-4z M41,25l4,0 0,4 -4,0 0,-4z M49,25l4,0 0,4 -4,0 0,-4z M57,25l4,0 0,4 -4,0 0,-4z M65,25l4,0 0,4 -4,0 0,-4z M73,25l4,0 0,4 -4,0 0,-4z M81,25l4,0 0,4 -4,0 0,-4z M89,25l4,0 0,4 -4,0 0,-4z M97,25l4,0 0,4 -4,0 0,-4z M105,25l4,0 0,4 -4,0 0,-4z M113,25l4,0 0,4 -4,0 0,-4z M121,25l4,0 0,4 -4,0 0,-4z M129,25l4,0 0,4 -4,0 0,-4z M137,25l4,0 0,4 -4,0 0,-4z M145,25l4,0 0,4 -4,0 0,-4z M153,25l4,0 0,4 -4,0 0,-4z M161,25l4,0 0,4 -4,0 0,-4z M169,25l4,0 0,4 -4,0 0,-4z M173,25l4,0 0,4 -4,0 0,-4z M177,25l4,0 0,4 -4,0 0,-4z M181,25l4,0 0,4 -4,0 0,-4z M185,25l4,0 0,4 -4,0 0,-4z M189,25l4,0 0,4 -4,0 0,-4z M193,25l4,0 0,4 -4,0 0,-4z M45,29l4,0 0,4 -4,0 0,-4z M49,29l4,0 0,4 -4,0 0,-4z M69,29l4,0 0,4 -4,0 0,-4z M73,29l4,0 0,4 -4,0 0,-4z M77,29l4,0 0,4 -4,0 0,-4z M81,29l4,0 0,4 -4,0 0,-4z M85,29l4,0 0,4 -4,0 0,-4z M89,29l4,0 0,4 -4,0 0,-4z M105,29l4,0 0,4 -4,0 0,-4z M117,29l4,0 0,4 -4,0 0,-4z M121,29l4,0 0,4 -4,0 0,-4z M125,29l4,0 0,4 -4,0 0,-4z M137,29l4,0 0,4 -4,0 0,-4z M141,29l4,0 0,4 -4,0 0,-4z M149,29l4,0 0,4 -4,0 0,-4z M153,29l4,0 0,4 -4,0 0,-4z M157,29l4,0 0,4 -4,0 0,-4z M161,29l4,0 0,4 -4,0 0,-4z M13,33l4,0 0,4 -4,0 0,-4z M25,33l4,0 0,4 -4,0 0,-4z M41,33l4,0 0,4 -4,0 0,-4z M53,33l4,0 0,4 -4,0 0,-4z M61,33l4,0 0,4 -4,0 0,-4z M69,33l4,0 0,4 -4,0 0,-4z M81,33l4,0 0,4 -4,0 0,-4z M85,33l4,0 0,4 -4,0 0,-4z M89,33l4,0 0,4 -4,0 0,-4z M93,33l4,0 0,4 -4,0 0,-4z M97,33l4,0 0,4 -4,0 0,-4z M101,33l4,0 0,4 -4,0 0,-4z M105,33l4,0 0,4 -4,0 0,-4z M121,33l4,0 0,4 -4,0 0,-4z M129,33l4,0 0,4 -4,0 0,-4z M133,33l4,0 0,4 -4,0 0,-4z M137,33l4,0 0,4 -4,0 0,-4z M149,33l4,0 0,4 -4,0 0,-4z M153,33l4,0 0,4 -4,0 0,-4z M173,33l4,0 0,4 -4,0 0,-4z M177,33l4,0 0,4 -4,0 0,-4z M181,33l4,0 0,4 -4,0 0,-4z M189,33l4,0 0,4 -4,0 0,-4z M193,33l4,0 0,4 -4,0 0,-4z M5,37l4,0 0,4 -4,0 0,-4z M41,37l4,0 0,4 -4,0 0,-4z M53,37l4,0 0,4 -4,0 0,-4z M57,37l4,0 0,4 -4,0 0,-4z M69,37l4,0 0,4 -4,0 0,-4z M81,37l4,0 0,4 -4,0 0,-4z M85,37l4,0 0,4 -4,0 0,-4z M89,37l4,0 0,4 -4,0 0,-4z M93,37l4,0 0,4 -4,0 0,-4z M101,37l4,0 0,4 -4,0 0,-4z M109,37l4,0 0,4 -4,0 0,-4z M113,37l4,0 0,4 -4,0 0,-4z M141,37l4,0 0,4 -4,0 0,-4z M145,37l4,0 0,4 -4,0 0,-4z M165,37l4,0 0,4 -4,0 0,-4z M173,37l4,0 0,4 -4,0 0,-4z M181,37l4,0 0,4 -4,0 0,-4z M193,37l4,0 0,4 -4,0 0,-4z M1,41l4,0 0,4 -4,0 0,-4z M21,41l4,0 0,4 -4,0 0,-4z M25,41l4,0 0,4 -4,0 0,-4z M29,41l4,0 0,4 -4,0 0,-4z M33,41l4,0 0,4 -4,0 0,-4z M37,41l4,0 0,4 -4,0 0,-4z M41,41l4,0 0,4 -4,0 0,-4z M49,41l4,0 0,4 -4,0 0,-4z M53,41l4,0 0,4 -4,0 0,-4z M57,41l4,0 0,4 -4,0 0,-4z M61,41l4,0 0,4 -4,0 0,-4z M65,41l4,0 0,4 -4,0 0,-4z M81,41l4,0 0,4 -4,0 0,-4z M85,41l4,0 0,4 -4,0 0,-4z M97,41l4,0 0,4 -4,0 0,-4z M101,41l4,0 0,4 -4,0 0,-4z M105,41l4,0 0,4 -4,0 0,-4z M109,41l4,0 0,4 -4,0 0,-4z M121,41l4,0 0,4 -4,0 0,-4z M125,41l4,0 0,4 -4,0 0,-4z M129,41l4,0 0,4 -4,0 0,-4z M137,41l4,0 0,4 -4,0 0,-4z M141,41l4,0 0,4 -4,0 0,-4z M149,41l4,0 0,4 -4,0 0,-4z M161,41l4,0 0,4 -4,0 0,-4z M165,41l4,0 0,4 -4,0 0,-4z M177,41l4,0 0,4 -4,0 0,-4z M185,41l4,0 0,4 -4,0 0,-4z M193,41l4,0 0,4 -4,0 0,-4z M5,45l4,0 0,4 -4,0 0,-4z M13,45l4,0 0,4 -4,0 0,-4z M29,45l4,0 0,4 -4,0 0,-4z M33,45l4,0 0,4 -4,0 0,-4z M41,45l4,0 0,4 -4,0 0,-4z M45,45l4,0 0,4 -4,0 0,-4z M49,45l4,0 0,4 -4,0 0,-4z M53,45l4,0 0,4 -4,0 0,-4z M61,45l4,0 0,4 -4,0 0,-4z M65,45l4,0 0,4 -4,0 0,-4z M69,45l4,0 0,4 -4,0 0,-4z M73,45l4,0 0,4 -4,0 0,-4z M81,45l4,0 0,4 -4,0 0,-4z M85,45l4,0 0,4 -4,0 0,-4z M97,45l4,0 0,4 -4,0 0,-4z M101,45l4,0 0,4 -4,0 0,-4z M117,45l4,0 0,4 -4,0 0,-4z M137,45l4,0 0,4 -4,0 0,-4z M145,45l4,0 0,4 -4,0 0,-4z M161,45l4,0 0,4 -4,0 0,-4z M165,45l4,0 0,4 -4,0 0,-4z M189,45l4,0 0,4 -4,0 0,-4z M193,45l4,0 0,4 -4,0 0,-4z M1,49l4,0 0,4 -4,0 0,-4z M5,49l4,0 0,4 -4,0 0,-4z M9,49l4,0 0,4 -4,0 0,-4z M13,49l4,0 0,4 -4,0 0,-4z M25,49l4,0 0,4 -4,0 0,-4z M29,49l4,0 0,4 -4,0 0,-4z M33,49l4,0 0,4 -4,0 0,-4z M37,49l4,0 0,4 -4,0 0,-4z M45,49l4,0 0,4 -4,0 0,-4z M53,49l4,0 0,4 -4,0 0,-4z M57,49l4,0 0,4 -4,0 0,-4z M65,49l4,0 0,4 -4,0 0,-4z M69,49l4,0 0,4 -4,0 0,-4z M73,49l4,0 0,4 -4,0 0,-4z M89,49l4,0 0,4 -4,0 0,-4z M93,49l4,0 0,4 -4,0 0,-4z M101,49l4,0 0,4 -4,0 0,-4z M105,49l4,0 0,4 -4,0 0,-4z M113,49l4,0 0,4 -4,0 0,-4z M125,49l4,0 0,4 -4,0 0,-4z M129,49l4,0 0,4 -4,0 0,-4z M141,49l4,0 0,4 -4,0 0,-4z M145,49l4,0 0,4 -4,0 0,-4z M149,49l4,0 0,4 -4,0 0,-4z M173,49l4,0 0,4 -4,0 0,-4z M177,49l4,0 0,4 -4,0 0,-4z M193,49l4,0 0,4 -4,0 0,-4z M5,53l4,0 0,4 -4,0 0,-4z M9,53l4,0 0,4 -4,0 0,-4z M17,53l4,0 0,4 -4,0 0,-4z M21,53l4,0 0,4 -4,0 0,-4z M37,53l4,0 0,4 -4,0 0,-4z M45,53l4,0 0,4 -4,0 0,-4z M49,53l4,0 0,4 -4,0 0,-4z M53,53l4,0 0,4 -4,0 0,-4z M69,53l4,0 0,4 -4,0 0,-4z M73,53l4,0 0,4 -4,0 0,-4z M77,53l4,0 0,4 -4,0 0,-4z M89,53l4,0 0,4 -4,0 0,-4z M97,53l4,0 0,4 -4,0 0,-4z M109,53l4,0 0,4 -4,0 0,-4z M121,53l4,0 0,4 -4,0 0,-4z M137,53l4,0 0,4 -4,0 0,-4z M149,53l4,0 0,4 -4,0 0,-4z M157,53l4,0 0,4 -4,0 0,-4z M161,53l4,0 0,4 -4,0 0,-4z M173,53l4,0 0,4 -4,0 0,-4z M181,53l4,0 0,4 -4,0 0,-4z M189,53l4,0 0,4 -4,0 0,-4z M193,53l4,0 0,4 -4,0 0,-4z M9,57l4,0 0,4 -4,0 0,-4z M21,57l4,0 0,4 -4,0 0,-4z M25,57l4,0 0,4 -4,0 0,-4z M45,57l4,0 0,4 -4,0 0,-4z M49,57l4,0 0,4 -4,0 0,-4z M61,57l4,0 0,4 -4,0 0,-4z M77,57l4,0 0,4 -4,0 0,-4z M81,57l4,0 0,4 -4,0 0,-4z M89,57l4,0 0,4 -4,0 0,-4z M97,57l4,0 0,4 -4,0 0,-4z M117,57l4,0 0,4 -4,0 0,-4z M121,57l4,0 0,4 -4,0 0,-4z M129,57l4,0 0,4 -4,0 0,-4z M133,57l4,0 0,4 -4,0 0,-4z M145,57l4,0 0,4 -4,0 0,-4z M149,57l4,0 0,4 -4,0 0,-4z M153,57l4,0 0,4 -4,0 0,-4z M165,57l4,0 0,4 -4,0 0,-4z M185,57l4,0 0,4 -4,0 0,-4z M193,57l4,0 0,4 -4,0 0,-4z M5,61l4,0 0,4 -4,0 0,-4z M13,61l4,0 0,4 -4,0 0,-4z M33,61l4,0 0,4 -4,0 0,-4z M37,61l4,0 0,4 -4,0 0,-4z M45,61l4,0 0,4 -4,0 0,-4z M53,61l4,0 0,4 -4,0 0,-4z M57,61l4,0 0,4 -4,0 0,-4z M73,61l4,0 0,4 -4,0 0,-4z M77,61l4,0 0,4 -4,0 0,-4z M85,61l4,0 0,4 -4,0 0,-4z M101,61l4,0 0,4 -4,0 0,-4z M105,61l4,0 0,4 -4,0 0,-4z M121,61l4,0 0,4 -4,0 0,-4z M125,61l4,0 0,4 -4,0 0,-4z M129,61l4,0 0,4 -4,0 0,-4z M133,61l4,0 0,4 -4,0 0,-4z M141,61l4,0 0,4 -4,0 0,-4z M145,61l4,0 0,4 -4,0 0,-4z M157,61l4,0 0,4 -4,0 0,-4z M161,61l4,0 0,4 -4,0 0,-4z M173,61l4,0 0,4 -4,0 0,-4z M177,61l4,0 0,4 -4,0 0,-4z M189,61l4,0 0,4 -4,0 0,-4z M193,61l4,0 0,4 -4,0 0,-4z M9,65l4,0 0,4 -4,0 0,-4z M21,65l4,0 0,4 -4,0 0,-4z M25,65l4,0 0,4 -4,0 0,-4z M29,65l4,0 0,4 -4,0 0,-4z M41,65l4,0 0,4 -4,0 0,-4z M85,65l4,0 0,4 -4,0 0,-4z M89,65l4,0 0,4 -4,0 0,-4z M105,65l4,0 0,4 -4,0 0,-4z M113,65l4,0 0,4 -4,0 0,-4z M121,65l4,0 0,4 -4,0 0,-4z M129,65l4,0 0,4 -4,0 0,-4z M133,65l4,0 0,4 -4,0 0,-4z M141,65l4,0 0,4 -4,0 0,-4z M145,65l4,0 0,4 -4,0 0,-4z M149,65l4,0 0,4 -4,0 0,-4z M153,65l4,0 0,4 -4,0 0,-4z M161,65l4,0 0,4 -4,0 0,-4z M177,65l4,0 0,4 -4,0 0,-4z M185,65l4,0 0,4 -4,0 0,-4z M193,65l4,0 0,4 -4,0 0,-4z M5,69l4,0 0,4 -4,0 0,-4z M21,69l4,0 0,4 -4,0 0,-4z M37,69l4,0 0,4 -4,0 0,-4z M45,69l4,0 0,4 -4,0 0,-4z M57,69l4,0 0,4 -4,0 0,-4z M61,69l4,0 0,4 -4,0 0,-4z M65,69l4,0 0,4 -4,0 0,-4z M93,69l4,0 0,4 -4,0 0,-4z M97,69l4,0 0,4 -4,0 0,-4z M101,69l4,0 0,4 -4,0 0,-4z M105,69l4,0 0,4 -4,0 0,-4z M113,69l4,0 0,4 -4,0 0,-4z M133,69l4,0 0,4 -4,0 0,-4z M145,69l4,0 0,4 -4,0 0,-4z M149,69l4,0 0,4 -4,0 0,-4z M153,69l4,0 0,4 -4,0 0,-4z M165,69l4,0 0,4 -4,0 0,-4z M181,69l4,0 0,4 -4,0 0,-4z M185,69l4,0 0,4 -4,0 0,-4z M193,69l4,0 0,4 -4,0 0,-4z M5,73l4,0 0,4 -4,0 0,-4z M13,73l4,0 0,4 -4,0 0,-4z M17,73l4,0 0,4 -4,0 0,-4z M21,73l4,0 0,4 -4,0 0,-4z M25,73l4,0 0,4 -4,0 0,-4z M29,73l4,0 0,4 -4,0 0,-4z M33,73l4,0 0,4 -4,0 0,-4z M49,73l4,0 0,4 -4,0 0,-4z M53,73l4,0 0,4 -4,0 0,-4z M65,73l4,0 0,4 -4,0 0,-4z M73,73l4,0 0,4 -4,0 0,-4z M77,73l4,0 0,4 -4,0 0,-4z M81,73l4,0 0,4 -4,0 0,-4z M85,73l4,0 0,4 -4,0 0,-4z M89,73l4,0 0,4 -4,0 0,-4z M93,73l4,0 0,4 -4,0 0,-4z M97,73l4,0 0,4 -4,0 0,-4z M101,73l4,0 0,4 -4,0 0,-4z M109,73l4,0 0,4 -4,0 0,-4z M117,73l4,0 0,4 -4,0 0,-4z M121,73l4,0 0,4 -4,0 0,-4z M125,73l4,0 0,4 -4,0 0,-4z M133,73l4,0 0,4 -4,0 0,-4z M137,73l4,0 0,4 -4,0 0,-4z M145,73l4,0 0,4 -4,0 0,-4z M153,73l4,0 0,4 -4,0 0,-4z M157,73l4,0 0,4 -4,0 0,-4z M161,73l4,0 0,4 -4,0 0,-4z M173,73l4,0 0,4 -4,0 0,-4z M177,73l4,0 0,4 -4,0 0,-4z M185,73l4,0 0,4 -4,0 0,-4z M189,73l4,0 0,4 -4,0 0,-4z M193,73l4,0 0,4 -4,0 0,-4z M5,77l4,0 0,4 -4,0 0,-4z M9,77l4,0 0,4 -4,0 0,-4z M13,77l4,0 0,4 -4,0 0,-4z M17,77l4,0 0,4 -4,0 0,-4z M29,77l4,0 0,4 -4,0 0,-4z M33,77l4,0 0,4 -4,0 0,-4z M41,77l4,0 0,4 -4,0 0,-4z M45,77l4,0 0,4 -4,0 0,-4z M49,77l4,0 0,4 -4,0 0,-4z M53,77l4,0 0,4 -4,0 0,-4z M57,77l4,0 0,4 -4,0 0,-4z M61,77l4,0 0,4 -4,0 0,-4z M65,77l4,0 0,4 -4,0 0,-4z M69,77l4,0 0,4 -4,0 0,-4z M81,77l4,0 0,4 -4,0 0,-4z M85,77l4,0 0,4 -4,0 0,-4z M93,77l4,0 0,4 -4,0 0,-4z M109,77l4,0 0,4 -4,0 0,-4z M113,77l4,0 0,4 -4,0 0,-4z M117,77l4,0 0,4 -4,0 0,-4z M133,77l4,0 0,4 -4,0 0,-4z M137,77l4,0 0,4 -4,0 0,-4z M145,77l4,0 0,4 -4,0 0,-4z M149,77l4,0 0,4 -4,0 0,-4z M153,77l4,0 0,4 -4,0 0,-4z M161,77l4,0 0,4 -4,0 0,-4z M165,77l4,0 0,4 -4,0 0,-4z M173,77l4,0 0,4 -4,0 0,-4z M177,77l4,0 0,4 -4,0 0,-4z M185,77l4,0 0,4 -4,0 0,-4z M193,77l4,0 0,4 -4,0 0,-4z M1,81l4,0 0,4 -4,0 0,-4z M9,81l4,0 0,4 -4,0 0,-4z M13,81l4,0 0,4 -4,0 0,-4z M25,81l4,0 0,4 -4,0 0,-4z M33,81l4,0 0,4 -4,0 0,-4z M37,81l4,0 0,4 -4,0 0,-4z M41,81l4,0 0,4 -4,0 0,-4z M49,81l4,0 0,4 -4,0 0,-4z M57,81l4,0 0,4 -4,0 0,-4z M65,81l4,0 0,4 -4,0 0,-4z M69,81l4,0 0,4 -4,0 0,-4z M73,81l4,0 0,4 -4,0 0,-4z M77,81l4,0 0,4 -4,0 0,-4z M89,81l4,0 0,4 -4,0 0,-4z M97,81l4,0 0,4 -4,0 0,-4z M113,81l4,0 0,4 -4,0 0,-4z M125,81l4,0 0,4 -4,0 0,-4z M133,81l4,0 0,4 -4,0 0,-4z M137,81l4,0 0,4 -4,0 0,-4z M145,81l4,0 0,4 -4,0 0,-4z M149,81l4,0 0,4 -4,0 0,-4z M153,81l4,0 0,4 -4,0 0,-4z M165,81l4,0 0,4 -4,0 0,-4z M169,81l4,0 0,4 -4,0 0,-4z M173,81l4,0 0,4 -4,0 0,-4z M181,81l4,0 0,4 -4,0 0,-4z M193,81l4,0 0,4 -4,0 0,-4z M9,85l4,0 0,4 -4,0 0,-4z M13,85l4,0 0,4 -4,0 0,-4z M17,85l4,0 0,4 -4,0 0,-4z M33,85l4,0 0,4 -4,0 0,-4z M37,85l4,0 0,4 -4,0 0,-4z M49,85l4,0 0,4 -4,0 0,-4z M61,85l4,0 0,4 -4,0 0,-4z M73,85l4,0 0,4 -4,0 0,-4z M81,85l4,0 0,4 -4,0 0,-4z M93,85l4,0 0,4 -4,0 0,-4z M97,85l4,0 0,4 -4,0 0,-4z M101,85l4,0 0,4 -4,0 0,-4z M113,85l4,0 0,4 -4,0 0,-4z M121,85l4,0 0,4 -4,0 0,-4z M129,85l4,0 0,4 -4,0 0,-4z M149,85l4,0 0,4 -4,0 0,-4z M173,85l4,0 0,4 -4,0 0,-4z M185,85l4,0 0,4 -4,0 0,-4z M189,85l4,0 0,4 -4,0 0,-4z M193,85l4,0 0,4 -4,0 0,-4z M1,89l4,0 0,4 -4,0 0,-4z M5,89l4,0 0,4 -4,0 0,-4z M9,89l4,0 0,4 -4,0 0,-4z M13,89l4,0 0,4 -4,0 0,-4z M17,89l4,0 0,4 -4,0 0,-4z M21,89l4,0 0,4 -4,0 0,-4z M25,89l4,0 0,4 -4,0 0,-4z M29,89l4,0 0,4 -4,0 0,-4z M33,89l4,0 0,4 -4,0 0,-4z M37,89l4,0 0,4 -4,0 0,-4z M41,89l4,0 0,4 -4,0 0,-4z M45,89l4,0 0,4 -4,0 0,-4z M53,89l4,0 0,4 -4,0 0,-4z M69,89l4,0 0,4 -4,0 0,-4z M73,89l4,0 0,4 -4,0 0,-4z M77,89l4,0 0,4 -4,0 0,-4z M81,89l4,0 0,4 -4,0 0,-4z M85,89l4,0 0,4 -4,0 0,-4z M89,89l4,0 0,4 -4,0 0,-4z M93,89l4,0 0,4 -4,0 0,-4z M97,89l4,0 0,4 -4,0 0,-4z M101,89l4,0 0,4 -4,0 0,-4z M105,89l4,0 0,4 -4,0 0,-4z M109,89l4,0 0,4 -4,0 0,-4z M121,89l4,0 0,4 -4,0 0,-4z M125,89l4,0 0,4 -4,0 0,-4z M129,89l4,0 0,4 -4,0 0,-4z M133,89l4,0 0,4 -4,0 0,-4z M137,89l4,0 0,4 -4,0 0,-4z M141,89l4,0 0,4 -4,0 0,-4z M145,89l4,0 0,4 -4,0 0,-4z M149,89l4,0 0,4 -4,0 0,-4z M161,89l4,0 0,4 -4,0 0,-4z M165,89l4,0 0,4 -4,0 0,-4z M169,89l4,0 0,4 -4,0 0,-4z M173,89l4,0 0,4 -4,0 0,-4z M177,89l4,0 0,4 -4,0 0,-4z M181,89l4,0 0,4 -4,0 0,-4z M185,89l4,0 0,4 -4,0 0,-4z M189,89l4,0 0,4 -4,0 0,-4z M193,89l4,0 0,4 -4,0 0,-4z M5,93l4,0 0,4 -4,0 0,-4z M9,93l4,0 0,4 -4,0 0,-4z M17,93l4,0 0,4 -4,0 0,-4z M33,93l4,0 0,4 -4,0 0,-4z M41,93l4,0 0,4 -4,0 0,-4z M45,93l4,0 0,4 -4,0 0,-4z M53,93l4,0 0,4 -4,0 0,-4z M57,93l4,0 0,4 -4,0 0,-4z M61,93l4,0 0,4 -4,0 0,-4z M65,93l4,0 0,4 -4,0 0,-4z M81,93l4,0 0,4 -4,0 0,-4z M89,93l4,0 0,4 -4,0 0,-4z M105,93l4,0 0,4 -4,0 0,-4z M109,93l4,0 0,4 -4,0 0,-4z M113,93l4,0 0,4 -4,0 0,-4z M117,93l4,0 0,4 -4,0 0,-4z M121,93l4,0 0,4 -4,0 0,-4z M125,93l4,0 0,4 -4,0 0,-4z M129,93l4,0 0,4 -4,0 0,-4z M133,93l4,0 0,4 -4,0 0,-4z M145,93l4,0 0,4 -4,0 0,-4z M149,93l4,0 0,4 -4,0 0,-4z M153,93l4,0 0,4 -4,0 0,-4z M157,93l4,0 0,4 -4,0 0,-4z M161,93l4,0 0,4 -4,0 0,-4z M177,93l4,0 0,4 -4,0 0,-4z M189,93l4,0 0,4 -4,0 0,-4z M1,97l4,0 0,4 -4,0 0,-4z M5,97l4,0 0,4 -4,0 0,-4z M17,97l4,0 0,4 -4,0 0,-4z M25,97l4,0 0,4 -4,0 0,-4z M33,97l4,0 0,4 -4,0 0,-4z M37,97l4,0 0,4 -4,0 0,-4z M45,97l4,0 0,4 -4,0 0,-4z M53,97l4,0 0,4 -4,0 0,-4z M57,97l4,0 0,4 -4,0 0,-4z M61,97l4,0 0,4 -4,0 0,-4z M77,97l4,0 0,4 -4,0 0,-4z M85,97l4,0 0,4 -4,0 0,-4z M89,97l4,0 0,4 -4,0 0,-4z M97,97l4,0 0,4 -4,0 0,-4z M105,97l4,0 0,4 -4,0 0,-4z M109,97l4,0 0,4 -4,0 0,-4z M117,97l4,0 0,4 -4,0 0,-4z M125,97l4,0 0,4 -4,0 0,-4z M133,97l4,0 0,4 -4,0 0,-4z M145,97l4,0 0,4 -4,0 0,-4z M149,97l4,0 0,4 -4,0 0,-4z M157,97l4,0 0,4 -4,0 0,-4z M161,97l4,0 0,4 -4,0 0,-4z M169,97l4,0 0,4 -4,0 0,-4z M177,97l4,0 0,4 -4,0 0,-4z M189,97l4,0 0,4 -4,0 0,-4z M5,101l4,0 0,4 -4,0 0,-4z M13,101l4,0 0,4 -4,0 0,-4z M17,101l4,0 0,4 -4,0 0,-4z M33,101l4,0 0,4 -4,0 0,-4z M37,101l4,0 0,4 -4,0 0,-4z M53,101l4,0 0,4 -4,0 0,-4z M57,101l4,0 0,4 -4,0 0,-4z M61,101l4,0 0,4 -4,0 0,-4z M77,101l4,0 0,4 -4,0 0,-4z M85,101l4,0 0,4 -4,0 0,-4z M89,101l4,0 0,4 -4,0 0,-4z M105,101l4,0 0,4 -4,0 0,-4z M113,101l4,0 0,4 -4,0 0,-4z M117,101l4,0 0,4 -4,0 0,-4z M129,101l4,0 0,4 -4,0 0,-4z M137,101l4,0 0,4 -4,0 0,-4z M149,101l4,0 0,4 -4,0 0,-4z M161,101l4,0 0,4 -4,0 0,-4z M177,101l4,0 0,4 -4,0 0,-4z M185,101l4,0 0,4 -4,0 0,-4z M189,101l4,0 0,4 -4,0 0,-4z M193,101l4,0 0,4 -4,0 0,-4z M5,105l4,0 0,4 -4,0 0,-4z M9,105l4,0 0,4 -4,0 0,-4z M17,105l4,0 0,4 -4,0 0,-4z M21,105l4,0 0,4 -4,0 0,-4z M25,105l4,0 0,4 -4,0 0,-4z M29,105l4,0 0,4 -4,0 0,-4z M33,105l4,0 0,4 -4,0 0,-4z M41,105l4,0 0,4 -4,0 0,-4z M45,105l4,0 0,4 -4,0 0,-4z M49,105l4,0 0,4 -4,0 0,-4z M53,105l4,0 0,4 -4,0 0,-4z M69,105l4,0 0,4 -4,0 0,-4z M77,105l4,0 0,4 -4,0 0,-4z M81,105l4,0 0,4 -4,0 0,-4z M85,105l4,0 0,4 -4,0 0,-4z M89,105l4,0 0,4 -4,0 0,-4z M93,105l4,0 0,4 -4,0 0,-4z M97,105l4,0 0,4 -4,0 0,-4z M101,105l4,0 0,4 -4,0 0,-4z M105,105l4,0 0,4 -4,0 0,-4z M109,105l4,0 0,4 -4,0 0,-4z M113,105l4,0 0,4 -4,0 0,-4z M117,105l4,0 0,4 -4,0 0,-4z M125,105l4,0 0,4 -4,0 0,-4z M129,105l4,0 0,4 -4,0 0,-4z M133,105l4,0 0,4 -4,0 0,-4z M153,105l4,0 0,4 -4,0 0,-4z M161,105l4,0 0,4 -4,0 0,-4z M165,105l4,0 0,4 -4,0 0,-4z M169,105l4,0 0,4 -4,0 0,-4z M173,105l4,0 0,4 -4,0 0,-4z M177,105l4,0 0,4 -4,0 0,-4z M181,105l4,0 0,4 -4,0 0,-4z M185,105l4,0 0,4 -4,0 0,-4z M193,105l4,0 0,4 -4,0 0,-4z M21,109l4,0 0,4 -4,0 0,-4z M29,109l4,0 0,4 -4,0 0,-4z M37,109l4,0 0,4 -4,0 0,-4z M49,109l4,0 0,4 -4,0 0,-4z M53,109l4,0 0,4 -4,0 0,-4z M73,109l4,0 0,4 -4,0 0,-4z M77,109l4,0 0,4 -4,0 0,-4z M97,109l4,0 0,4 -4,0 0,-4z M101,109l4,0 0,4 -4,0 0,-4z M105,109l4,0 0,4 -4,0 0,-4z M109,109l4,0 0,4 -4,0 0,-4z M113,109l4,0 0,4 -4,0 0,-4z M117,109l4,0 0,4 -4,0 0,-4z M129,109l4,0 0,4 -4,0 0,-4z M133,109l4,0 0,4 -4,0 0,-4z M141,109l4,0 0,4 -4,0 0,-4z M145,109l4,0 0,4 -4,0 0,-4z M153,109l4,0 0,4 -4,0 0,-4z M161,109l4,0 0,4 -4,0 0,-4z M169,109l4,0 0,4 -4,0 0,-4z M181,109l4,0 0,4 -4,0 0,-4z M193,109l4,0 0,4 -4,0 0,-4z M21,113l4,0 0,4 -4,0 0,-4z M25,113l4,0 0,4 -4,0 0,-4z M29,113l4,0 0,4 -4,0 0,-4z M41,113l4,0 0,4 -4,0 0,-4z M53,113l4,0 0,4 -4,0 0,-4z M57,113l4,0 0,4 -4,0 0,-4z M69,113l4,0 0,4 -4,0 0,-4z M77,113l4,0 0,4 -4,0 0,-4z M85,113l4,0 0,4 -4,0 0,-4z M93,113l4,0 0,4 -4,0 0,-4z M101,113l4,0 0,4 -4,0 0,-4z M113,113l4,0 0,4 -4,0 0,-4z M129,113l4,0 0,4 -4,0 0,-4z M133,113l4,0 0,4 -4,0 0,-4z M141,113l4,0 0,4 -4,0 0,-4z M145,113l4,0 0,4 -4,0 0,-4z M161,113l4,0 0,4 -4,0 0,-4z M165,113l4,0 0,4 -4,0 0,-4z M173,113l4,0 0,4 -4,0 0,-4z M185,113l4,0 0,4 -4,0 0,-4z M193,113l4,0 0,4 -4,0 0,-4z M1,117l4,0 0,4 -4,0 0,-4z M5,117l4,0 0,4 -4,0 0,-4z M9,117l4,0 0,4 -4,0 0,-4z M13,117l4,0 0,4 -4,0 0,-4z M21,117l4,0 0,4 -4,0 0,-4z M37,117l4,0 0,4 -4,0 0,-4z M45,117l4,0 0,4 -4,0 0,-4z M53,117l4,0 0,4 -4,0 0,-4z M81,117l4,0 0,4 -4,0 0,-4z M85,117l4,0 0,4 -4,0 0,-4z M105,117l4,0 0,4 -4,0 0,-4z M113,117l4,0 0,4 -4,0 0,-4z M121,117l4,0 0,4 -4,0 0,-4z M125,117l4,0 0,4 -4,0 0,-4z M153,117l4,0 0,4 -4,0 0,-4z M177,117l4,0 0,4 -4,0 0,-4z M185,117l4,0 0,4 -4,0 0,-4z M189,117l4,0 0,4 -4,0 0,-4z M193,117l4,0 0,4 -4,0 0,-4z M9,121l4,0 0,4 -4,0 0,-4z M13,121l4,0 0,4 -4,0 0,-4z M21,121l4,0 0,4 -4,0 0,-4z M25,121l4,0 0,4 -4,0 0,-4z M41,121l4,0 0,4 -4,0 0,-4z M45,121l4,0 0,4 -4,0 0,-4z M49,121l4,0 0,4 -4,0 0,-4z M53,121l4,0 0,4 -4,0 0,-4z M61,121l4,0 0,4 -4,0 0,-4z M65,121l4,0 0,4 -4,0 0,-4z M73,121l4,0 0,4 -4,0 0,-4z M97,121l4,0 0,4 -4,0 0,-4z M113,121l4,0 0,4 -4,0 0,-4z M117,121l4,0 0,4 -4,0 0,-4z M125,121l4,0 0,4 -4,0 0,-4z M145,121l4,0 0,4 -4,0 0,-4z M165,121l4,0 0,4 -4,0 0,-4z M169,121l4,0 0,4 -4,0 0,-4z M177,121l4,0 0,4 -4,0 0,-4z M181,121l4,0 0,4 -4,0 0,-4z M189,121l4,0 0,4 -4,0 0,-4z M193,121l4,0 0,4 -4,0 0,-4z M5,125l4,0 0,4 -4,0 0,-4z M13,125l4,0 0,4 -4,0 0,-4z M17,125l4,0 0,4 -4,0 0,-4z M21,125l4,0 0,4 -4,0 0,-4z M29,125l4,0 0,4 -4,0 0,-4z M33,125l4,0 0,4 -4,0 0,-4z M49,125l4,0 0,4 -4,0 0,-4z M53,125l4,0 0,4 -4,0 0,-4z M65,125l4,0 0,4 -4,0 0,-4z M69,125l4,0 0,4 -4,0 0,-4z M73,125l4,0 0,4 -4,0 0,-4z M77,125l4,0 0,4 -4,0 0,-4z M81,125l4,0 0,4 -4,0 0,-4z M89,125l4,0 0,4 -4,0 0,-4z M93,125l4,0 0,4 -4,0 0,-4z M101,125l4,0 0,4 -4,0 0,-4z M113,125l4,0 0,4 -4,0 0,-4z M125,125l4,0 0,4 -4,0 0,-4z M137,125l4,0 0,4 -4,0 0,-4z M149,125l4,0 0,4 -4,0 0,-4z M153,125l4,0 0,4 -4,0 0,-4z M165,125l4,0 0,4 -4,0 0,-4z M169,125l4,0 0,4 -4,0 0,-4z M173,125l4,0 0,4 -4,0 0,-4z M177,125l4,0 0,4 -4,0 0,-4z M185,125l4,0 0,4 -4,0 0,-4z M1,129l4,0 0,4 -4,0 0,-4z M9,129l4,0 0,4 -4,0 0,-4z M17,129l4,0 0,4 -4,0 0,-4z M21,129l4,0 0,4 -4,0 0,-4z M25,129l4,0 0,4 -4,0 0,-4z M33,129l4,0 0,4 -4,0 0,-4z M37,129l4,0 0,4 -4,0 0,-4z M41,129l4,0 0,4 -4,0 0,-4z M49,129l4,0 0,4 -4,0 0,-4z M53,129l4,0 0,4 -4,0 0,-4z M57,129l4,0 0,4 -4,0 0,-4z M69,129l4,0 0,4 -4,0 0,-4z M73,129l4,0 0,4 -4,0 0,-4z M81,129l4,0 0,4 -4,0 0,-4z M93,129l4,0 0,4 -4,0 0,-4z M97,129l4,0 0,4 -4,0 0,-4z M105,129l4,0 0,4 -4,0 0,-4z M113,129l4,0 0,4 -4,0 0,-4z M121,129l4,0 0,4 -4,0 0,-4z M133,129l4,0 0,4 -4,0 0,-4z M137,129l4,0 0,4 -4,0 0,-4z M141,129l4,0 0,4 -4,0 0,-4z M145,129l4,0 0,4 -4,0 0,-4z M149,129l4,0 0,4 -4,0 0,-4z M161,129l4,0 0,4 -4,0 0,-4z M165,129l4,0 0,4 -4,0 0,-4z M169,129l4,0 0,4 -4,0 0,-4z M173,129l4,0 0,4 -4,0 0,-4z M177,129l4,0 0,4 -4,0 0,-4z M193,129l4,0 0,4 -4,0 0,-4z M21,133l4,0 0,4 -4,0 0,-4z M37,133l4,0 0,4 -4,0 0,-4z M53,133l4,0 0,4 -4,0 0,-4z M77,133l4,0 0,4 -4,0 0,-4z M85,133l4,0 0,4 -4,0 0,-4z M89,133l4,0 0,4 -4,0 0,-4z M97,133l4,0 0,4 -4,0 0,-4z M101,133l4,0 0,4 -4,0 0,-4z M109,133l4,0 0,4 -4,0 0,-4z M117,133l4,0 0,4 -4,0 0,-4z M121,133l4,0 0,4 -4,0 0,-4z M149,133l4,0 0,4 -4,0 0,-4z M157,133l4,0 0,4 -4,0 0,-4z M165,133l4,0 0,4 -4,0 0,-4z M193,133l4,0 0,4 -4,0 0,-4z M13,137l4,0 0,4 -4,0 0,-4z M17,137l4,0 0,4 -4,0 0,-4z M25,137l4,0 0,4 -4,0 0,-4z M29,137l4,0 0,4 -4,0 0,-4z M33,137l4,0 0,4 -4,0 0,-4z M45,137l4,0 0,4 -4,0 0,-4z M49,137l4,0 0,4 -4,0 0,-4z M53,137l4,0 0,4 -4,0 0,-4z M57,137l4,0 0,4 -4,0 0,-4z M65,137l4,0 0,4 -4,0 0,-4z M69,137l4,0 0,4 -4,0 0,-4z M73,137l4,0 0,4 -4,0 0,-4z M77,137l4,0 0,4 -4,0 0,-4z M93,137l4,0 0,4 -4,0 0,-4z M101,137l4,0 0,4 -4,0 0,-4z M105,137l4,0 0,4 -4,0 0,-4z M117,137l4,0 0,4 -4,0 0,-4z M125,137l4,0 0,4 -4,0 0,-4z M129,137l4,0 0,4 -4,0 0,-4z M137,137l4,0 0,4 -4,0 0,-4z M145,137l4,0 0,4 -4,0 0,-4z M149,137l4,0 0,4 -4,0 0,-4z M165,137l4,0 0,4 -4,0 0,-4z M169,137l4,0 0,4 -4,0 0,-4z M177,137l4,0 0,4 -4,0 0,-4z M189,137l4,0 0,4 -4,0 0,-4z M193,137l4,0 0,4 -4,0 0,-4z M1,141l4,0 0,4 -4,0 0,-4z M9,141l4,0 0,4 -4,0 0,-4z M17,141l4,0 0,4 -4,0 0,-4z M21,141l4,0 0,4 -4,0 0,-4z M37,141l4,0 0,4 -4,0 0,-4z M45,141l4,0 0,4 -4,0 0,-4z M57,141l4,0 0,4 -4,0 0,-4z M61,141l4,0 0,4 -4,0 0,-4z M65,141l4,0 0,4 -4,0 0,-4z M69,141l4,0 0,4 -4,0 0,-4z M77,141l4,0 0,4 -4,0 0,-4z M93,141l4,0 0,4 -4,0 0,-4z M125,141l4,0 0,4 -4,0 0,-4z M145,141l4,0 0,4 -4,0 0,-4z M149,141l4,0 0,4 -4,0 0,-4z M153,141l4,0 0,4 -4,0 0,-4z M165,141l4,0 0,4 -4,0 0,-4z M169,141l4,0 0,4 -4,0 0,-4z M177,141l4,0 0,4 -4,0 0,-4z M1,145l4,0 0,4 -4,0 0,-4z M9,145l4,0 0,4 -4,0 0,-4z M21,145l4,0 0,4 -4,0 0,-4z M25,145l4,0 0,4 -4,0 0,-4z M45,145l4,0 0,4 -4,0 0,-4z M49,145l4,0 0,4 -4,0 0,-4z M61,145l4,0 0,4 -4,0 0,-4z M65,145l4,0 0,4 -4,0 0,-4z M69,145l4,0 0,4 -4,0 0,-4z M81,145l4,0 0,4 -4,0 0,-4z M85,145l4,0 0,4 -4,0 0,-4z M97,145l4,0 0,4 -4,0 0,-4z M105,145l4,0 0,4 -4,0 0,-4z M109,145l4,0 0,4 -4,0 0,-4z M113,145l4,0 0,4 -4,0 0,-4z M117,145l4,0 0,4 -4,0 0,-4z M129,145l4,0 0,4 -4,0 0,-4z M137,145l4,0 0,4 -4,0 0,-4z M141,145l4,0 0,4 -4,0 0,-4z M145,145l4,0 0,4 -4,0 0,-4z M153,145l4,0 0,4 -4,0 0,-4z M165,145l4,0 0,4 -4,0 0,-4z M189,145l4,0 0,4 -4,0 0,-4z M13,149l4,0 0,4 -4,0 0,-4z M17,149l4,0 0,4 -4,0 0,-4z M21,149l4,0 0,4 -4,0 0,-4z M37,149l4,0 0,4 -4,0 0,-4z M41,149l4,0 0,4 -4,0 0,-4z M45,149l4,0 0,4 -4,0 0,-4z M53,149l4,0 0,4 -4,0 0,-4z M57,149l4,0 0,4 -4,0 0,-4z M61,149l4,0 0,4 -4,0 0,-4z M65,149l4,0 0,4 -4,0 0,-4z M69,149l4,0 0,4 -4,0 0,-4z M77,149l4,0 0,4 -4,0 0,-4z M81,149l4,0 0,4 -4,0 0,-4z M85,149l4,0 0,4 -4,0 0,-4z M93,149l4,0 0,4 -4,0 0,-4z M97,149l4,0 0,4 -4,0 0,-4z M101,149l4,0 0,4 -4,0 0,-4z M105,149l4,0 0,4 -4,0 0,-4z M109,149l4,0 0,4 -4,0 0,-4z M113,149l4,0 0,4 -4,0 0,-4z M117,149l4,0 0,4 -4,0 0,-4z M121,149l4,0 0,4 -4,0 0,-4z M125,149l4,0 0,4 -4,0 0,-4z M129,149l4,0 0,4 -4,0 0,-4z M137,149l4,0 0,4 -4,0 0,-4z M149,149l4,0 0,4 -4,0 0,-4z M157,149l4,0 0,4 -4,0 0,-4z M173,149l4,0 0,4 -4,0 0,-4z M185,149l4,0 0,4 -4,0 0,-4z M193,149l4,0 0,4 -4,0 0,-4z M5,153l4,0 0,4 -4,0 0,-4z M21,153l4,0 0,4 -4,0 0,-4z M25,153l4,0 0,4 -4,0 0,-4z M29,153l4,0 0,4 -4,0 0,-4z M37,153l4,0 0,4 -4,0 0,-4z M49,153l4,0 0,4 -4,0 0,-4z M65,153l4,0 0,4 -4,0 0,-4z M73,153l4,0 0,4 -4,0 0,-4z M89,153l4,0 0,4 -4,0 0,-4z M93,153l4,0 0,4 -4,0 0,-4z M117,153l4,0 0,4 -4,0 0,-4z M133,153l4,0 0,4 -4,0 0,-4z M153,153l4,0 0,4 -4,0 0,-4z M169,153l4,0 0,4 -4,0 0,-4z M173,153l4,0 0,4 -4,0 0,-4z M181,153l4,0 0,4 -4,0 0,-4z M185,153l4,0 0,4 -4,0 0,-4z M193,153l4,0 0,4 -4,0 0,-4z M5,157l4,0 0,4 -4,0 0,-4z M9,157l4,0 0,4 -4,0 0,-4z M13,157l4,0 0,4 -4,0 0,-4z M29,157l4,0 0,4 -4,0 0,-4z M33,157l4,0 0,4 -4,0 0,-4z M41,157l4,0 0,4 -4,0 0,-4z M45,157l4,0 0,4 -4,0 0,-4z M61,157l4,0 0,4 -4,0 0,-4z M73,157l4,0 0,4 -4,0 0,-4z M85,157l4,0 0,4 -4,0 0,-4z M89,157l4,0 0,4 -4,0 0,-4z M93,157l4,0 0,4 -4,0 0,-4z M101,157l4,0 0,4 -4,0 0,-4z M109,157l4,0 0,4 -4,0 0,-4z M117,157l4,0 0,4 -4,0 0,-4z M121,157l4,0 0,4 -4,0 0,-4z M125,157l4,0 0,4 -4,0 0,-4z M129,157l4,0 0,4 -4,0 0,-4z M137,157l4,0 0,4 -4,0 0,-4z M145,157l4,0 0,4 -4,0 0,-4z M153,157l4,0 0,4 -4,0 0,-4z M165,157l4,0 0,4 -4,0 0,-4z M169,157l4,0 0,4 -4,0 0,-4z M173,157l4,0 0,4 -4,0 0,-4z M177,157l4,0 0,4 -4,0 0,-4z M193,157l4,0 0,4 -4,0 0,-4z M1,161l4,0 0,4 -4,0 0,-4z M5,161l4,0 0,4 -4,0 0,-4z M9,161l4,0 0,4 -4,0 0,-4z M25,161l4,0 0,4 -4,0 0,-4z M29,161l4,0 0,4 -4,0 0,-4z M33,161l4,0 0,4 -4,0 0,-4z M37,161l4,0 0,4 -4,0 0,-4z M41,161l4,0 0,4 -4,0 0,-4z M45,161l4,0 0,4 -4,0 0,-4z M49,161l4,0 0,4 -4,0 0,-4z M53,161l4,0 0,4 -4,0 0,-4z M61,161l4,0 0,4 -4,0 0,-4z M65,161l4,0 0,4 -4,0 0,-4z M69,161l4,0 0,4 -4,0 0,-4z M85,161l4,0 0,4 -4,0 0,-4z M89,161l4,0 0,4 -4,0 0,-4z M93,161l4,0 0,4 -4,0 0,-4z M97,161l4,0 0,4 -4,0 0,-4z M101,161l4,0 0,4 -4,0 0,-4z M105,161l4,0 0,4 -4,0 0,-4z M113,161l4,0 0,4 -4,0 0,-4z M129,161l4,0 0,4 -4,0 0,-4z M137,161l4,0 0,4 -4,0 0,-4z M141,161l4,0 0,4 -4,0 0,-4z M145,161l4,0 0,4 -4,0 0,-4z M149,161l4,0 0,4 -4,0 0,-4z M161,161l4,0 0,4 -4,0 0,-4z M165,161l4,0 0,4 -4,0 0,-4z M169,161l4,0 0,4 -4,0 0,-4z M173,161l4,0 0,4 -4,0 0,-4z M177,161l4,0 0,4 -4,0 0,-4z M185,161l4,0 0,4 -4,0 0,-4z M189,161l4,0 0,4 -4,0 0,-4z M33,165l4,0 0,4 -4,0 0,-4z M37,165l4,0 0,4 -4,0 0,-4z M45,165l4,0 0,4 -4,0 0,-4z M65,165l4,0 0,4 -4,0 0,-4z M69,165l4,0 0,4 -4,0 0,-4z M73,165l4,0 0,4 -4,0 0,-4z M81,165l4,0 0,4 -4,0 0,-4z M89,165l4,0 0,4 -4,0 0,-4z M105,165l4,0 0,4 -4,0 0,-4z M109,165l4,0 0,4 -4,0 0,-4z M121,165l4,0 0,4 -4,0 0,-4z M125,165l4,0 0,4 -4,0 0,-4z M129,165l4,0 0,4 -4,0 0,-4z M137,165l4,0 0,4 -4,0 0,-4z M145,165l4,0 0,4 -4,0 0,-4z M161,165l4,0 0,4 -4,0 0,-4z M177,165l4,0 0,4 -4,0 0,-4z M193,165l4,0 0,4 -4,0 0,-4z M1,169l4,0 0,4 -4,0 0,-4z M5,169l4,0 0,4 -4,0 0,-4z M9,169l4,0 0,4 -4,0 0,-4z M13,169l4,0 0,4 -4,0 0,-4z M17,169l4,0 0,4 -4,0 0,-4z M21,169l4,0 0,4 -4,0 0,-4z M25,169l4,0 0,4 -4,0 0,-4z M45,169l4,0 0,4 -4,0 0,-4z M49,169l4,0 0,4 -4,0 0,-4z M61,169l4,0 0,4 -4,0 0,-4z M77,169l4,0 0,4 -4,0 0,-4z M81,169l4,0 0,4 -4,0 0,-4z M85,169l4,0 0,4 -4,0 0,-4z M89,169l4,0 0,4 -4,0 0,-4z M97,169l4,0 0,4 -4,0 0,-4z M105,169l4,0 0,4 -4,0 0,-4z M109,169l4,0 0,4 -4,0 0,-4z M113,169l4,0 0,4 -4,0 0,-4z M121,169l4,0 0,4 -4,0 0,-4z M125,169l4,0 0,4 -4,0 0,-4z M129,169l4,0 0,4 -4,0 0,-4z M137,169l4,0 0,4 -4,0 0,-4z M141,169l4,0 0,4 -4,0 0,-4z M153,169l4,0 0,4 -4,0 0,-4z M157,169l4,0 0,4 -4,0 0,-4z M161,169l4,0 0,4 -4,0 0,-4z M169,169l4,0 0,4 -4,0 0,-4z M177,169l4,0 0,4 -4,0 0,-4z M185,169l4,0 0,4 -4,0 0,-4z M189,169l4,0 0,4 -4,0 0,-4z M193,169l4,0 0,4 -4,0 0,-4z M1,173l4,0 0,4 -4,0 0,-4z M25,173l4,0 0,4 -4,0 0,-4z M37,173l4,0 0,4 -4,0 0,-4z M41,173l4,0 0,4 -4,0 0,-4z M49,173l4,0 0,4 -4,0 0,-4z M57,173l4,0 0,4 -4,0 0,-4z M77,173l4,0 0,4 -4,0 0,-4z M89,173l4,0 0,4 -4,0 0,-4z M105,173l4,0 0,4 -4,0 0,-4z M113,173l4,0 0,4 -4,0 0,-4z M117,173l4,0 0,4 -4,0 0,-4z M129,173l4,0 0,4 -4,0 0,-4z M133,173l4,0 0,4 -4,0 0,-4z M141,173l4,0 0,4 -4,0 0,-4z M145,173l4,0 0,4 -4,0 0,-4z M149,173l4,0 0,4 -4,0 0,-4z M153,173l4,0 0,4 -4,0 0,-4z M157,173l4,0 0,4 -4,0 0,-4z M161,173l4,0 0,4 -4,0 0,-4z M177,173l4,0 0,4 -4,0 0,-4z M185,173l4,0 0,4 -4,0 0,-4z M189,173l4,0 0,4 -4,0 0,-4z M193,173l4,0 0,4 -4,0 0,-4z M1,177l4,0 0,4 -4,0 0,-4z M9,177l4,0 0,4 -4,0 0,-4z M13,177l4,0 0,4 -4,0 0,-4z M17,177l4,0 0,4 -4,0 0,-4z M25,177l4,0 0,4 -4,0 0,-4z M49,177l4,0 0,4 -4,0 0,-4z M69,177l4,0 0,4 -4,0 0,-4z M77,177l4,0 0,4 -4,0 0,-4z M81,177l4,0 0,4 -4,0 0,-4z M85,177l4,0 0,4 -4,0 0,-4z M89,177l4,0 0,4 -4,0 0,-4z M93,177l4,0 0,4 -4,0 0,-4z M97,177l4,0 0,4 -4,0 0,-4z M101,177l4,0 0,4 -4,0 0,-4z M105,177l4,0 0,4 -4,0 0,-4z M109,177l4,0 0,4 -4,0 0,-4z M117,177l4,0 0,4 -4,0 0,-4z M125,177l4,0 0,4 -4,0 0,-4z M133,177l4,0 0,4 -4,0 0,-4z M137,177l4,0 0,4 -4,0 0,-4z M145,177l4,0 0,4 -4,0 0,-4z M149,177l4,0 0,4 -4,0 0,-4z M153,177l4,0 0,4 -4,0 0,-4z M161,177l4,0 0,4 -4,0 0,-4z M165,177l4,0 0,4 -4,0 0,-4z M169,177l4,0 0,4 -4,0 0,-4z M173,177l4,0 0,4 -4,0 0,-4z M177,177l4,0 0,4 -4,0 0,-4z M181,177l4,0 0,4 -4,0 0,-4z M1,181l4,0 0,4 -4,0 0,-4z M9,181l4,0 0,4 -4,0 0,-4z M13,181l4,0 0,4 -4,0 0,-4z M17,181l4,0 0,4 -4,0 0,-4z M25,181l4,0 0,4 -4,0 0,-4z M33,181l4,0 0,4 -4,0 0,-4z M37,181l4,0 0,4 -4,0 0,-4z M53,181l4,0 0,4 -4,0 0,-4z M57,181l4,0 0,4 -4,0 0,-4z M73,181l4,0 0,4 -4,0 0,-4z M97,181l4,0 0,4 -4,0 0,-4z M105,181l4,0 0,4 -4,0 0,-4z M133,181l4,0 0,4 -4,0 0,-4z M141,181l4,0 0,4 -4,0 0,-4z M157,181l4,0 0,4 -4,0 0,-4z M161,181l4,0 0,4 -4,0 0,-4z M173,181l4,0 0,4 -4,0 0,-4z M177,181l4,0 0,4 -4,0 0,-4z M185,181l4,0 0,4 -4,0 0,-4z M189,181l4,0 0,4 -4,0 0,-4z M1,185l4,0 0,4 -4,0 0,-4z M9,185l4,0 0,4 -4,0 0,-4z M13,185l4,0 0,4 -4,0 0,-4z M17,185l4,0 0,4 -4,0 0,-4z M25,185l4,0 0,4 -4,0 0,-4z M37,185l4,0 0,4 -4,0 0,-4z M41,185l4,0 0,4 -4,0 0,-4z M49,185l4,0 0,4 -4,0 0,-4z M61,185l4,0 0,4 -4,0 0,-4z M65,185l4,0 0,4 -4,0 0,-4z M69,185l4,0 0,4 -4,0 0,-4z M77,185l4,0 0,4 -4,0 0,-4z M81,185l4,0 0,4 -4,0 0,-4z M85,185l4,0 0,4 -4,0 0,-4z M89,185l4,0 0,4 -4,0 0,-4z M101,185l4,0 0,4 -4,0 0,-4z M105,185l4,0 0,4 -4,0 0,-4z M109,185l4,0 0,4 -4,0 0,-4z M121,185l4,0 0,4 -4,0 0,-4z M125,185l4,0 0,4 -4,0 0,-4z M137,185l4,0 0,4 -4,0 0,-4z M141,185l4,0 0,4 -4,0 0,-4z M145,185l4,0 0,4 -4,0 0,-4z M157,185l4,0 0,4 -4,0 0,-4z M165,185l4,0 0,4 -4,0 0,-4z M169,185l4,0 0,4 -4,0 0,-4z M177,185l4,0 0,4 -4,0 0,-4z M181,185l4,0 0,4 -4,0 0,-4z M185,185l4,0 0,4 -4,0 0,-4z M189,185l4,0 0,4 -4,0 0,-4z M193,185l4,0 0,4 -4,0 0,-4z M1,189l4,0 0,4 -4,0 0,-4z M25,189l4,0 0,4 -4,0 0,-4z M37,189l4,0 0,4 -4,0 0,-4z M53,189l4,0 0,4 -4,0 0,-4z M57,189l4,0 0,4 -4,0 0,-4z M61,189l4,0 0,4 -4,0 0,-4z M69,189l4,0 0,4 -4,0 0,-4z M73,189l4,0 0,4 -4,0 0,-4z M85,189l4,0 0,4 -4,0 0,-4z M97,189l4,0 0,4 -4,0 0,-4z M125,189l4,0 0,4 -4,0 0,-4z M145,189l4,0 0,4 -4,0 0,-4z M165,189l4,0 0,4 -4,0 0,-4z M1,193l4,0 0,4 -4,0 0,-4z M5,193l4,0 0,4 -4,0 0,-4z M9,193l4,0 0,4 -4,0 0,-4z M13,193l4,0 0,4 -4,0 0,-4z M17,193l4,0 0,4 -4,0 0,-4z M21,193l4,0 0,4 -4,0 0,-4z M25,193l4,0 0,4 -4,0 0,-4z M37,193l4,0 0,4 -4,0 0,-4z M49,193l4,0 0,4 -4,0 0,-4z M57,193l4,0 0,4 -4,0 0,-4z M65,193l4,0 0,4 -4,0 0,-4z M77,193l4,0 0,4 -4,0 0,-4z M81,193l4,0 0,4 -4,0 0,-4z M89,193l4,0 0,4 -4,0 0,-4z M93,193l4,0 0,4 -4,0 0,-4z M101,193l4,0 0,4 -4,0 0,-4z M105,193l4,0 0,4 -4,0 0,-4z M113,193l4,0 0,4 -4,0 0,-4z M117,193l4,0 0,4 -4,0 0,-4z M125,193l4,0 0,4 -4,0 0,-4z M129,193l4,0 0,4 -4,0 0,-4z M137,193l4,0 0,4 -4,0 0,-4z M141,193l4,0 0,4 -4,0 0,-4z M145,193l4,0 0,4 -4,0 0,-4z M149,193l4,0 0,4 -4,0 0,-4z M157,193l4,0 0,4 -4,0 0,-4z M173,193l4,0 0,4 -4,0 0,-4z M189,193l4,0 0,4 -4,0 0,-4z M193,193l4,0 0,4 -4,0 0,-4z " stroke="transparent" fill="black"/></svg><div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;"><img src="images/shelfmed-icon.png" alt="" style="width:24%; height:24%; border-radius:6px; border:2px solid #ffffff; box-shadow:0 1px 4px rgba(0,0,0,0.35); background:#060913;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Minimal Footer -->
+                <div class="mt-3 flex items-center justify-between text-[7.5pt] text-gray-400 ink-text-sub">
+                    <div class="flex items-center gap-1.5">
+                        <img src="images/Icon.png" alt="" class="w-4 h-4 rounded">
+                        <span class="font-bold text-white ink-text-main">ReederDevelopments</span>
+                    </div>
+                    <span class="font-mono-tech font-bold text-[#17C3B2] ink-accent-teal">reederdevelopments.co.za</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- FLYER 2: SLIP TRACKER ZA (SHOPPING CENTRES)                       -->
+        <!-- ================================================================= -->
+        <section id="sheet-sliptracker" class="a5-sheet theme-sliptracker">
+
+            <!-- TOP HOOK & BRAND -->
+            <div>
+                <div class="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-black text-[10pt] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                    <i class="fa-solid fa-receipt"></i> GOT YOUR TILL SLIP?
+                </div>
+
+                <!-- App Identity -->
+                <div class="mt-4 flex items-center gap-4">
+                    <img src="images/sliptrackerza-icon.png" alt="Slip Tracker ZA" class="w-[22mm] h-[22mm] rounded-2xl shadow-xl border-2 border-[#34D399]">
+                    <div>
+                        <h2 class="font-black text-[24pt] leading-none tracking-tight ink-text-main">
+                            Slip Tracker <span class="text-[#34D399] ink-accent-emerald">ZA</span>
+                        </h2>
+                        <p class="font-bold text-[10.5pt] text-emerald-200 ink-text-sub mt-1">
+                            SA Receipt Scanner &amp; Price Compare
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Giant Impact Headline -->
+                <h1 class="mt-5 font-black text-[23pt] leading-[1.1] tracking-tight text-white ink-text-main">
+                    Turn Your Till Slips Into Real Rand Savings.
+                </h1>
+            </div>
+
+            <!-- 3 SIMPLE, PUNCHY BULLETS -->
+            <div class="space-y-2.5 my-2">
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-[#34D399]/20 text-[#34D399] ink-accent-emerald flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Snap Any SA Till Slip</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">Instant AI reads store, date, items &amp; Rand total</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Compare Store Prices</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">Checkers • Pick n Pay • Woolies • Spar • Clicks</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.08] border border-white/15 ink-card">
+                    <div class="w-11 h-11 rounded-xl bg-cyan-400/20 text-cyan-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-[12pt] leading-tight ink-text-main">Track Your Monthly Rands</div>
+                        <div class="text-[9pt] text-gray-300 ink-text-sub">Live ZAR budget gauge • No bank login needed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASSIVE QR CODE CALL-TO-ACTION -->
+            <div>
+                <div class="p-4 rounded-3xl bg-gradient-to-br from-[#0B2E22] to-[#071A13] border-2 border-[#34D399] shadow-2xl flex items-center justify-between gap-4 ink-card">
+                    <div class="flex-1">
+                        <span class="inline-block bg-[#34D399] text-slate-950 font-black text-[8.5pt] uppercase tracking-wider px-3 py-1 rounded-full">
+                            100% FREE APP 🇿🇦
+                        </span>
+                        <div class="font-black text-[18pt] leading-[1.1] text-white ink-text-main mt-2">
+                            Scan to Download
+                        </div>
+                        <div class="flex items-center gap-1.5 text-[10pt] font-bold text-[#34D399] ink-accent-emerald mt-1.5">
+                            <i class="fa-brands fa-google-play"></i> Google Play Store
+                        </div>
+                        <div class="text-[8pt] font-mono-tech font-bold text-gray-300 ink-text-sub mt-2">
+                            NO ADS • NO BANK LOGIN • OFFLINE
+                        </div>
+                    </div>
+
+                    <!-- Giant Scannable QR -->
+                    <div class="shrink-0 bg-white p-2.5 rounded-2xl shadow-lg border-2 border-[#34D399]">
+                        <div id="qr-sliptracker" class="qr-box w-[42mm] h-[42mm] relative flex items-center justify-center"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 198"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="M1,1l4,0 0,4 -4,0 0,-4z M5,1l4,0 0,4 -4,0 0,-4z M9,1l4,0 0,4 -4,0 0,-4z M13,1l4,0 0,4 -4,0 0,-4z M17,1l4,0 0,4 -4,0 0,-4z M21,1l4,0 0,4 -4,0 0,-4z M25,1l4,0 0,4 -4,0 0,-4z M33,1l4,0 0,4 -4,0 0,-4z M41,1l4,0 0,4 -4,0 0,-4z M49,1l4,0 0,4 -4,0 0,-4z M53,1l4,0 0,4 -4,0 0,-4z M57,1l4,0 0,4 -4,0 0,-4z M61,1l4,0 0,4 -4,0 0,-4z M65,1l4,0 0,4 -4,0 0,-4z M73,1l4,0 0,4 -4,0 0,-4z M77,1l4,0 0,4 -4,0 0,-4z M81,1l4,0 0,4 -4,0 0,-4z M85,1l4,0 0,4 -4,0 0,-4z M101,1l4,0 0,4 -4,0 0,-4z M105,1l4,0 0,4 -4,0 0,-4z M117,1l4,0 0,4 -4,0 0,-4z M121,1l4,0 0,4 -4,0 0,-4z M129,1l4,0 0,4 -4,0 0,-4z M133,1l4,0 0,4 -4,0 0,-4z M137,1l4,0 0,4 -4,0 0,-4z M141,1l4,0 0,4 -4,0 0,-4z M149,1l4,0 0,4 -4,0 0,-4z M161,1l4,0 0,4 -4,0 0,-4z M169,1l4,0 0,4 -4,0 0,-4z M173,1l4,0 0,4 -4,0 0,-4z M177,1l4,0 0,4 -4,0 0,-4z M181,1l4,0 0,4 -4,0 0,-4z M185,1l4,0 0,4 -4,0 0,-4z M189,1l4,0 0,4 -4,0 0,-4z M193,1l4,0 0,4 -4,0 0,-4z M1,5l4,0 0,4 -4,0 0,-4z M25,5l4,0 0,4 -4,0 0,-4z M33,5l4,0 0,4 -4,0 0,-4z M37,5l4,0 0,4 -4,0 0,-4z M45,5l4,0 0,4 -4,0 0,-4z M49,5l4,0 0,4 -4,0 0,-4z M65,5l4,0 0,4 -4,0 0,-4z M85,5l4,0 0,4 -4,0 0,-4z M89,5l4,0 0,4 -4,0 0,-4z M93,5l4,0 0,4 -4,0 0,-4z M97,5l4,0 0,4 -4,0 0,-4z M105,5l4,0 0,4 -4,0 0,-4z M109,5l4,0 0,4 -4,0 0,-4z M113,5l4,0 0,4 -4,0 0,-4z M145,5l4,0 0,4 -4,0 0,-4z M149,5l4,0 0,4 -4,0 0,-4z M153,5l4,0 0,4 -4,0 0,-4z M157,5l4,0 0,4 -4,0 0,-4z M161,5l4,0 0,4 -4,0 0,-4z M169,5l4,0 0,4 -4,0 0,-4z M193,5l4,0 0,4 -4,0 0,-4z M1,9l4,0 0,4 -4,0 0,-4z M9,9l4,0 0,4 -4,0 0,-4z M13,9l4,0 0,4 -4,0 0,-4z M17,9l4,0 0,4 -4,0 0,-4z M25,9l4,0 0,4 -4,0 0,-4z M37,9l4,0 0,4 -4,0 0,-4z M65,9l4,0 0,4 -4,0 0,-4z M69,9l4,0 0,4 -4,0 0,-4z M77,9l4,0 0,4 -4,0 0,-4z M81,9l4,0 0,4 -4,0 0,-4z M89,9l4,0 0,4 -4,0 0,-4z M97,9l4,0 0,4 -4,0 0,-4z M101,9l4,0 0,4 -4,0 0,-4z M105,9l4,0 0,4 -4,0 0,-4z M117,9l4,0 0,4 -4,0 0,-4z M125,9l4,0 0,4 -4,0 0,-4z M129,9l4,0 0,4 -4,0 0,-4z M133,9l4,0 0,4 -4,0 0,-4z M137,9l4,0 0,4 -4,0 0,-4z M141,9l4,0 0,4 -4,0 0,-4z M157,9l4,0 0,4 -4,0 0,-4z M161,9l4,0 0,4 -4,0 0,-4z M169,9l4,0 0,4 -4,0 0,-4z M177,9l4,0 0,4 -4,0 0,-4z M181,9l4,0 0,4 -4,0 0,-4z M185,9l4,0 0,4 -4,0 0,-4z M193,9l4,0 0,4 -4,0 0,-4z M1,13l4,0 0,4 -4,0 0,-4z M9,13l4,0 0,4 -4,0 0,-4z M13,13l4,0 0,4 -4,0 0,-4z M17,13l4,0 0,4 -4,0 0,-4z M25,13l4,0 0,4 -4,0 0,-4z M33,13l4,0 0,4 -4,0 0,-4z M41,13l4,0 0,4 -4,0 0,-4z M53,13l4,0 0,4 -4,0 0,-4z M61,13l4,0 0,4 -4,0 0,-4z M65,13l4,0 0,4 -4,0 0,-4z M77,13l4,0 0,4 -4,0 0,-4z M89,13l4,0 0,4 -4,0 0,-4z M97,13l4,0 0,4 -4,0 0,-4z M101,13l4,0 0,4 -4,0 0,-4z M105,13l4,0 0,4 -4,0 0,-4z M109,13l4,0 0,4 -4,0 0,-4z M121,13l4,0 0,4 -4,0 0,-4z M125,13l4,0 0,4 -4,0 0,-4z M133,13l4,0 0,4 -4,0 0,-4z M149,13l4,0 0,4 -4,0 0,-4z M157,13l4,0 0,4 -4,0 0,-4z M169,13l4,0 0,4 -4,0 0,-4z M177,13l4,0 0,4 -4,0 0,-4z M181,13l4,0 0,4 -4,0 0,-4z M185,13l4,0 0,4 -4,0 0,-4z M193,13l4,0 0,4 -4,0 0,-4z M1,17l4,0 0,4 -4,0 0,-4z M9,17l4,0 0,4 -4,0 0,-4z M13,17l4,0 0,4 -4,0 0,-4z M17,17l4,0 0,4 -4,0 0,-4z M25,17l4,0 0,4 -4,0 0,-4z M33,17l4,0 0,4 -4,0 0,-4z M41,17l4,0 0,4 -4,0 0,-4z M57,17l4,0 0,4 -4,0 0,-4z M61,17l4,0 0,4 -4,0 0,-4z M69,17l4,0 0,4 -4,0 0,-4z M73,17l4,0 0,4 -4,0 0,-4z M81,17l4,0 0,4 -4,0 0,-4z M89,17l4,0 0,4 -4,0 0,-4z M93,17l4,0 0,4 -4,0 0,-4z M97,17l4,0 0,4 -4,0 0,-4z M101,17l4,0 0,4 -4,0 0,-4z M105,17l4,0 0,4 -4,0 0,-4z M121,17l4,0 0,4 -4,0 0,-4z M133,17l4,0 0,4 -4,0 0,-4z M145,17l4,0 0,4 -4,0 0,-4z M169,17l4,0 0,4 -4,0 0,-4z M177,17l4,0 0,4 -4,0 0,-4z M181,17l4,0 0,4 -4,0 0,-4z M185,17l4,0 0,4 -4,0 0,-4z M193,17l4,0 0,4 -4,0 0,-4z M1,21l4,0 0,4 -4,0 0,-4z M25,21l4,0 0,4 -4,0 0,-4z M33,21l4,0 0,4 -4,0 0,-4z M45,21l4,0 0,4 -4,0 0,-4z M53,21l4,0 0,4 -4,0 0,-4z M61,21l4,0 0,4 -4,0 0,-4z M69,21l4,0 0,4 -4,0 0,-4z M77,21l4,0 0,4 -4,0 0,-4z M85,21l4,0 0,4 -4,0 0,-4z M89,21l4,0 0,4 -4,0 0,-4z M105,21l4,0 0,4 -4,0 0,-4z M109,21l4,0 0,4 -4,0 0,-4z M121,21l4,0 0,4 -4,0 0,-4z M125,21l4,0 0,4 -4,0 0,-4z M129,21l4,0 0,4 -4,0 0,-4z M133,21l4,0 0,4 -4,0 0,-4z M137,21l4,0 0,4 -4,0 0,-4z M141,21l4,0 0,4 -4,0 0,-4z M145,21l4,0 0,4 -4,0 0,-4z M149,21l4,0 0,4 -4,0 0,-4z M153,21l4,0 0,4 -4,0 0,-4z M169,21l4,0 0,4 -4,0 0,-4z M193,21l4,0 0,4 -4,0 0,-4z M1,25l4,0 0,4 -4,0 0,-4z M5,25l4,0 0,4 -4,0 0,-4z M9,25l4,0 0,4 -4,0 0,-4z M13,25l4,0 0,4 -4,0 0,-4z M17,25l4,0 0,4 -4,0 0,-4z M21,25l4,0 0,4 -4,0 0,-4z M25,25l4,0 0,4 -4,0 0,-4z M33,25l4,0 0,4 -4,0 0,-4z M41,25l4,0 0,4 -4,0 0,-4z M49,25l4,0 0,4 -4,0 0,-4z M57,25l4,0 0,4 -4,0 0,-4z M65,25l4,0 0,4 -4,0 0,-4z M73,25l4,0 0,4 -4,0 0,-4z M81,25l4,0 0,4 -4,0 0,-4z M89,25l4,0 0,4 -4,0 0,-4z M97,25l4,0 0,4 -4,0 0,-4z M105,25l4,0 0,4 -4,0 0,-4z M113,25l4,0 0,4 -4,0 0,-4z M121,25l4,0 0,4 -4,0 0,-4z M129,25l4,0 0,4 -4,0 0,-4z M137,25l4,0 0,4 -4,0 0,-4z M145,25l4,0 0,4 -4,0 0,-4z M153,25l4,0 0,4 -4,0 0,-4z M161,25l4,0 0,4 -4,0 0,-4z M169,25l4,0 0,4 -4,0 0,-4z M173,25l4,0 0,4 -4,0 0,-4z M177,25l4,0 0,4 -4,0 0,-4z M181,25l4,0 0,4 -4,0 0,-4z M185,25l4,0 0,4 -4,0 0,-4z M189,25l4,0 0,4 -4,0 0,-4z M193,25l4,0 0,4 -4,0 0,-4z M45,29l4,0 0,4 -4,0 0,-4z M49,29l4,0 0,4 -4,0 0,-4z M69,29l4,0 0,4 -4,0 0,-4z M73,29l4,0 0,4 -4,0 0,-4z M77,29l4,0 0,4 -4,0 0,-4z M81,29l4,0 0,4 -4,0 0,-4z M85,29l4,0 0,4 -4,0 0,-4z M89,29l4,0 0,4 -4,0 0,-4z M105,29l4,0 0,4 -4,0 0,-4z M117,29l4,0 0,4 -4,0 0,-4z M121,29l4,0 0,4 -4,0 0,-4z M125,29l4,0 0,4 -4,0 0,-4z M137,29l4,0 0,4 -4,0 0,-4z M145,29l4,0 0,4 -4,0 0,-4z M149,29l4,0 0,4 -4,0 0,-4z M153,29l4,0 0,4 -4,0 0,-4z M157,29l4,0 0,4 -4,0 0,-4z M161,29l4,0 0,4 -4,0 0,-4z M13,33l4,0 0,4 -4,0 0,-4z M25,33l4,0 0,4 -4,0 0,-4z M41,33l4,0 0,4 -4,0 0,-4z M45,33l4,0 0,4 -4,0 0,-4z M49,33l4,0 0,4 -4,0 0,-4z M53,33l4,0 0,4 -4,0 0,-4z M61,33l4,0 0,4 -4,0 0,-4z M65,33l4,0 0,4 -4,0 0,-4z M69,33l4,0 0,4 -4,0 0,-4z M81,33l4,0 0,4 -4,0 0,-4z M89,33l4,0 0,4 -4,0 0,-4z M93,33l4,0 0,4 -4,0 0,-4z M97,33l4,0 0,4 -4,0 0,-4z M101,33l4,0 0,4 -4,0 0,-4z M105,33l4,0 0,4 -4,0 0,-4z M121,33l4,0 0,4 -4,0 0,-4z M129,33l4,0 0,4 -4,0 0,-4z M133,33l4,0 0,4 -4,0 0,-4z M137,33l4,0 0,4 -4,0 0,-4z M145,33l4,0 0,4 -4,0 0,-4z M149,33l4,0 0,4 -4,0 0,-4z M153,33l4,0 0,4 -4,0 0,-4z M173,33l4,0 0,4 -4,0 0,-4z M177,33l4,0 0,4 -4,0 0,-4z M181,33l4,0 0,4 -4,0 0,-4z M189,33l4,0 0,4 -4,0 0,-4z M193,33l4,0 0,4 -4,0 0,-4z M5,37l4,0 0,4 -4,0 0,-4z M41,37l4,0 0,4 -4,0 0,-4z M49,37l4,0 0,4 -4,0 0,-4z M53,37l4,0 0,4 -4,0 0,-4z M57,37l4,0 0,4 -4,0 0,-4z M65,37l4,0 0,4 -4,0 0,-4z M69,37l4,0 0,4 -4,0 0,-4z M89,37l4,0 0,4 -4,0 0,-4z M93,37l4,0 0,4 -4,0 0,-4z M105,37l4,0 0,4 -4,0 0,-4z M109,37l4,0 0,4 -4,0 0,-4z M113,37l4,0 0,4 -4,0 0,-4z M141,37l4,0 0,4 -4,0 0,-4z M145,37l4,0 0,4 -4,0 0,-4z M165,37l4,0 0,4 -4,0 0,-4z M173,37l4,0 0,4 -4,0 0,-4z M181,37l4,0 0,4 -4,0 0,-4z M193,37l4,0 0,4 -4,0 0,-4z M1,41l4,0 0,4 -4,0 0,-4z M21,41l4,0 0,4 -4,0 0,-4z M25,41l4,0 0,4 -4,0 0,-4z M29,41l4,0 0,4 -4,0 0,-4z M33,41l4,0 0,4 -4,0 0,-4z M41,41l4,0 0,4 -4,0 0,-4z M45,41l4,0 0,4 -4,0 0,-4z M61,41l4,0 0,4 -4,0 0,-4z M65,41l4,0 0,4 -4,0 0,-4z M89,41l4,0 0,4 -4,0 0,-4z M97,41l4,0 0,4 -4,0 0,-4z M101,41l4,0 0,4 -4,0 0,-4z M105,41l4,0 0,4 -4,0 0,-4z M109,41l4,0 0,4 -4,0 0,-4z M121,41l4,0 0,4 -4,0 0,-4z M125,41l4,0 0,4 -4,0 0,-4z M129,41l4,0 0,4 -4,0 0,-4z M137,41l4,0 0,4 -4,0 0,-4z M145,41l4,0 0,4 -4,0 0,-4z M149,41l4,0 0,4 -4,0 0,-4z M161,41l4,0 0,4 -4,0 0,-4z M165,41l4,0 0,4 -4,0 0,-4z M177,41l4,0 0,4 -4,0 0,-4z M185,41l4,0 0,4 -4,0 0,-4z M193,41l4,0 0,4 -4,0 0,-4z M1,45l4,0 0,4 -4,0 0,-4z M5,45l4,0 0,4 -4,0 0,-4z M13,45l4,0 0,4 -4,0 0,-4z M29,45l4,0 0,4 -4,0 0,-4z M33,45l4,0 0,4 -4,0 0,-4z M41,45l4,0 0,4 -4,0 0,-4z M45,45l4,0 0,4 -4,0 0,-4z M49,45l4,0 0,4 -4,0 0,-4z M57,45l4,0 0,4 -4,0 0,-4z M61,45l4,0 0,4 -4,0 0,-4z M69,45l4,0 0,4 -4,0 0,-4z M73,45l4,0 0,4 -4,0 0,-4z M77,45l4,0 0,4 -4,0 0,-4z M81,45l4,0 0,4 -4,0 0,-4z M85,45l4,0 0,4 -4,0 0,-4z M97,45l4,0 0,4 -4,0 0,-4z M101,45l4,0 0,4 -4,0 0,-4z M117,45l4,0 0,4 -4,0 0,-4z M137,45l4,0 0,4 -4,0 0,-4z M145,45l4,0 0,4 -4,0 0,-4z M161,45l4,0 0,4 -4,0 0,-4z M165,45l4,0 0,4 -4,0 0,-4z M189,45l4,0 0,4 -4,0 0,-4z M193,45l4,0 0,4 -4,0 0,-4z M5,49l4,0 0,4 -4,0 0,-4z M9,49l4,0 0,4 -4,0 0,-4z M13,49l4,0 0,4 -4,0 0,-4z M25,49l4,0 0,4 -4,0 0,-4z M29,49l4,0 0,4 -4,0 0,-4z M33,49l4,0 0,4 -4,0 0,-4z M53,49l4,0 0,4 -4,0 0,-4z M57,49l4,0 0,4 -4,0 0,-4z M65,49l4,0 0,4 -4,0 0,-4z M73,49l4,0 0,4 -4,0 0,-4z M77,49l4,0 0,4 -4,0 0,-4z M93,49l4,0 0,4 -4,0 0,-4z M101,49l4,0 0,4 -4,0 0,-4z M105,49l4,0 0,4 -4,0 0,-4z M113,49l4,0 0,4 -4,0 0,-4z M125,49l4,0 0,4 -4,0 0,-4z M129,49l4,0 0,4 -4,0 0,-4z M141,49l4,0 0,4 -4,0 0,-4z M145,49l4,0 0,4 -4,0 0,-4z M149,49l4,0 0,4 -4,0 0,-4z M173,49l4,0 0,4 -4,0 0,-4z M177,49l4,0 0,4 -4,0 0,-4z M193,49l4,0 0,4 -4,0 0,-4z M5,53l4,0 0,4 -4,0 0,-4z M9,53l4,0 0,4 -4,0 0,-4z M17,53l4,0 0,4 -4,0 0,-4z M21,53l4,0 0,4 -4,0 0,-4z M41,53l4,0 0,4 -4,0 0,-4z M45,53l4,0 0,4 -4,0 0,-4z M49,53l4,0 0,4 -4,0 0,-4z M53,53l4,0 0,4 -4,0 0,-4z M61,53l4,0 0,4 -4,0 0,-4z M69,53l4,0 0,4 -4,0 0,-4z M73,53l4,0 0,4 -4,0 0,-4z M89,53l4,0 0,4 -4,0 0,-4z M97,53l4,0 0,4 -4,0 0,-4z M109,53l4,0 0,4 -4,0 0,-4z M121,53l4,0 0,4 -4,0 0,-4z M137,53l4,0 0,4 -4,0 0,-4z M149,53l4,0 0,4 -4,0 0,-4z M157,53l4,0 0,4 -4,0 0,-4z M161,53l4,0 0,4 -4,0 0,-4z M173,53l4,0 0,4 -4,0 0,-4z M189,53l4,0 0,4 -4,0 0,-4z M193,53l4,0 0,4 -4,0 0,-4z M5,57l4,0 0,4 -4,0 0,-4z M9,57l4,0 0,4 -4,0 0,-4z M21,57l4,0 0,4 -4,0 0,-4z M25,57l4,0 0,4 -4,0 0,-4z M41,57l4,0 0,4 -4,0 0,-4z M53,57l4,0 0,4 -4,0 0,-4z M57,57l4,0 0,4 -4,0 0,-4z M73,57l4,0 0,4 -4,0 0,-4z M89,57l4,0 0,4 -4,0 0,-4z M97,57l4,0 0,4 -4,0 0,-4z M117,57l4,0 0,4 -4,0 0,-4z M121,57l4,0 0,4 -4,0 0,-4z M129,57l4,0 0,4 -4,0 0,-4z M133,57l4,0 0,4 -4,0 0,-4z M145,57l4,0 0,4 -4,0 0,-4z M149,57l4,0 0,4 -4,0 0,-4z M153,57l4,0 0,4 -4,0 0,-4z M165,57l4,0 0,4 -4,0 0,-4z M185,57l4,0 0,4 -4,0 0,-4z M193,57l4,0 0,4 -4,0 0,-4z M5,61l4,0 0,4 -4,0 0,-4z M13,61l4,0 0,4 -4,0 0,-4z M33,61l4,0 0,4 -4,0 0,-4z M37,61l4,0 0,4 -4,0 0,-4z M41,61l4,0 0,4 -4,0 0,-4z M49,61l4,0 0,4 -4,0 0,-4z M61,61l4,0 0,4 -4,0 0,-4z M73,61l4,0 0,4 -4,0 0,-4z M85,61l4,0 0,4 -4,0 0,-4z M101,61l4,0 0,4 -4,0 0,-4z M105,61l4,0 0,4 -4,0 0,-4z M121,61l4,0 0,4 -4,0 0,-4z M125,61l4,0 0,4 -4,0 0,-4z M129,61l4,0 0,4 -4,0 0,-4z M133,61l4,0 0,4 -4,0 0,-4z M137,61l4,0 0,4 -4,0 0,-4z M141,61l4,0 0,4 -4,0 0,-4z M145,61l4,0 0,4 -4,0 0,-4z M149,61l4,0 0,4 -4,0 0,-4z M157,61l4,0 0,4 -4,0 0,-4z M161,61l4,0 0,4 -4,0 0,-4z M173,61l4,0 0,4 -4,0 0,-4z M177,61l4,0 0,4 -4,0 0,-4z M189,61l4,0 0,4 -4,0 0,-4z M193,61l4,0 0,4 -4,0 0,-4z M1,65l4,0 0,4 -4,0 0,-4z M5,65l4,0 0,4 -4,0 0,-4z M9,65l4,0 0,4 -4,0 0,-4z M25,65l4,0 0,4 -4,0 0,-4z M29,65l4,0 0,4 -4,0 0,-4z M41,65l4,0 0,4 -4,0 0,-4z M53,65l4,0 0,4 -4,0 0,-4z M57,65l4,0 0,4 -4,0 0,-4z M69,65l4,0 0,4 -4,0 0,-4z M85,65l4,0 0,4 -4,0 0,-4z M89,65l4,0 0,4 -4,0 0,-4z M105,65l4,0 0,4 -4,0 0,-4z M113,65l4,0 0,4 -4,0 0,-4z M121,65l4,0 0,4 -4,0 0,-4z M129,65l4,0 0,4 -4,0 0,-4z M137,65l4,0 0,4 -4,0 0,-4z M141,65l4,0 0,4 -4,0 0,-4z M145,65l4,0 0,4 -4,0 0,-4z M161,65l4,0 0,4 -4,0 0,-4z M169,65l4,0 0,4 -4,0 0,-4z M177,65l4,0 0,4 -4,0 0,-4z M185,65l4,0 0,4 -4,0 0,-4z M193,65l4,0 0,4 -4,0 0,-4z M1,69l4,0 0,4 -4,0 0,-4z M5,69l4,0 0,4 -4,0 0,-4z M21,69l4,0 0,4 -4,0 0,-4z M37,69l4,0 0,4 -4,0 0,-4z M45,69l4,0 0,4 -4,0 0,-4z M53,69l4,0 0,4 -4,0 0,-4z M61,69l4,0 0,4 -4,0 0,-4z M65,69l4,0 0,4 -4,0 0,-4z M93,69l4,0 0,4 -4,0 0,-4z M97,69l4,0 0,4 -4,0 0,-4z M101,69l4,0 0,4 -4,0 0,-4z M105,69l4,0 0,4 -4,0 0,-4z M113,69l4,0 0,4 -4,0 0,-4z M145,69l4,0 0,4 -4,0 0,-4z M153,69l4,0 0,4 -4,0 0,-4z M165,69l4,0 0,4 -4,0 0,-4z M181,69l4,0 0,4 -4,0 0,-4z M185,69l4,0 0,4 -4,0 0,-4z M193,69l4,0 0,4 -4,0 0,-4z M5,73l4,0 0,4 -4,0 0,-4z M13,73l4,0 0,4 -4,0 0,-4z M17,73l4,0 0,4 -4,0 0,-4z M25,73l4,0 0,4 -4,0 0,-4z M29,73l4,0 0,4 -4,0 0,-4z M33,73l4,0 0,4 -4,0 0,-4z M49,73l4,0 0,4 -4,0 0,-4z M53,73l4,0 0,4 -4,0 0,-4z M65,73l4,0 0,4 -4,0 0,-4z M73,73l4,0 0,4 -4,0 0,-4z M77,73l4,0 0,4 -4,0 0,-4z M81,73l4,0 0,4 -4,0 0,-4z M85,73l4,0 0,4 -4,0 0,-4z M89,73l4,0 0,4 -4,0 0,-4z M93,73l4,0 0,4 -4,0 0,-4z M97,73l4,0 0,4 -4,0 0,-4z M101,73l4,0 0,4 -4,0 0,-4z M109,73l4,0 0,4 -4,0 0,-4z M117,73l4,0 0,4 -4,0 0,-4z M121,73l4,0 0,4 -4,0 0,-4z M125,73l4,0 0,4 -4,0 0,-4z M145,73l4,0 0,4 -4,0 0,-4z M157,73l4,0 0,4 -4,0 0,-4z M161,73l4,0 0,4 -4,0 0,-4z M165,73l4,0 0,4 -4,0 0,-4z M173,73l4,0 0,4 -4,0 0,-4z M177,73l4,0 0,4 -4,0 0,-4z M185,73l4,0 0,4 -4,0 0,-4z M189,73l4,0 0,4 -4,0 0,-4z M193,73l4,0 0,4 -4,0 0,-4z M5,77l4,0 0,4 -4,0 0,-4z M9,77l4,0 0,4 -4,0 0,-4z M13,77l4,0 0,4 -4,0 0,-4z M17,77l4,0 0,4 -4,0 0,-4z M21,77l4,0 0,4 -4,0 0,-4z M29,77l4,0 0,4 -4,0 0,-4z M33,77l4,0 0,4 -4,0 0,-4z M41,77l4,0 0,4 -4,0 0,-4z M45,77l4,0 0,4 -4,0 0,-4z M49,77l4,0 0,4 -4,0 0,-4z M53,77l4,0 0,4 -4,0 0,-4z M57,77l4,0 0,4 -4,0 0,-4z M61,77l4,0 0,4 -4,0 0,-4z M65,77l4,0 0,4 -4,0 0,-4z M69,77l4,0 0,4 -4,0 0,-4z M81,77l4,0 0,4 -4,0 0,-4z M85,77l4,0 0,4 -4,0 0,-4z M109,77l4,0 0,4 -4,0 0,-4z M117,77l4,0 0,4 -4,0 0,-4z M125,77l4,0 0,4 -4,0 0,-4z M133,77l4,0 0,4 -4,0 0,-4z M137,77l4,0 0,4 -4,0 0,-4z M145,77l4,0 0,4 -4,0 0,-4z M149,77l4,0 0,4 -4,0 0,-4z M153,77l4,0 0,4 -4,0 0,-4z M157,77l4,0 0,4 -4,0 0,-4z M161,77l4,0 0,4 -4,0 0,-4z M165,77l4,0 0,4 -4,0 0,-4z M173,77l4,0 0,4 -4,0 0,-4z M177,77l4,0 0,4 -4,0 0,-4z M185,77l4,0 0,4 -4,0 0,-4z M193,77l4,0 0,4 -4,0 0,-4z M1,81l4,0 0,4 -4,0 0,-4z M9,81l4,0 0,4 -4,0 0,-4z M13,81l4,0 0,4 -4,0 0,-4z M25,81l4,0 0,4 -4,0 0,-4z M29,81l4,0 0,4 -4,0 0,-4z M37,81l4,0 0,4 -4,0 0,-4z M41,81l4,0 0,4 -4,0 0,-4z M49,81l4,0 0,4 -4,0 0,-4z M57,81l4,0 0,4 -4,0 0,-4z M65,81l4,0 0,4 -4,0 0,-4z M69,81l4,0 0,4 -4,0 0,-4z M73,81l4,0 0,4 -4,0 0,-4z M77,81l4,0 0,4 -4,0 0,-4z M89,81l4,0 0,4 -4,0 0,-4z M93,81l4,0 0,4 -4,0 0,-4z M97,81l4,0 0,4 -4,0 0,-4z M109,81l4,0 0,4 -4,0 0,-4z M113,81l4,0 0,4 -4,0 0,-4z M133,81l4,0 0,4 -4,0 0,-4z M137,81l4,0 0,4 -4,0 0,-4z M145,81l4,0 0,4 -4,0 0,-4z M149,81l4,0 0,4 -4,0 0,-4z M153,81l4,0 0,4 -4,0 0,-4z M165,81l4,0 0,4 -4,0 0,-4z M169,81l4,0 0,4 -4,0 0,-4z M173,81l4,0 0,4 -4,0 0,-4z M181,81l4,0 0,4 -4,0 0,-4z M193,81l4,0 0,4 -4,0 0,-4z M9,85l4,0 0,4 -4,0 0,-4z M13,85l4,0 0,4 -4,0 0,-4z M37,85l4,0 0,4 -4,0 0,-4z M49,85l4,0 0,4 -4,0 0,-4z M61,85l4,0 0,4 -4,0 0,-4z M73,85l4,0 0,4 -4,0 0,-4z M81,85l4,0 0,4 -4,0 0,-4z M97,85l4,0 0,4 -4,0 0,-4z M101,85l4,0 0,4 -4,0 0,-4z M109,85l4,0 0,4 -4,0 0,-4z M113,85l4,0 0,4 -4,0 0,-4z M121,85l4,0 0,4 -4,0 0,-4z M129,85l4,0 0,4 -4,0 0,-4z M149,85l4,0 0,4 -4,0 0,-4z M173,85l4,0 0,4 -4,0 0,-4z M185,85l4,0 0,4 -4,0 0,-4z M189,85l4,0 0,4 -4,0 0,-4z M193,85l4,0 0,4 -4,0 0,-4z M1,89l4,0 0,4 -4,0 0,-4z M5,89l4,0 0,4 -4,0 0,-4z M9,89l4,0 0,4 -4,0 0,-4z M13,89l4,0 0,4 -4,0 0,-4z M17,89l4,0 0,4 -4,0 0,-4z M21,89l4,0 0,4 -4,0 0,-4z M25,89l4,0 0,4 -4,0 0,-4z M29,89l4,0 0,4 -4,0 0,-4z M33,89l4,0 0,4 -4,0 0,-4z M37,89l4,0 0,4 -4,0 0,-4z M41,89l4,0 0,4 -4,0 0,-4z M45,89l4,0 0,4 -4,0 0,-4z M53,89l4,0 0,4 -4,0 0,-4z M69,89l4,0 0,4 -4,0 0,-4z M73,89l4,0 0,4 -4,0 0,-4z M77,89l4,0 0,4 -4,0 0,-4z M81,89l4,0 0,4 -4,0 0,-4z M85,89l4,0 0,4 -4,0 0,-4z M89,89l4,0 0,4 -4,0 0,-4z M93,89l4,0 0,4 -4,0 0,-4z M97,89l4,0 0,4 -4,0 0,-4z M101,89l4,0 0,4 -4,0 0,-4z M105,89l4,0 0,4 -4,0 0,-4z M113,89l4,0 0,4 -4,0 0,-4z M121,89l4,0 0,4 -4,0 0,-4z M125,89l4,0 0,4 -4,0 0,-4z M133,89l4,0 0,4 -4,0 0,-4z M137,89l4,0 0,4 -4,0 0,-4z M141,89l4,0 0,4 -4,0 0,-4z M145,89l4,0 0,4 -4,0 0,-4z M149,89l4,0 0,4 -4,0 0,-4z M161,89l4,0 0,4 -4,0 0,-4z M165,89l4,0 0,4 -4,0 0,-4z M169,89l4,0 0,4 -4,0 0,-4z M173,89l4,0 0,4 -4,0 0,-4z M177,89l4,0 0,4 -4,0 0,-4z M181,89l4,0 0,4 -4,0 0,-4z M185,89l4,0 0,4 -4,0 0,-4z M189,89l4,0 0,4 -4,0 0,-4z M193,89l4,0 0,4 -4,0 0,-4z M5,93l4,0 0,4 -4,0 0,-4z M9,93l4,0 0,4 -4,0 0,-4z M17,93l4,0 0,4 -4,0 0,-4z M33,93l4,0 0,4 -4,0 0,-4z M41,93l4,0 0,4 -4,0 0,-4z M45,93l4,0 0,4 -4,0 0,-4z M53,93l4,0 0,4 -4,0 0,-4z M57,93l4,0 0,4 -4,0 0,-4z M61,93l4,0 0,4 -4,0 0,-4z M65,93l4,0 0,4 -4,0 0,-4z M81,93l4,0 0,4 -4,0 0,-4z M89,93l4,0 0,4 -4,0 0,-4z M105,93l4,0 0,4 -4,0 0,-4z M113,93l4,0 0,4 -4,0 0,-4z M117,93l4,0 0,4 -4,0 0,-4z M129,93l4,0 0,4 -4,0 0,-4z M133,93l4,0 0,4 -4,0 0,-4z M145,93l4,0 0,4 -4,0 0,-4z M149,93l4,0 0,4 -4,0 0,-4z M153,93l4,0 0,4 -4,0 0,-4z M157,93l4,0 0,4 -4,0 0,-4z M161,93l4,0 0,4 -4,0 0,-4z M177,93l4,0 0,4 -4,0 0,-4z M193,93l4,0 0,4 -4,0 0,-4z M1,97l4,0 0,4 -4,0 0,-4z M5,97l4,0 0,4 -4,0 0,-4z M9,97l4,0 0,4 -4,0 0,-4z M13,97l4,0 0,4 -4,0 0,-4z M17,97l4,0 0,4 -4,0 0,-4z M25,97l4,0 0,4 -4,0 0,-4z M33,97l4,0 0,4 -4,0 0,-4z M37,97l4,0 0,4 -4,0 0,-4z M45,97l4,0 0,4 -4,0 0,-4z M53,97l4,0 0,4 -4,0 0,-4z M57,97l4,0 0,4 -4,0 0,-4z M61,97l4,0 0,4 -4,0 0,-4z M77,97l4,0 0,4 -4,0 0,-4z M85,97l4,0 0,4 -4,0 0,-4z M89,97l4,0 0,4 -4,0 0,-4z M97,97l4,0 0,4 -4,0 0,-4z M105,97l4,0 0,4 -4,0 0,-4z M117,97l4,0 0,4 -4,0 0,-4z M121,97l4,0 0,4 -4,0 0,-4z M129,97l4,0 0,4 -4,0 0,-4z M133,97l4,0 0,4 -4,0 0,-4z M145,97l4,0 0,4 -4,0 0,-4z M149,97l4,0 0,4 -4,0 0,-4z M157,97l4,0 0,4 -4,0 0,-4z M161,97l4,0 0,4 -4,0 0,-4z M169,97l4,0 0,4 -4,0 0,-4z M177,97l4,0 0,4 -4,0 0,-4z M193,97l4,0 0,4 -4,0 0,-4z M5,101l4,0 0,4 -4,0 0,-4z M9,101l4,0 0,4 -4,0 0,-4z M17,101l4,0 0,4 -4,0 0,-4z M33,101l4,0 0,4 -4,0 0,-4z M37,101l4,0 0,4 -4,0 0,-4z M53,101l4,0 0,4 -4,0 0,-4z M57,101l4,0 0,4 -4,0 0,-4z M61,101l4,0 0,4 -4,0 0,-4z M77,101l4,0 0,4 -4,0 0,-4z M85,101l4,0 0,4 -4,0 0,-4z M89,101l4,0 0,4 -4,0 0,-4z M105,101l4,0 0,4 -4,0 0,-4z M109,101l4,0 0,4 -4,0 0,-4z M113,101l4,0 0,4 -4,0 0,-4z M125,101l4,0 0,4 -4,0 0,-4z M137,101l4,0 0,4 -4,0 0,-4z M149,101l4,0 0,4 -4,0 0,-4z M161,101l4,0 0,4 -4,0 0,-4z M177,101l4,0 0,4 -4,0 0,-4z M185,101l4,0 0,4 -4,0 0,-4z M189,101l4,0 0,4 -4,0 0,-4z M193,101l4,0 0,4 -4,0 0,-4z M5,105l4,0 0,4 -4,0 0,-4z M17,105l4,0 0,4 -4,0 0,-4z M21,105l4,0 0,4 -4,0 0,-4z M25,105l4,0 0,4 -4,0 0,-4z M29,105l4,0 0,4 -4,0 0,-4z M33,105l4,0 0,4 -4,0 0,-4z M41,105l4,0 0,4 -4,0 0,-4z M45,105l4,0 0,4 -4,0 0,-4z M49,105l4,0 0,4 -4,0 0,-4z M53,105l4,0 0,4 -4,0 0,-4z M69,105l4,0 0,4 -4,0 0,-4z M77,105l4,0 0,4 -4,0 0,-4z M81,105l4,0 0,4 -4,0 0,-4z M85,105l4,0 0,4 -4,0 0,-4z M89,105l4,0 0,4 -4,0 0,-4z M93,105l4,0 0,4 -4,0 0,-4z M97,105l4,0 0,4 -4,0 0,-4z M101,105l4,0 0,4 -4,0 0,-4z M105,105l4,0 0,4 -4,0 0,-4z M109,105l4,0 0,4 -4,0 0,-4z M113,105l4,0 0,4 -4,0 0,-4z M133,105l4,0 0,4 -4,0 0,-4z M153,105l4,0 0,4 -4,0 0,-4z M161,105l4,0 0,4 -4,0 0,-4z M165,105l4,0 0,4 -4,0 0,-4z M169,105l4,0 0,4 -4,0 0,-4z M173,105l4,0 0,4 -4,0 0,-4z M177,105l4,0 0,4 -4,0 0,-4z M181,105l4,0 0,4 -4,0 0,-4z M185,105l4,0 0,4 -4,0 0,-4z M193,105l4,0 0,4 -4,0 0,-4z M17,109l4,0 0,4 -4,0 0,-4z M37,109l4,0 0,4 -4,0 0,-4z M49,109l4,0 0,4 -4,0 0,-4z M53,109l4,0 0,4 -4,0 0,-4z M73,109l4,0 0,4 -4,0 0,-4z M77,109l4,0 0,4 -4,0 0,-4z M97,109l4,0 0,4 -4,0 0,-4z M101,109l4,0 0,4 -4,0 0,-4z M105,109l4,0 0,4 -4,0 0,-4z M109,109l4,0 0,4 -4,0 0,-4z M113,109l4,0 0,4 -4,0 0,-4z M117,109l4,0 0,4 -4,0 0,-4z M121,109l4,0 0,4 -4,0 0,-4z M129,109l4,0 0,4 -4,0 0,-4z M133,109l4,0 0,4 -4,0 0,-4z M141,109l4,0 0,4 -4,0 0,-4z M145,109l4,0 0,4 -4,0 0,-4z M153,109l4,0 0,4 -4,0 0,-4z M161,109l4,0 0,4 -4,0 0,-4z M169,109l4,0 0,4 -4,0 0,-4z M181,109l4,0 0,4 -4,0 0,-4z M193,109l4,0 0,4 -4,0 0,-4z M13,113l4,0 0,4 -4,0 0,-4z M21,113l4,0 0,4 -4,0 0,-4z M25,113l4,0 0,4 -4,0 0,-4z M29,113l4,0 0,4 -4,0 0,-4z M41,113l4,0 0,4 -4,0 0,-4z M53,113l4,0 0,4 -4,0 0,-4z M57,113l4,0 0,4 -4,0 0,-4z M69,113l4,0 0,4 -4,0 0,-4z M77,113l4,0 0,4 -4,0 0,-4z M85,113l4,0 0,4 -4,0 0,-4z M101,113l4,0 0,4 -4,0 0,-4z M113,113l4,0 0,4 -4,0 0,-4z M117,113l4,0 0,4 -4,0 0,-4z M129,113l4,0 0,4 -4,0 0,-4z M133,113l4,0 0,4 -4,0 0,-4z M141,113l4,0 0,4 -4,0 0,-4z M145,113l4,0 0,4 -4,0 0,-4z M161,113l4,0 0,4 -4,0 0,-4z M165,113l4,0 0,4 -4,0 0,-4z M185,113l4,0 0,4 -4,0 0,-4z M193,113l4,0 0,4 -4,0 0,-4z M1,117l4,0 0,4 -4,0 0,-4z M5,117l4,0 0,4 -4,0 0,-4z M9,117l4,0 0,4 -4,0 0,-4z M21,117l4,0 0,4 -4,0 0,-4z M37,117l4,0 0,4 -4,0 0,-4z M45,117l4,0 0,4 -4,0 0,-4z M53,117l4,0 0,4 -4,0 0,-4z M81,117l4,0 0,4 -4,0 0,-4z M85,117l4,0 0,4 -4,0 0,-4z M105,117l4,0 0,4 -4,0 0,-4z M113,117l4,0 0,4 -4,0 0,-4z M117,117l4,0 0,4 -4,0 0,-4z M121,117l4,0 0,4 -4,0 0,-4z M125,117l4,0 0,4 -4,0 0,-4z M153,117l4,0 0,4 -4,0 0,-4z M177,117l4,0 0,4 -4,0 0,-4z M185,117l4,0 0,4 -4,0 0,-4z M189,117l4,0 0,4 -4,0 0,-4z M193,117l4,0 0,4 -4,0 0,-4z M21,121l4,0 0,4 -4,0 0,-4z M25,121l4,0 0,4 -4,0 0,-4z M33,121l4,0 0,4 -4,0 0,-4z M41,121l4,0 0,4 -4,0 0,-4z M45,121l4,0 0,4 -4,0 0,-4z M49,121l4,0 0,4 -4,0 0,-4z M53,121l4,0 0,4 -4,0 0,-4z M61,121l4,0 0,4 -4,0 0,-4z M65,121l4,0 0,4 -4,0 0,-4z M73,121l4,0 0,4 -4,0 0,-4z M113,121l4,0 0,4 -4,0 0,-4z M121,121l4,0 0,4 -4,0 0,-4z M125,121l4,0 0,4 -4,0 0,-4z M145,121l4,0 0,4 -4,0 0,-4z M165,121l4,0 0,4 -4,0 0,-4z M169,121l4,0 0,4 -4,0 0,-4z M177,121l4,0 0,4 -4,0 0,-4z M181,121l4,0 0,4 -4,0 0,-4z M189,121l4,0 0,4 -4,0 0,-4z M193,121l4,0 0,4 -4,0 0,-4z M5,125l4,0 0,4 -4,0 0,-4z M9,125l4,0 0,4 -4,0 0,-4z M17,125l4,0 0,4 -4,0 0,-4z M21,125l4,0 0,4 -4,0 0,-4z M33,125l4,0 0,4 -4,0 0,-4z M49,125l4,0 0,4 -4,0 0,-4z M53,125l4,0 0,4 -4,0 0,-4z M65,125l4,0 0,4 -4,0 0,-4z M69,125l4,0 0,4 -4,0 0,-4z M73,125l4,0 0,4 -4,0 0,-4z M77,125l4,0 0,4 -4,0 0,-4z M81,125l4,0 0,4 -4,0 0,-4z M85,125l4,0 0,4 -4,0 0,-4z M89,125l4,0 0,4 -4,0 0,-4z M93,125l4,0 0,4 -4,0 0,-4z M97,125l4,0 0,4 -4,0 0,-4z M101,125l4,0 0,4 -4,0 0,-4z M113,125l4,0 0,4 -4,0 0,-4z M137,125l4,0 0,4 -4,0 0,-4z M145,125l4,0 0,4 -4,0 0,-4z M149,125l4,0 0,4 -4,0 0,-4z M153,125l4,0 0,4 -4,0 0,-4z M165,125l4,0 0,4 -4,0 0,-4z M169,125l4,0 0,4 -4,0 0,-4z M185,125l4,0 0,4 -4,0 0,-4z M1,129l4,0 0,4 -4,0 0,-4z M9,129l4,0 0,4 -4,0 0,-4z M17,129l4,0 0,4 -4,0 0,-4z M21,129l4,0 0,4 -4,0 0,-4z M25,129l4,0 0,4 -4,0 0,-4z M33,129l4,0 0,4 -4,0 0,-4z M37,129l4,0 0,4 -4,0 0,-4z M41,129l4,0 0,4 -4,0 0,-4z M49,129l4,0 0,4 -4,0 0,-4z M53,129l4,0 0,4 -4,0 0,-4z M57,129l4,0 0,4 -4,0 0,-4z M61,129l4,0 0,4 -4,0 0,-4z M69,129l4,0 0,4 -4,0 0,-4z M73,129l4,0 0,4 -4,0 0,-4z M77,129l4,0 0,4 -4,0 0,-4z M81,129l4,0 0,4 -4,0 0,-4z M85,129l4,0 0,4 -4,0 0,-4z M93,129l4,0 0,4 -4,0 0,-4z M97,129l4,0 0,4 -4,0 0,-4z M113,129l4,0 0,4 -4,0 0,-4z M121,129l4,0 0,4 -4,0 0,-4z M125,129l4,0 0,4 -4,0 0,-4z M129,129l4,0 0,4 -4,0 0,-4z M133,129l4,0 0,4 -4,0 0,-4z M137,129l4,0 0,4 -4,0 0,-4z M145,129l4,0 0,4 -4,0 0,-4z M149,129l4,0 0,4 -4,0 0,-4z M161,129l4,0 0,4 -4,0 0,-4z M165,129l4,0 0,4 -4,0 0,-4z M169,129l4,0 0,4 -4,0 0,-4z M173,129l4,0 0,4 -4,0 0,-4z M177,129l4,0 0,4 -4,0 0,-4z M193,129l4,0 0,4 -4,0 0,-4z M21,133l4,0 0,4 -4,0 0,-4z M37,133l4,0 0,4 -4,0 0,-4z M45,133l4,0 0,4 -4,0 0,-4z M53,133l4,0 0,4 -4,0 0,-4z M65,133l4,0 0,4 -4,0 0,-4z M97,133l4,0 0,4 -4,0 0,-4z M105,133l4,0 0,4 -4,0 0,-4z M109,133l4,0 0,4 -4,0 0,-4z M117,133l4,0 0,4 -4,0 0,-4z M121,133l4,0 0,4 -4,0 0,-4z M125,133l4,0 0,4 -4,0 0,-4z M129,133l4,0 0,4 -4,0 0,-4z M149,133l4,0 0,4 -4,0 0,-4z M157,133l4,0 0,4 -4,0 0,-4z M165,133l4,0 0,4 -4,0 0,-4z M193,133l4,0 0,4 -4,0 0,-4z M1,137l4,0 0,4 -4,0 0,-4z M5,137l4,0 0,4 -4,0 0,-4z M13,137l4,0 0,4 -4,0 0,-4z M17,137l4,0 0,4 -4,0 0,-4z M25,137l4,0 0,4 -4,0 0,-4z M29,137l4,0 0,4 -4,0 0,-4z M33,137l4,0 0,4 -4,0 0,-4z M41,137l4,0 0,4 -4,0 0,-4z M61,137l4,0 0,4 -4,0 0,-4z M69,137l4,0 0,4 -4,0 0,-4z M81,137l4,0 0,4 -4,0 0,-4z M93,137l4,0 0,4 -4,0 0,-4z M101,137l4,0 0,4 -4,0 0,-4z M117,137l4,0 0,4 -4,0 0,-4z M137,137l4,0 0,4 -4,0 0,-4z M141,137l4,0 0,4 -4,0 0,-4z M145,137l4,0 0,4 -4,0 0,-4z M149,137l4,0 0,4 -4,0 0,-4z M165,137l4,0 0,4 -4,0 0,-4z M169,137l4,0 0,4 -4,0 0,-4z M177,137l4,0 0,4 -4,0 0,-4z M189,137l4,0 0,4 -4,0 0,-4z M193,137l4,0 0,4 -4,0 0,-4z M1,141l4,0 0,4 -4,0 0,-4z M5,141l4,0 0,4 -4,0 0,-4z M9,141l4,0 0,4 -4,0 0,-4z M17,141l4,0 0,4 -4,0 0,-4z M21,141l4,0 0,4 -4,0 0,-4z M37,141l4,0 0,4 -4,0 0,-4z M41,141l4,0 0,4 -4,0 0,-4z M69,141l4,0 0,4 -4,0 0,-4z M73,141l4,0 0,4 -4,0 0,-4z M85,141l4,0 0,4 -4,0 0,-4z M89,141l4,0 0,4 -4,0 0,-4z M93,141l4,0 0,4 -4,0 0,-4z M105,141l4,0 0,4 -4,0 0,-4z M125,141l4,0 0,4 -4,0 0,-4z M145,141l4,0 0,4 -4,0 0,-4z M149,141l4,0 0,4 -4,0 0,-4z M153,141l4,0 0,4 -4,0 0,-4z M165,141l4,0 0,4 -4,0 0,-4z M169,141l4,0 0,4 -4,0 0,-4z M177,141l4,0 0,4 -4,0 0,-4z M1,145l4,0 0,4 -4,0 0,-4z M5,145l4,0 0,4 -4,0 0,-4z M9,145l4,0 0,4 -4,0 0,-4z M21,145l4,0 0,4 -4,0 0,-4z M25,145l4,0 0,4 -4,0 0,-4z M41,145l4,0 0,4 -4,0 0,-4z M49,145l4,0 0,4 -4,0 0,-4z M57,145l4,0 0,4 -4,0 0,-4z M61,145l4,0 0,4 -4,0 0,-4z M65,145l4,0 0,4 -4,0 0,-4z M69,145l4,0 0,4 -4,0 0,-4z M73,145l4,0 0,4 -4,0 0,-4z M77,145l4,0 0,4 -4,0 0,-4z M85,145l4,0 0,4 -4,0 0,-4z M97,145l4,0 0,4 -4,0 0,-4z M105,145l4,0 0,4 -4,0 0,-4z M109,145l4,0 0,4 -4,0 0,-4z M113,145l4,0 0,4 -4,0 0,-4z M117,145l4,0 0,4 -4,0 0,-4z M129,145l4,0 0,4 -4,0 0,-4z M137,145l4,0 0,4 -4,0 0,-4z M141,145l4,0 0,4 -4,0 0,-4z M145,145l4,0 0,4 -4,0 0,-4z M153,145l4,0 0,4 -4,0 0,-4z M165,145l4,0 0,4 -4,0 0,-4z M189,145l4,0 0,4 -4,0 0,-4z M13,149l4,0 0,4 -4,0 0,-4z M17,149l4,0 0,4 -4,0 0,-4z M21,149l4,0 0,4 -4,0 0,-4z M41,149l4,0 0,4 -4,0 0,-4z M45,149l4,0 0,4 -4,0 0,-4z M61,149l4,0 0,4 -4,0 0,-4z M65,149l4,0 0,4 -4,0 0,-4z M69,149l4,0 0,4 -4,0 0,-4z M89,149l4,0 0,4 -4,0 0,-4z M93,149l4,0 0,4 -4,0 0,-4z M97,149l4,0 0,4 -4,0 0,-4z M101,149l4,0 0,4 -4,0 0,-4z M109,149l4,0 0,4 -4,0 0,-4z M113,149l4,0 0,4 -4,0 0,-4z M117,149l4,0 0,4 -4,0 0,-4z M121,149l4,0 0,4 -4,0 0,-4z M125,149l4,0 0,4 -4,0 0,-4z M129,149l4,0 0,4 -4,0 0,-4z M137,149l4,0 0,4 -4,0 0,-4z M149,149l4,0 0,4 -4,0 0,-4z M157,149l4,0 0,4 -4,0 0,-4z M173,149l4,0 0,4 -4,0 0,-4z M181,149l4,0 0,4 -4,0 0,-4z M193,149l4,0 0,4 -4,0 0,-4z M5,153l4,0 0,4 -4,0 0,-4z M21,153l4,0 0,4 -4,0 0,-4z M25,153l4,0 0,4 -4,0 0,-4z M29,153l4,0 0,4 -4,0 0,-4z M37,153l4,0 0,4 -4,0 0,-4z M49,153l4,0 0,4 -4,0 0,-4z M53,153l4,0 0,4 -4,0 0,-4z M57,153l4,0 0,4 -4,0 0,-4z M61,153l4,0 0,4 -4,0 0,-4z M69,153l4,0 0,4 -4,0 0,-4z M77,153l4,0 0,4 -4,0 0,-4z M81,153l4,0 0,4 -4,0 0,-4z M85,153l4,0 0,4 -4,0 0,-4z M89,153l4,0 0,4 -4,0 0,-4z M93,153l4,0 0,4 -4,0 0,-4z M101,153l4,0 0,4 -4,0 0,-4z M105,153l4,0 0,4 -4,0 0,-4z M117,153l4,0 0,4 -4,0 0,-4z M133,153l4,0 0,4 -4,0 0,-4z M153,153l4,0 0,4 -4,0 0,-4z M169,153l4,0 0,4 -4,0 0,-4z M173,153l4,0 0,4 -4,0 0,-4z M181,153l4,0 0,4 -4,0 0,-4z M185,153l4,0 0,4 -4,0 0,-4z M193,153l4,0 0,4 -4,0 0,-4z M5,157l4,0 0,4 -4,0 0,-4z M9,157l4,0 0,4 -4,0 0,-4z M13,157l4,0 0,4 -4,0 0,-4z M29,157l4,0 0,4 -4,0 0,-4z M33,157l4,0 0,4 -4,0 0,-4z M37,157l4,0 0,4 -4,0 0,-4z M41,157l4,0 0,4 -4,0 0,-4z M45,157l4,0 0,4 -4,0 0,-4z M53,157l4,0 0,4 -4,0 0,-4z M73,157l4,0 0,4 -4,0 0,-4z M85,157l4,0 0,4 -4,0 0,-4z M89,157l4,0 0,4 -4,0 0,-4z M93,157l4,0 0,4 -4,0 0,-4z M109,157l4,0 0,4 -4,0 0,-4z M117,157l4,0 0,4 -4,0 0,-4z M121,157l4,0 0,4 -4,0 0,-4z M125,157l4,0 0,4 -4,0 0,-4z M129,157l4,0 0,4 -4,0 0,-4z M133,157l4,0 0,4 -4,0 0,-4z M145,157l4,0 0,4 -4,0 0,-4z M149,157l4,0 0,4 -4,0 0,-4z M153,157l4,0 0,4 -4,0 0,-4z M165,157l4,0 0,4 -4,0 0,-4z M169,157l4,0 0,4 -4,0 0,-4z M173,157l4,0 0,4 -4,0 0,-4z M177,157l4,0 0,4 -4,0 0,-4z M193,157l4,0 0,4 -4,0 0,-4z M1,161l4,0 0,4 -4,0 0,-4z M5,161l4,0 0,4 -4,0 0,-4z M9,161l4,0 0,4 -4,0 0,-4z M25,161l4,0 0,4 -4,0 0,-4z M29,161l4,0 0,4 -4,0 0,-4z M33,161l4,0 0,4 -4,0 0,-4z M37,161l4,0 0,4 -4,0 0,-4z M45,161l4,0 0,4 -4,0 0,-4z M49,161l4,0 0,4 -4,0 0,-4z M61,161l4,0 0,4 -4,0 0,-4z M65,161l4,0 0,4 -4,0 0,-4z M69,161l4,0 0,4 -4,0 0,-4z M73,161l4,0 0,4 -4,0 0,-4z M85,161l4,0 0,4 -4,0 0,-4z M89,161l4,0 0,4 -4,0 0,-4z M93,161l4,0 0,4 -4,0 0,-4z M97,161l4,0 0,4 -4,0 0,-4z M101,161l4,0 0,4 -4,0 0,-4z M105,161l4,0 0,4 -4,0 0,-4z M113,161l4,0 0,4 -4,0 0,-4z M129,161l4,0 0,4 -4,0 0,-4z M133,161l4,0 0,4 -4,0 0,-4z M141,161l4,0 0,4 -4,0 0,-4z M145,161l4,0 0,4 -4,0 0,-4z M161,161l4,0 0,4 -4,0 0,-4z M165,161l4,0 0,4 -4,0 0,-4z M169,161l4,0 0,4 -4,0 0,-4z M173,161l4,0 0,4 -4,0 0,-4z M177,161l4,0 0,4 -4,0 0,-4z M181,161l4,0 0,4 -4,0 0,-4z M185,161l4,0 0,4 -4,0 0,-4z M189,161l4,0 0,4 -4,0 0,-4z M33,165l4,0 0,4 -4,0 0,-4z M37,165l4,0 0,4 -4,0 0,-4z M45,165l4,0 0,4 -4,0 0,-4z M53,165l4,0 0,4 -4,0 0,-4z M57,165l4,0 0,4 -4,0 0,-4z M65,165l4,0 0,4 -4,0 0,-4z M81,165l4,0 0,4 -4,0 0,-4z M89,165l4,0 0,4 -4,0 0,-4z M105,165l4,0 0,4 -4,0 0,-4z M109,165l4,0 0,4 -4,0 0,-4z M121,165l4,0 0,4 -4,0 0,-4z M125,165l4,0 0,4 -4,0 0,-4z M129,165l4,0 0,4 -4,0 0,-4z M133,165l4,0 0,4 -4,0 0,-4z M145,165l4,0 0,4 -4,0 0,-4z M153,165l4,0 0,4 -4,0 0,-4z M161,165l4,0 0,4 -4,0 0,-4z M177,165l4,0 0,4 -4,0 0,-4z M193,165l4,0 0,4 -4,0 0,-4z M1,169l4,0 0,4 -4,0 0,-4z M5,169l4,0 0,4 -4,0 0,-4z M9,169l4,0 0,4 -4,0 0,-4z M13,169l4,0 0,4 -4,0 0,-4z M17,169l4,0 0,4 -4,0 0,-4z M21,169l4,0 0,4 -4,0 0,-4z M25,169l4,0 0,4 -4,0 0,-4z M45,169l4,0 0,4 -4,0 0,-4z M49,169l4,0 0,4 -4,0 0,-4z M61,169l4,0 0,4 -4,0 0,-4z M77,169l4,0 0,4 -4,0 0,-4z M81,169l4,0 0,4 -4,0 0,-4z M85,169l4,0 0,4 -4,0 0,-4z M89,169l4,0 0,4 -4,0 0,-4z M97,169l4,0 0,4 -4,0 0,-4z M105,169l4,0 0,4 -4,0 0,-4z M109,169l4,0 0,4 -4,0 0,-4z M113,169l4,0 0,4 -4,0 0,-4z M121,169l4,0 0,4 -4,0 0,-4z M125,169l4,0 0,4 -4,0 0,-4z M129,169l4,0 0,4 -4,0 0,-4z M137,169l4,0 0,4 -4,0 0,-4z M141,169l4,0 0,4 -4,0 0,-4z M157,169l4,0 0,4 -4,0 0,-4z M161,169l4,0 0,4 -4,0 0,-4z M169,169l4,0 0,4 -4,0 0,-4z M177,169l4,0 0,4 -4,0 0,-4z M185,169l4,0 0,4 -4,0 0,-4z M189,169l4,0 0,4 -4,0 0,-4z M193,169l4,0 0,4 -4,0 0,-4z M1,173l4,0 0,4 -4,0 0,-4z M25,173l4,0 0,4 -4,0 0,-4z M37,173l4,0 0,4 -4,0 0,-4z M41,173l4,0 0,4 -4,0 0,-4z M49,173l4,0 0,4 -4,0 0,-4z M57,173l4,0 0,4 -4,0 0,-4z M77,173l4,0 0,4 -4,0 0,-4z M89,173l4,0 0,4 -4,0 0,-4z M105,173l4,0 0,4 -4,0 0,-4z M113,173l4,0 0,4 -4,0 0,-4z M117,173l4,0 0,4 -4,0 0,-4z M129,173l4,0 0,4 -4,0 0,-4z M133,173l4,0 0,4 -4,0 0,-4z M141,173l4,0 0,4 -4,0 0,-4z M145,173l4,0 0,4 -4,0 0,-4z M149,173l4,0 0,4 -4,0 0,-4z M153,173l4,0 0,4 -4,0 0,-4z M157,173l4,0 0,4 -4,0 0,-4z M161,173l4,0 0,4 -4,0 0,-4z M177,173l4,0 0,4 -4,0 0,-4z M185,173l4,0 0,4 -4,0 0,-4z M189,173l4,0 0,4 -4,0 0,-4z M193,173l4,0 0,4 -4,0 0,-4z M1,177l4,0 0,4 -4,0 0,-4z M9,177l4,0 0,4 -4,0 0,-4z M13,177l4,0 0,4 -4,0 0,-4z M17,177l4,0 0,4 -4,0 0,-4z M25,177l4,0 0,4 -4,0 0,-4z M49,177l4,0 0,4 -4,0 0,-4z M69,177l4,0 0,4 -4,0 0,-4z M77,177l4,0 0,4 -4,0 0,-4z M81,177l4,0 0,4 -4,0 0,-4z M85,177l4,0 0,4 -4,0 0,-4z M89,177l4,0 0,4 -4,0 0,-4z M93,177l4,0 0,4 -4,0 0,-4z M97,177l4,0 0,4 -4,0 0,-4z M101,177l4,0 0,4 -4,0 0,-4z M105,177l4,0 0,4 -4,0 0,-4z M109,177l4,0 0,4 -4,0 0,-4z M113,177l4,0 0,4 -4,0 0,-4z M117,177l4,0 0,4 -4,0 0,-4z M125,177l4,0 0,4 -4,0 0,-4z M133,177l4,0 0,4 -4,0 0,-4z M137,177l4,0 0,4 -4,0 0,-4z M145,177l4,0 0,4 -4,0 0,-4z M149,177l4,0 0,4 -4,0 0,-4z M153,177l4,0 0,4 -4,0 0,-4z M161,177l4,0 0,4 -4,0 0,-4z M165,177l4,0 0,4 -4,0 0,-4z M169,177l4,0 0,4 -4,0 0,-4z M173,177l4,0 0,4 -4,0 0,-4z M177,177l4,0 0,4 -4,0 0,-4z M181,177l4,0 0,4 -4,0 0,-4z M1,181l4,0 0,4 -4,0 0,-4z M9,181l4,0 0,4 -4,0 0,-4z M13,181l4,0 0,4 -4,0 0,-4z M17,181l4,0 0,4 -4,0 0,-4z M25,181l4,0 0,4 -4,0 0,-4z M33,181l4,0 0,4 -4,0 0,-4z M37,181l4,0 0,4 -4,0 0,-4z M53,181l4,0 0,4 -4,0 0,-4z M57,181l4,0 0,4 -4,0 0,-4z M73,181l4,0 0,4 -4,0 0,-4z M97,181l4,0 0,4 -4,0 0,-4z M105,181l4,0 0,4 -4,0 0,-4z M109,181l4,0 0,4 -4,0 0,-4z M133,181l4,0 0,4 -4,0 0,-4z M141,181l4,0 0,4 -4,0 0,-4z M157,181l4,0 0,4 -4,0 0,-4z M161,181l4,0 0,4 -4,0 0,-4z M173,181l4,0 0,4 -4,0 0,-4z M177,181l4,0 0,4 -4,0 0,-4z M185,181l4,0 0,4 -4,0 0,-4z M1,185l4,0 0,4 -4,0 0,-4z M9,185l4,0 0,4 -4,0 0,-4z M13,185l4,0 0,4 -4,0 0,-4z M17,185l4,0 0,4 -4,0 0,-4z M25,185l4,0 0,4 -4,0 0,-4z M37,185l4,0 0,4 -4,0 0,-4z M41,185l4,0 0,4 -4,0 0,-4z M49,185l4,0 0,4 -4,0 0,-4z M61,185l4,0 0,4 -4,0 0,-4z M65,185l4,0 0,4 -4,0 0,-4z M69,185l4,0 0,4 -4,0 0,-4z M77,185l4,0 0,4 -4,0 0,-4z M81,185l4,0 0,4 -4,0 0,-4z M85,185l4,0 0,4 -4,0 0,-4z M89,185l4,0 0,4 -4,0 0,-4z M101,185l4,0 0,4 -4,0 0,-4z M105,185l4,0 0,4 -4,0 0,-4z M109,185l4,0 0,4 -4,0 0,-4z M113,185l4,0 0,4 -4,0 0,-4z M121,185l4,0 0,4 -4,0 0,-4z M125,185l4,0 0,4 -4,0 0,-4z M137,185l4,0 0,4 -4,0 0,-4z M141,185l4,0 0,4 -4,0 0,-4z M145,185l4,0 0,4 -4,0 0,-4z M157,185l4,0 0,4 -4,0 0,-4z M165,185l4,0 0,4 -4,0 0,-4z M169,185l4,0 0,4 -4,0 0,-4z M177,185l4,0 0,4 -4,0 0,-4z M181,185l4,0 0,4 -4,0 0,-4z M185,185l4,0 0,4 -4,0 0,-4z M189,185l4,0 0,4 -4,0 0,-4z M193,185l4,0 0,4 -4,0 0,-4z M1,189l4,0 0,4 -4,0 0,-4z M25,189l4,0 0,4 -4,0 0,-4z M37,189l4,0 0,4 -4,0 0,-4z M53,189l4,0 0,4 -4,0 0,-4z M57,189l4,0 0,4 -4,0 0,-4z M61,189l4,0 0,4 -4,0 0,-4z M69,189l4,0 0,4 -4,0 0,-4z M73,189l4,0 0,4 -4,0 0,-4z M85,189l4,0 0,4 -4,0 0,-4z M97,189l4,0 0,4 -4,0 0,-4z M109,189l4,0 0,4 -4,0 0,-4z M113,189l4,0 0,4 -4,0 0,-4z M117,189l4,0 0,4 -4,0 0,-4z M121,189l4,0 0,4 -4,0 0,-4z M125,189l4,0 0,4 -4,0 0,-4z M145,189l4,0 0,4 -4,0 0,-4z M157,189l4,0 0,4 -4,0 0,-4z M161,189l4,0 0,4 -4,0 0,-4z M165,189l4,0 0,4 -4,0 0,-4z M1,193l4,0 0,4 -4,0 0,-4z M5,193l4,0 0,4 -4,0 0,-4z M9,193l4,0 0,4 -4,0 0,-4z M13,193l4,0 0,4 -4,0 0,-4z M17,193l4,0 0,4 -4,0 0,-4z M21,193l4,0 0,4 -4,0 0,-4z M25,193l4,0 0,4 -4,0 0,-4z M37,193l4,0 0,4 -4,0 0,-4z M49,193l4,0 0,4 -4,0 0,-4z M57,193l4,0 0,4 -4,0 0,-4z M65,193l4,0 0,4 -4,0 0,-4z M77,193l4,0 0,4 -4,0 0,-4z M81,193l4,0 0,4 -4,0 0,-4z M89,193l4,0 0,4 -4,0 0,-4z M93,193l4,0 0,4 -4,0 0,-4z M101,193l4,0 0,4 -4,0 0,-4z M105,193l4,0 0,4 -4,0 0,-4z M113,193l4,0 0,4 -4,0 0,-4z M117,193l4,0 0,4 -4,0 0,-4z M125,193l4,0 0,4 -4,0 0,-4z M129,193l4,0 0,4 -4,0 0,-4z M137,193l4,0 0,4 -4,0 0,-4z M141,193l4,0 0,4 -4,0 0,-4z M145,193l4,0 0,4 -4,0 0,-4z M149,193l4,0 0,4 -4,0 0,-4z M161,193l4,0 0,4 -4,0 0,-4z M173,193l4,0 0,4 -4,0 0,-4z M189,193l4,0 0,4 -4,0 0,-4z M193,193l4,0 0,4 -4,0 0,-4z " stroke="transparent" fill="black"/></svg><div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;"><img src="images/sliptrackerza-icon.png" alt="" style="width:24%; height:24%; border-radius:6px; border:2px solid #ffffff; box-shadow:0 1px 4px rgba(0,0,0,0.35); background:#060913;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Minimal Footer -->
+                <div class="mt-3 flex items-center justify-between text-[7.5pt] text-gray-400 ink-text-sub">
+                    <div class="flex items-center gap-1.5">
+                        <img src="images/Icon.png" alt="" class="w-4 h-4 rounded">
+                        <span class="font-bold text-white ink-text-main">ReederDevelopments</span>
+                    </div>
+                    <span class="font-mono-tech font-bold text-[#34D399] ink-accent-emerald">reederdevelopments.co.za</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const PLAY_URLS = {
+            shelfmed: 'https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed',
+            sliptracker: 'https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza'
+        };
+
+        function renderVectorQR(containerId, url, iconSrc) {
+            const container = document.getElementById(containerId);
+            if (!container || typeof qrcode === 'undefined') return;
+            const qr = qrcode(0, 'H');
+            qr.addData(url);
+            qr.make();
+            container.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 1, scalable: true }) + `
+                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;">
+                    <img src="${iconSrc}" alt="" style="width:24%; height:24%; border-radius:6px; border:2px solid #ffffff; box-shadow:0 1px 4px rgba(0,0,0,0.35); background:#060913;">
+                </div>
+            `;
+        }
+
+        function setPaperMode(mode) {
+            const pageStyle = document.getElementById('dynamic-page-style');
+            const btnA5 = document.getElementById('btn-mode-a5');
+            const btnA4 = document.getElementById('btn-mode-a4');
+            if (mode === 'a4-2up') {
+                document.body.classList.add('a4-2up-stage');
+                pageStyle.innerHTML = '@page { size: A4 landscape; margin: 0; }';
+                btnA4.className = 'px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition';
+                btnA5.className = 'px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition';
+            } else {
+                document.body.classList.remove('a4-2up-stage');
+                pageStyle.innerHTML = '@page { size: A5 portrait; margin: 0; }';
+                btnA5.className = 'px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition';
+                btnA4.className = 'px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition';
+            }
+        }
+
+        function setFlyerFilter(which) {
+            const shelfSheet = document.getElementById('sheet-shelfmed');
+            const slipSheet = document.getElementById('sheet-sliptracker');
+            const btns = {
+                both: document.getElementById('btn-filter-both'),
+                shelfmed: document.getElementById('btn-filter-shelfmed'),
+                sliptracker: document.getElementById('btn-filter-sliptracker')
+            };
+            Object.values(btns).forEach(b => b.className = 'px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition');
+            btns[which].className = 'px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition';
+            shelfSheet.style.display = (which === 'both' || which === 'shelfmed') ? 'flex' : 'none';
+            slipSheet.style.display = (which === 'both' || which === 'sliptracker') ? 'flex' : 'none';
+        }
+
+        function toggleInkMode() {
+            document.body.classList.toggle('ink-saver');
+            const isInkSaver = document.body.classList.contains('ink-saver');
+            document.getElementById('ink-mode-label').textContent = isInkSaver ? 'Ink-Saver Light' : 'Vibrant Dark';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderVectorQR('qr-shelfmed', PLAY_URLS.shelfmed, 'images/shelfmed-icon.png');
+            renderVectorQR('qr-sliptracker', PLAY_URLS.sliptracker, 'images/sliptrackerza-icon.png');
+        });
+    </script>
+</body>
+</html>
