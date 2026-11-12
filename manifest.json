@@ -1,0 +1,21 @@
+{
+  "name": "ReederDevelopments — Software, Data Engineering & Mobile Apps (ShelfMed & Slip Tracker ZA)",
+  "short_name": "ReederDev",
+  "description": "Official hub for ReederDevelopments, ShelfMed: Medicine Tracker (v1.1.4), and Slip Tracker ZA (v1.0.1).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060913",
+  "theme_color": "#060913",
+  "icons": [
+    {
+      "src": "/images/Icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/shelfmed-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

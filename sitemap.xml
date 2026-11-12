@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://reederdevelopments.co.za/</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/ReederDevLogo.jpeg</image:loc>
+      <image:title>ReederDevelopments Software &amp; Data Engineering Studio</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/shelfmed-feature.png</image:loc>
+      <image:title>ShelfMed: Medicine Tracker &amp; Family Medicine Cabinet App (v1.1.4)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/shelfmed-icon.png</image:loc>
+      <image:title>ShelfMed App Icon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/guide.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -16,102 +46,192 @@
     <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
     <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
     <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
-    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/guide.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/shelfmed-feature.png</image:loc>
+      <image:title>The 10 Biggest Medicine Tracking Problems Solved (2026 Research Guide)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/lang/af.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/lang/zu.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/lang/es.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/lang/fr.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/lang/de.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/lang/pt.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://reederdevelopments.co.za/shelfmed/lang/nl.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/lang/sw.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/es.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/fr.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/de.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/pt.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/shelfmed/lang/nl.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/shelfmed.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/shelfmed/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/shelfmed/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/shelfmed/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/shelfmed/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/shelfmed/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/shelfmed/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/shelfmed/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/shelfmed/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/shelfmed.html"/>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/sliptrackerza.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/sliptrackerza-feature.png</image:loc>
+      <image:title>Slip Tracker ZA — South African Receipt OCR Scanner &amp; Price Comparison App</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/showcase.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/privacy.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/shelfmed/tos.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/sliptrackerza/privacy.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://reederdevelopments.co.za/sliptrackerza/tos.html</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

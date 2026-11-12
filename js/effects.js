@@ -263,9 +263,11 @@ function initHeroCommandCenter() {
 function initMobileMenu() {
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (!mobileBtn || !mobileMenu) return;
+    if (!mobileBtn || !mobileMenu || mobileBtn.dataset.bound === 'true') return;
+    mobileBtn.dataset.bound = 'true';
 
-    mobileBtn.addEventListener('click', () => {
+    mobileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         mobileMenu.classList.toggle('hidden');
     });
 
