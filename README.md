@@ -23,21 +23,18 @@ reederdevelopments-site/
 ├── images/                     # Optimized app icons, logos & Play Store screenshots
 ├── shelfmed/                   # All ShelfMed subpages, guides, legal docs & international SEO
 │   ├── guide.html              # "The 10 Biggest Medicine Tracking Problems Solved (2026 Guide)"
+│   ├── watch.html              # Dedicated Google Video Watch Page for ShelfMed Demo
 │   ├── privacy.html            # ShelfMed Privacy Policy (POPIA, GDPR, CCPA, COPPA — 9 Languages)
 │   ├── tos.html                # ShelfMed Terms of Service & EULA (9 Languages)
 │   ├── legal-translations.js   # Multilingual legal translations dictionary (EN, AF, ZU, SW, ES, FR, DE, PT, NL)
-│   └── lang/                   # Localized international SEO landing pages
-│       ├── af.html             # Afrikaans (Suid-Afrika)
-│       ├── zu.html             # isiZulu (South Africa)
-│       ├── sw.html             # Kiswahili (East & Pan-Africa)
-│       ├── es.html             # Español (Spain & Latin America)
-│       ├── fr.html             # Français (France, Canada & Francophone Africa)
-│       ├── de.html             # Deutsch (DACH Region)
-│       ├── pt.html             # Português (Brazil, Portugal, Angola & Mozambique)
-│       └── nl.html             # Nederlands (Netherlands & Belgium)
-└── sliptrackerza/              # Slip Tracker ZA legal documentation
-    ├── privacy.html            # Slip Tracker ZA Privacy Policy
-    └── tos.html                # Slip Tracker ZA Terms of Service
+│   └── lang/                   # Localized international SEO landing pages (af, zu, sw, es, fr, de, pt, nl)
+└── sliptrackerza/              # All Slip Tracker ZA subpages, guides, legal docs & international SEO
+    ├── guide.html              # "The 10 Biggest SA Grocery Budget & Receipt Problems Solved (2026 Guide)"
+    ├── watch.html              # Dedicated Google Video Watch Page for Slip Tracker ZA Demo
+    ├── privacy.html            # Slip Tracker ZA Privacy Policy (POPIA, GDPR, CCPA — 9 Languages)
+    ├── tos.html                # Slip Tracker ZA Terms of Service & EULA (9 Languages)
+    ├── legal-translations.js   # Multilingual legal translations dictionary (EN, AF, ZU, SW, ES, FR, DE, PT, NL)
+    └── lang/                   # Localized international SEO landing pages (af, zu, sw, es, fr, de, pt, nl)
 ```
 
 ## Google Play Store Applications
