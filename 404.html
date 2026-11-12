@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... | ReederDevelopments</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script>
+        (function() {
+            var p = window.location.pathname.toLowerCase();
+            if (p.indexOf('medicine-tracking-guide') !== -1) {
+                window.location.replace('/shelfmed/guide.html');
+            } else if (p.indexOf('/shelfmed.html') === 0) {
+                window.location.replace('/shelfmed.html');
+            } else if (p.indexOf('/sliptrackerza.html') === 0) {
+                window.location.replace('/sliptrackerza.html');
+            } else if (p.indexOf('/showcase.html') === 0) {
+                window.location.replace('/showcase.html');
+            }
+        })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="antialiased bg-[#060913] text-slate-200 min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-lg w-full glass-card rounded-3xl p-8 border border-cyan-500/30 text-center space-y-6">
+        <img src="/images/Icon.png" alt="ReederDevelopments" class="w-16 h-16 rounded-2xl mx-auto border border-cyan-400/40">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Page Moved or Not Found</h1>
+        <p class="text-sm text-slate-400">Choose one of our main destinations below:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+            <a href="/" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-400 text-cyan-300 font-bold">ReederDevelopments Home</a>
+            <a href="/shelfmed.html" class="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 hover:border-emerald-400 text-emerald-300 font-bold">ShelfMed App (v1.1.4)</a>
+            <a href="/shelfmed/guide.html" class="p-3 rounded-xl bg-cyan-500/15 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 font-bold">10 Medicine Problems Guide</a>
+            <a href="/sliptrackerza.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-400 text-emerald-300 font-bold">Slip Tracker ZA App</a>
+        </div>
+    </div>
+</body>
+</html>
