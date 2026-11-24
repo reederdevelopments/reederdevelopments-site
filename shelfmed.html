@@ -109,15 +109,6 @@
           ]
         },
         {
-          "@type": "VideoObject",
-          "name": "ShelfMed — Official Family Medicine Cabinet & Dosage Tracker Demo",
-          "description": "Watch how ShelfMed v1.1.6 organizes your household medicine cabinet offline with AI OCR box scanning, 190+ South African medicines, FEFO dosage logging, and AES-256 QR peer-to-peer family sync.",
-          "thumbnailUrl": "https://i.ytimg.com/vi/iy4GZOi2yrk/maxresdefault.jpg",
-          "uploadDate": "2026-11-06T00:00:00+02:00",
-          "contentUrl": "https://www.youtube.com/watch?v=iy4GZOi2yrk",
-          "embedUrl": "https://www.youtube.com/embed/iy4GZOi2yrk"
-        },
-        {
           "@type": "BreadcrumbList",
           "name": "ShelfMed Breadcrumbs",
           "itemListElement": [
@@ -343,6 +334,7 @@
                     </div>
                     <div id="mob-shelfmed-sub" class="hidden pl-4 space-y-1 border-l border-cyan-500/30 ml-3 pt-1">
                         <a href="shelfmed.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-mobile-screen-button text-cyan-400 mr-1.5"></i>App Overview</a>
+                        <a href="shelfmed/watch.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-emerald-300 hover:text-white"><i class="fa-solid fa-circle-play text-emerald-400 mr-1.5"></i>Watch Video Demo</a>
                         <a href="shelfmed/guide.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-cyan-300 hover:text-white"><i class="fa-solid fa-book-medical text-emerald-400 mr-1.5"></i>Medicine Tracking Guide</a>
                         <a href="shelfmed/privacy.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-user-shield text-emerald-400 mr-1.5"></i>Privacy Policy</a>
                         <a href="shelfmed/tos.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-file-contract text-amber-400 mr-1.5"></i>Terms of Service</a>
@@ -432,7 +424,7 @@
                             </div>
                         </a>
 
-                        <a href="#video-demo" class="w-full sm:w-auto px-6 py-4 text-sm font-bold text-white glass-card hover:bg-slate-800/80 rounded-2xl border border-rose-500/40 hover:border-rose-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                        <a href="shelfmed/watch.html" class="w-full sm:w-auto px-6 py-4 text-sm font-bold text-white glass-card hover:bg-slate-800/80 rounded-2xl border border-rose-500/40 hover:border-rose-400 transition-all duration-300 text-center flex items-center justify-center gap-2">
                             <i class="fa-brands fa-youtube text-rose-500 text-lg"></i> Watch Video Demo
                         </a>
 
@@ -698,19 +690,21 @@
             </div>
 
             <div class="glass-card spotlight-card p-3 sm:p-5 rounded-3xl border border-cyan-500/30 shadow-[0_0_50px_rgba(34,124,157,0.25)] reveal">
-                <div class="relative w-full overflow-hidden rounded-2xl bg-slate-950" style="padding-top: 56.25%;">
-                    <iframe
-                        class="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/iy4GZOi2yrk?rel=0"
-                        title="ShelfMed — Family Medicine Cabinet & Dosage Tracker Official Demo"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+                <a href="shelfmed/watch.html" class="group relative block w-full overflow-hidden rounded-2xl bg-slate-950 border border-slate-800 hover:border-cyan-400/60 transition" style="padding-top: 56.25%;">
+                    <img src="https://i.ytimg.com/vi/iy4GZOi2yrk/maxresdefault.jpg" alt="ShelfMed v1.1.6 — Official Family Medicine Cabinet & Dosage Tracker Demo Video" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col items-center justify-center p-6 text-center">
+                        <span class="w-20 h-20 rounded-full bg-rose-600/90 group-hover:bg-rose-500 text-white flex items-center justify-center text-3xl shadow-[0_0_35px_rgba(244,63,94,0.7)] group-hover:scale-110 transition transform mb-3">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </span>
+                        <span class="px-4 py-1.5 rounded-full bg-slate-950/85 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-bold">
+                            Click to Watch on Dedicated Video Page &rarr;
+                        </span>
+                    </div>
+                </a>
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 px-2 text-xs text-slate-400 font-mono">
-                    <span><i class="fa-solid fa-circle-play text-cyan-400 mr-1.5"></i>ShelfMed v1.1.6 • Official Product Walkthrough</span>
+                    <a href="shelfmed/watch.html" class="text-cyan-300 hover:text-white font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-play text-cyan-400"></i> Open ShelfMed Dedicated Watch Page
+                    </a>
                     <a href="https://www.youtube.com/watch?v=iy4GZOi2yrk" target="_blank" rel="noopener" class="text-rose-400 hover:text-rose-300 font-bold flex items-center gap-1.5">
                         <i class="fa-brands fa-youtube"></i> Watch directly on YouTube <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -931,16 +925,18 @@
                 </div>
 
                 <div class="md:col-span-3 space-y-3">
-                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Navigation</h4>
+                    <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider">Navigation &amp; Guides</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="#home" class="hover:text-cyan-400 transition">Home</a></li>
-                        <li><a href="#services" class="hover:text-cyan-400 transition">Services</a></li>
+                        <li><a href="./" class="hover:text-cyan-400 transition">Home</a></li>
                         <li><a href="showcase.html" class="hover:text-cyan-400 transition">Web Design Showcase</a></li>
                         <li><a href="shelfmed.html" class="text-emerald-400 font-bold hover:underline transition">ShelfMed App</a></li>
                         <li><a href="shelfmed/guide.html" class="text-cyan-400 font-bold hover:underline transition">Medicine Tracking Guide</a></li>
+                        <li><a href="shelfmed/watch.html" class="text-rose-400 font-bold hover:underline transition">ShelfMed Video Demo</a></li>
                         <li><a href="shelfmed/privacy.html" class="text-cyan-400 hover:underline transition">ShelfMed Privacy Policy</a></li>
                         <li><a href="shelfmed/tos.html" class="text-cyan-400 hover:underline transition">ShelfMed Terms of Service</a></li>
                         <li><a href="sliptrackerza.html" class="hover:text-cyan-400 transition">Slip Tracker ZA App</a></li>
+                        <li><a href="sliptrackerza/guide.html" class="text-emerald-400 hover:underline transition">14 SA Shopping Problems Guide</a></li>
+                        <li><a href="sliptrackerza/watch.html" class="text-rose-400 hover:underline transition">Slip Tracker ZA Video Demo</a></li>
                     </ul>
                 </div>
 
