@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Cover Page (White A4) | ReederDevelopments</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="images/Icon.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Matching Website: Plus Jakarta Sans + JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Vector QR Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B1120;
+            color: #0F172A;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-mono-tech {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Screen Preview Wrapper */
+        .preview-stage {
+            display: flex;
+            justify-content: center;
+            padding: 32px 20px 64px;
+        }
+
+        /* Exact A4 Portrait Sheet (210mm x 297mm) */
+        .a4-cover-sheet {
+            width: 210mm;
+            height: 297mm;
+            background-color: #FFFFFF;
+            color: #0F172A;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 8px;
+            box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.12);
+        }
+
+        /* Website-Inspired Subtle Blueprint Grid on Crisp White */
+        .blueprint-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(8, 145, 178, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(8, 145, 178, 0.045) 1px, transparent 1px);
+            background-size: 10mm 10mm;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Soft Ambient Geometric Glows (White-Theme Adapted) */
+        .ambient-glow-top {
+            position: absolute;
+            top: -35mm;
+            right: -35mm;
+            width: 130mm;
+            height: 130mm;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, rgba(124, 58, 237, 0.05) 45%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ambient-glow-bottom {
+            position: absolute;
+            bottom: -40mm;
+            left: -30mm;
+            width: 120mm;
+            height: 120mm;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Editable Fields Highlight on Hover (Screen Only) */
+        [contenteditable="true"] {
+            outline: none;
+            border-radius: 4px;
+            transition: background-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        @media screen {
+            [contenteditable="true"]:hover {
+                background-color: rgba(6, 182, 212, 0.06);
+                box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.35);
+            }
+            [contenteditable="true"]:focus {
+                background-color: rgba(6, 182, 212, 0.09);
+                box-shadow: 0 0 0 2px #0891B2;
+            }
+        }
+
+        .qr-box svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        @media print {
+            html, body {
+                background: #FFFFFF !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .preview-stage {
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .a4-cover-sheet {
+                width: 210mm !important;
+                height: 297mm !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Top Document Cover Studio Bar (Hidden When Printing) -->
+    <header class="no-print sticky top-0 z-50 bg-[#060913]/95 backdrop-blur-md border-b border-white/10 px-4 py-3 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <a href="index.html" class="flex items-center gap-2.5 text-white hover:text-cyan-400 transition">
+                <img src="images/Icon.png" alt="ReederDevelopments" class="w-9 h-9 rounded-lg border border-cyan-500/30">
+                <div>
+                    <span class="font-extrabold text-sm tracking-tight block leading-none">REEDER<span class="text-cyan-400">DEVELOPMENTS</span></span>
+                    <span class="font-mono-tech text-[10px] text-gray-400 tracking-widest uppercase">A4 Document Cover Studio</span>
+                </div>
+            </a>
+
+            <!-- Quick Document Type Presets -->
+            <div class="flex flex-wrap items-center gap-2">
+                <div class="flex items-center bg-slate-900 border border-white/10 rounded-lg p-1 text-xs">
+                    <span class="text-[10px] font-mono-tech uppercase text-gray-400 px-2">Preset:</span>
+                    <button onclick="applyPreset('proposal')" id="preset-proposal" class="px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition">
+                        Proposal
+                    </button>
+                    <button onclick="applyPreset('spec')" id="preset-spec" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">
+                        Technical Spec
+                    </button>
+                    <button onclick="applyPreset('bi')" id="preset-bi" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">
+                        Data &amp; BI Report
+                    </button>
+                    <button onclick="applyPreset('sla')" id="preset-sla" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">
+                        Agreement / SOW
+                    </button>
+                    <button onclick="applyPreset('handover')" id="preset-handover" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">
+                        Project Handover
+                    </button>
+                    <button onclick="applyPreset('gov')" id="preset-gov" class="px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition">
+                        <i class="fa-solid fa-building-columns mr-1 text-amber-400"></i>Business / Gov Docs
+                    </button>
+                </div>
+
+                <button onclick="window.print()" class="px-4 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 hover:brightness-110 transition shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Print / Save as PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tip Banner (Hidden When Printing) -->
+    <div class="no-print max-w-4xl mx-auto px-4 pt-4 text-center">
+        <p class="text-xs text-gray-400">
+            <i class="fa-solid fa-pen-to-square text-cyan-400 mr-1"></i>
+            <strong>Interactive Template:</strong> Click any text on the cover page below to edit it directly before clicking <strong>Print / Save as PDF</strong>.
+        </p>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- PRINTABLE WHITE A4 DOCUMENT COVER PAGE (210mm x 297mm)                -->
+    <!-- ===================================================================== -->
+    <main class="preview-stage">
+        <section class="a4-cover-sheet">
+
+            <!-- Website-Inspired Subtle Blueprint Grid & Soft Accents -->
+            <div class="blueprint-grid"></div>
+            <div class="ambient-glow-top"></div>
+            <div class="ambient-glow-bottom"></div>
+
+            <!-- Top Multi-Tone Futuristic Accent Bar -->
+            <div class="relative z-10 w-full h-[4.5mm] bg-gradient-to-r from-[#0891B2] via-[#7C3AED] to-[#10B981]"></div>
+
+            <!-- Left Vertical Architectural Accent Line -->
+            <div class="absolute top-[22mm] bottom-[22mm] left-[14mm] w-[1.5px] bg-gradient-to-b from-cyan-500/40 via-purple-500/25 to-emerald-500/40 pointer-events-none z-10"></div>
+
+            <!-- ============================================================= -->
+            <!-- 1. TOP STUDIO HEADER                                          -->
+            <!-- ============================================================= -->
+            <div class="relative z-10 px-[22mm] pt-[14mm] flex items-start justify-between">
+                <!-- Brand Identity -->
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-[#060913] p-1.5 shadow-md border border-cyan-500/30 flex items-center justify-center">
+                        <img src="images/Icon.png" alt="ReederDevelopments Logo" class="w-full h-full object-contain rounded-xl">
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-[17pt] tracking-tight leading-none text-slate-900">
+                            REEDER<span class="text-[#0891B2]">DEVELOPMENTS</span>
+                        </div>
+                        <div class="font-mono-tech text-[7.5pt] font-bold tracking-[0.22em] text-slate-500 uppercase mt-1.5">
+                            NEXT-GEN DIGITAL &amp; DATA STUDIO
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Document Control Pill -->
+                <div class="text-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 font-mono-tech text-[7.5pt] font-bold text-slate-700 uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-[#0891B2]"></span>
+                        <span id="doc-code" contenteditable="true">DOC-RD-2026-001</span>
+                    </div>
+                    <div class="font-mono-tech text-[7pt] text-slate-400 uppercase tracking-widest mt-1" id="doc-confidentiality" contenteditable="true">
+                        CONFIDENTIAL • CLIENT &amp; PARTNER EDITION
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================= -->
+            <!-- 2. CENTER HERO TITLE & ARCHITECTURE ACCENT                    -->
+            <!-- ============================================================= -->
+            <div class="relative z-10 px-[22mm] my-auto py-[8mm]">
+
+                <!-- Geometric Tech Node Decoration -->
+                <div class="flex items-center gap-2 mb-5">
+                    <span class="px-3.5 py-1 rounded-md bg-cyan-50 border border-cyan-200/80 font-mono-tech text-[8.5pt] font-extrabold text-[#0891B2] uppercase tracking-widest" id="doc-category" contenteditable="true">
+                        PROJECT PROPOSAL &amp; ARCHITECTURE
+                    </span>
+                    <div class="h-[1px] flex-1 bg-gradient-to-r from-cyan-500/30 to-transparent"></div>
+                    <span class="font-mono-tech text-[8pt] font-bold text-slate-400" id="doc-version" contenteditable="true">v1.0</span>
+                </div>
+
+                <!-- Main Document Title -->
+                <h1 id="doc-title" contenteditable="true" class="font-black text-[31pt] leading-[1.12] tracking-tight text-slate-900">
+                    Custom Software, Data Engineering &amp; Digital Solution Proposal
+                </h1>
+
+                <!-- Accent Divider Bar -->
+                <div class="mt-6 mb-6 flex items-center gap-2">
+                    <div class="w-20 h-1.5 rounded-full bg-gradient-to-r from-[#0891B2] to-[#7C3AED]"></div>
+                    <div class="w-4 h-1.5 rounded-full bg-[#10B981]"></div>
+                    <div class="w-2 h-1.5 rounded-full bg-slate-200"></div>
+                </div>
+
+                <!-- Executive Subtitle / Scope Summary -->
+                <p id="doc-subtitle" contenteditable="true" class="text-[11.5pt] leading-relaxed text-slate-600 font-medium max-w-[155mm]">
+                    End-to-end architecture, engineering scope, and implementation roadmap tailored for scalable performance, security, and measurable business impact.
+                </p>
+
+                <!-- Studio Capability / Compliance Pillars Strip -->
+                <div class="mt-8 pt-6 border-t border-slate-200/90 grid grid-cols-4 gap-3">
+                    <div class="p-3 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                        <div id="pillar-1-head" class="flex items-center gap-2 text-[#0891B2] font-bold text-[8pt] uppercase tracking-wider font-mono-tech">
+                            <i class="fa-solid fa-code"></i> Web &amp; Cloud
+                        </div>
+                        <div id="pillar-1-sub" class="text-[8pt] text-slate-600 font-semibold mt-1" contenteditable="true">Full-Stack &amp; UI/UX</div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                        <div id="pillar-2-head" class="flex items-center gap-2 text-[#7C3AED] font-bold text-[8pt] uppercase tracking-wider font-mono-tech">
+                            <i class="fa-solid fa-database"></i> Data &amp; GCP
+                        </div>
+                        <div id="pillar-2-sub" class="text-[8pt] text-slate-600 font-semibold mt-1" contenteditable="true">SQL &amp; Cloud Pipelines</div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                        <div id="pillar-3-head" class="flex items-center gap-2 text-[#10B981] font-bold text-[8pt] uppercase tracking-wider font-mono-tech">
+                            <i class="fa-solid fa-chart-simple"></i> BI &amp; Reporting
+                        </div>
+                        <div id="pillar-3-sub" class="text-[8pt] text-slate-600 font-semibold mt-1" contenteditable="true">Jasper &amp; Dashboards</div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                        <div id="pillar-4-head" class="flex items-center gap-2 text-amber-600 font-bold text-[8pt] uppercase tracking-wider font-mono-tech">
+                            <i class="fa-solid fa-mobile-screen"></i> Apps &amp; PC
+                        </div>
+                        <div id="pillar-4-sub" class="text-[8pt] text-slate-600 font-semibold mt-1" contenteditable="true">Flutter &amp; Go / Wails</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================= -->
+            <!-- 3. DOCUMENT METADATA CARD & STUDIO FOOTER                     -->
+            <!-- ============================================================= -->
+            <div class="relative z-10 px-[22mm] pb-[14mm]">
+
+                <!-- Structured Metadata Box -->
+                <div class="rounded-2xl bg-slate-50/95 border border-slate-200 p-5 shadow-sm">
+                    <div class="grid grid-cols-12 gap-5 items-center">
+                        <!-- Prepared For -->
+                        <div class="col-span-5 border-r border-slate-200 pr-4">
+                            <div id="meta-client-label" contenteditable="true" class="font-mono-tech text-[7pt] font-bold uppercase tracking-widest text-[#0891B2]">
+                                PREPARED FOR
+                            </div>
+                            <div id="meta-client" contenteditable="true" class="font-extrabold text-[11pt] text-slate-900 mt-1">
+                                Client / Organization Name
+                            </div>
+                            <div id="meta-client-sub" contenteditable="true" class="text-[8.5pt] text-slate-500 mt-0.5">
+                                Stakeholder / Department / Project Sponsor
+                            </div>
+                        </div>
+
+                        <!-- Prepared By -->
+                        <div class="col-span-4 border-r border-slate-200 pr-4">
+                            <div id="meta-author-label" contenteditable="true" class="font-mono-tech text-[7pt] font-bold uppercase tracking-widest text-[#7C3AED]">
+                                PREPARED BY
+                            </div>
+                            <div id="meta-author" contenteditable="true" class="font-extrabold text-[11pt] text-slate-900 mt-1">
+                                Neil Reeder
+                            </div>
+                            <div id="meta-author-role" contenteditable="true" class="text-[8.5pt] text-slate-500 mt-0.5">
+                                Principal Engineer • ReederDevelopments
+                            </div>
+                        </div>
+
+                        <!-- Date & Status -->
+                        <div class="col-span-3">
+                            <div class="font-mono-tech text-[7pt] font-bold uppercase tracking-widest text-[#10B981]">
+                                DATE &amp; STATUS
+                            </div>
+                            <div id="meta-date" contenteditable="true" class="font-mono-tech font-bold text-[10pt] text-slate-900 mt-1">
+                                November 2026
+                            </div>
+                            <div id="meta-status" contenteditable="true" class="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 font-mono-tech text-[7pt] font-bold text-emerald-700 uppercase">
+                                FINAL RELEASE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Contact & Verification Strip -->
+                <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between gap-4">
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-[8pt] text-slate-600 font-medium">
+                        <span class="flex items-center gap-1.5 font-semibold text-slate-900">
+                            <i class="fa-solid fa-globe text-[#0891B2]"></i> reederdevelopments.co.za
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-envelope text-[#7C3AED]"></i> reederdevelopments@gmail.com
+                        </span>
+                        <span class="flex items-center gap-1.5 font-mono-tech text-[7.8pt]">
+                            <i class="fa-brands fa-whatsapp text-[#10B981]"></i> +27 74 262 5644
+                        </span>
+                    </div>
+
+                    <!-- Mini QR Code to Website -->
+                    <div class="flex items-center gap-2.5 shrink-0">
+                        <div class="text-right">
+                            <div class="font-mono-tech text-[6.5pt] font-bold uppercase tracking-wider text-slate-400">DIGITAL PORTFOLIO</div>
+                            <div class="font-mono-tech text-[7pt] font-bold text-[#0891B2]">SCAN TO VISIT</div>
+                        </div>
+                        <div class="p-1 rounded-lg bg-white border border-slate-200 shadow-sm">
+                            <div id="qr-cover-site" class="qr-box w-[13mm] h-[13mm]"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87 87"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="M0,0l3,0 0,3 -3,0 0,-3z M3,0l3,0 0,3 -3,0 0,-3z M6,0l3,0 0,3 -3,0 0,-3z M9,0l3,0 0,3 -3,0 0,-3z M12,0l3,0 0,3 -3,0 0,-3z M15,0l3,0 0,3 -3,0 0,-3z M18,0l3,0 0,3 -3,0 0,-3z M24,0l3,0 0,3 -3,0 0,-3z M30,0l3,0 0,3 -3,0 0,-3z M39,0l3,0 0,3 -3,0 0,-3z M42,0l3,0 0,3 -3,0 0,-3z M45,0l3,0 0,3 -3,0 0,-3z M54,0l3,0 0,3 -3,0 0,-3z M57,0l3,0 0,3 -3,0 0,-3z M60,0l3,0 0,3 -3,0 0,-3z M66,0l3,0 0,3 -3,0 0,-3z M69,0l3,0 0,3 -3,0 0,-3z M72,0l3,0 0,3 -3,0 0,-3z M75,0l3,0 0,3 -3,0 0,-3z M78,0l3,0 0,3 -3,0 0,-3z M81,0l3,0 0,3 -3,0 0,-3z M84,0l3,0 0,3 -3,0 0,-3z M0,3l3,0 0,3 -3,0 0,-3z M18,3l3,0 0,3 -3,0 0,-3z M24,3l3,0 0,3 -3,0 0,-3z M27,3l3,0 0,3 -3,0 0,-3z M36,3l3,0 0,3 -3,0 0,-3z M39,3l3,0 0,3 -3,0 0,-3z M48,3l3,0 0,3 -3,0 0,-3z M51,3l3,0 0,3 -3,0 0,-3z M54,3l3,0 0,3 -3,0 0,-3z M66,3l3,0 0,3 -3,0 0,-3z M84,3l3,0 0,3 -3,0 0,-3z M0,6l3,0 0,3 -3,0 0,-3z M6,6l3,0 0,3 -3,0 0,-3z M9,6l3,0 0,3 -3,0 0,-3z M12,6l3,0 0,3 -3,0 0,-3z M18,6l3,0 0,3 -3,0 0,-3z M30,6l3,0 0,3 -3,0 0,-3z M33,6l3,0 0,3 -3,0 0,-3z M36,6l3,0 0,3 -3,0 0,-3z M48,6l3,0 0,3 -3,0 0,-3z M54,6l3,0 0,3 -3,0 0,-3z M57,6l3,0 0,3 -3,0 0,-3z M60,6l3,0 0,3 -3,0 0,-3z M66,6l3,0 0,3 -3,0 0,-3z M72,6l3,0 0,3 -3,0 0,-3z M75,6l3,0 0,3 -3,0 0,-3z M78,6l3,0 0,3 -3,0 0,-3z M84,6l3,0 0,3 -3,0 0,-3z M0,9l3,0 0,3 -3,0 0,-3z M6,9l3,0 0,3 -3,0 0,-3z M9,9l3,0 0,3 -3,0 0,-3z M12,9l3,0 0,3 -3,0 0,-3z M18,9l3,0 0,3 -3,0 0,-3z M24,9l3,0 0,3 -3,0 0,-3z M33,9l3,0 0,3 -3,0 0,-3z M36,9l3,0 0,3 -3,0 0,-3z M42,9l3,0 0,3 -3,0 0,-3z M45,9l3,0 0,3 -3,0 0,-3z M51,9l3,0 0,3 -3,0 0,-3z M57,9l3,0 0,3 -3,0 0,-3z M66,9l3,0 0,3 -3,0 0,-3z M72,9l3,0 0,3 -3,0 0,-3z M75,9l3,0 0,3 -3,0 0,-3z M78,9l3,0 0,3 -3,0 0,-3z M84,9l3,0 0,3 -3,0 0,-3z M0,12l3,0 0,3 -3,0 0,-3z M6,12l3,0 0,3 -3,0 0,-3z M9,12l3,0 0,3 -3,0 0,-3z M12,12l3,0 0,3 -3,0 0,-3z M18,12l3,0 0,3 -3,0 0,-3z M33,12l3,0 0,3 -3,0 0,-3z M36,12l3,0 0,3 -3,0 0,-3z M42,12l3,0 0,3 -3,0 0,-3z M48,12l3,0 0,3 -3,0 0,-3z M57,12l3,0 0,3 -3,0 0,-3z M66,12l3,0 0,3 -3,0 0,-3z M72,12l3,0 0,3 -3,0 0,-3z M75,12l3,0 0,3 -3,0 0,-3z M78,12l3,0 0,3 -3,0 0,-3z M84,12l3,0 0,3 -3,0 0,-3z M0,15l3,0 0,3 -3,0 0,-3z M18,15l3,0 0,3 -3,0 0,-3z M30,15l3,0 0,3 -3,0 0,-3z M36,15l3,0 0,3 -3,0 0,-3z M39,15l3,0 0,3 -3,0 0,-3z M45,15l3,0 0,3 -3,0 0,-3z M48,15l3,0 0,3 -3,0 0,-3z M51,15l3,0 0,3 -3,0 0,-3z M54,15l3,0 0,3 -3,0 0,-3z M57,15l3,0 0,3 -3,0 0,-3z M66,15l3,0 0,3 -3,0 0,-3z M84,15l3,0 0,3 -3,0 0,-3z M0,18l3,0 0,3 -3,0 0,-3z M3,18l3,0 0,3 -3,0 0,-3z M6,18l3,0 0,3 -3,0 0,-3z M9,18l3,0 0,3 -3,0 0,-3z M12,18l3,0 0,3 -3,0 0,-3z M15,18l3,0 0,3 -3,0 0,-3z M18,18l3,0 0,3 -3,0 0,-3z M24,18l3,0 0,3 -3,0 0,-3z M30,18l3,0 0,3 -3,0 0,-3z M36,18l3,0 0,3 -3,0 0,-3z M42,18l3,0 0,3 -3,0 0,-3z M48,18l3,0 0,3 -3,0 0,-3z M54,18l3,0 0,3 -3,0 0,-3z M60,18l3,0 0,3 -3,0 0,-3z M66,18l3,0 0,3 -3,0 0,-3z M69,18l3,0 0,3 -3,0 0,-3z M72,18l3,0 0,3 -3,0 0,-3z M75,18l3,0 0,3 -3,0 0,-3z M78,18l3,0 0,3 -3,0 0,-3z M81,18l3,0 0,3 -3,0 0,-3z M84,18l3,0 0,3 -3,0 0,-3z M24,21l3,0 0,3 -3,0 0,-3z M27,21l3,0 0,3 -3,0 0,-3z M30,21l3,0 0,3 -3,0 0,-3z M45,21l3,0 0,3 -3,0 0,-3z M48,21l3,0 0,3 -3,0 0,-3z M51,21l3,0 0,3 -3,0 0,-3z M60,21l3,0 0,3 -3,0 0,-3z M0,24l3,0 0,3 -3,0 0,-3z M6,24l3,0 0,3 -3,0 0,-3z M9,24l3,0 0,3 -3,0 0,-3z M15,24l3,0 0,3 -3,0 0,-3z M18,24l3,0 0,3 -3,0 0,-3z M21,24l3,0 0,3 -3,0 0,-3z M27,24l3,0 0,3 -3,0 0,-3z M39,24l3,0 0,3 -3,0 0,-3z M45,24l3,0 0,3 -3,0 0,-3z M51,24l3,0 0,3 -3,0 0,-3z M54,24l3,0 0,3 -3,0 0,-3z M57,24l3,0 0,3 -3,0 0,-3z M60,24l3,0 0,3 -3,0 0,-3z M66,24l3,0 0,3 -3,0 0,-3z M75,24l3,0 0,3 -3,0 0,-3z M81,24l3,0 0,3 -3,0 0,-3z M84,24l3,0 0,3 -3,0 0,-3z M3,27l3,0 0,3 -3,0 0,-3z M12,27l3,0 0,3 -3,0 0,-3z M24,27l3,0 0,3 -3,0 0,-3z M36,27l3,0 0,3 -3,0 0,-3z M39,27l3,0 0,3 -3,0 0,-3z M42,27l3,0 0,3 -3,0 0,-3z M45,27l3,0 0,3 -3,0 0,-3z M57,27l3,0 0,3 -3,0 0,-3z M60,27l3,0 0,3 -3,0 0,-3z M63,27l3,0 0,3 -3,0 0,-3z M66,27l3,0 0,3 -3,0 0,-3z M69,27l3,0 0,3 -3,0 0,-3z M72,27l3,0 0,3 -3,0 0,-3z M84,27l3,0 0,3 -3,0 0,-3z M3,30l3,0 0,3 -3,0 0,-3z M6,30l3,0 0,3 -3,0 0,-3z M18,30l3,0 0,3 -3,0 0,-3z M21,30l3,0 0,3 -3,0 0,-3z M30,30l3,0 0,3 -3,0 0,-3z M33,30l3,0 0,3 -3,0 0,-3z M39,30l3,0 0,3 -3,0 0,-3z M48,30l3,0 0,3 -3,0 0,-3z M51,30l3,0 0,3 -3,0 0,-3z M54,30l3,0 0,3 -3,0 0,-3z M63,30l3,0 0,3 -3,0 0,-3z M69,30l3,0 0,3 -3,0 0,-3z M78,30l3,0 0,3 -3,0 0,-3z M81,30l3,0 0,3 -3,0 0,-3z M0,33l3,0 0,3 -3,0 0,-3z M9,33l3,0 0,3 -3,0 0,-3z M27,33l3,0 0,3 -3,0 0,-3z M30,33l3,0 0,3 -3,0 0,-3z M36,33l3,0 0,3 -3,0 0,-3z M48,33l3,0 0,3 -3,0 0,-3z M60,33l3,0 0,3 -3,0 0,-3z M63,33l3,0 0,3 -3,0 0,-3z M66,33l3,0 0,3 -3,0 0,-3z M69,33l3,0 0,3 -3,0 0,-3z M84,33l3,0 0,3 -3,0 0,-3z M6,36l3,0 0,3 -3,0 0,-3z M18,36l3,0 0,3 -3,0 0,-3z M21,36l3,0 0,3 -3,0 0,-3z M27,36l3,0 0,3 -3,0 0,-3z M42,36l3,0 0,3 -3,0 0,-3z M45,36l3,0 0,3 -3,0 0,-3z M51,36l3,0 0,3 -3,0 0,-3z M57,36l3,0 0,3 -3,0 0,-3z M75,36l3,0 0,3 -3,0 0,-3z M78,36l3,0 0,3 -3,0 0,-3z M0,39l3,0 0,3 -3,0 0,-3z M6,39l3,0 0,3 -3,0 0,-3z M9,39l3,0 0,3 -3,0 0,-3z M15,39l3,0 0,3 -3,0 0,-3z M21,39l3,0 0,3 -3,0 0,-3z M24,39l3,0 0,3 -3,0 0,-3z M27,39l3,0 0,3 -3,0 0,-3z M33,39l3,0 0,3 -3,0 0,-3z M42,39l3,0 0,3 -3,0 0,-3z M48,39l3,0 0,3 -3,0 0,-3z M51,39l3,0 0,3 -3,0 0,-3z M54,39l3,0 0,3 -3,0 0,-3z M57,39l3,0 0,3 -3,0 0,-3z M63,39l3,0 0,3 -3,0 0,-3z M66,39l3,0 0,3 -3,0 0,-3z M78,39l3,0 0,3 -3,0 0,-3z M81,39l3,0 0,3 -3,0 0,-3z M84,39l3,0 0,3 -3,0 0,-3z M0,42l3,0 0,3 -3,0 0,-3z M3,42l3,0 0,3 -3,0 0,-3z M6,42l3,0 0,3 -3,0 0,-3z M18,42l3,0 0,3 -3,0 0,-3z M24,42l3,0 0,3 -3,0 0,-3z M36,42l3,0 0,3 -3,0 0,-3z M39,42l3,0 0,3 -3,0 0,-3z M45,42l3,0 0,3 -3,0 0,-3z M48,42l3,0 0,3 -3,0 0,-3z M51,42l3,0 0,3 -3,0 0,-3z M57,42l3,0 0,3 -3,0 0,-3z M66,42l3,0 0,3 -3,0 0,-3z M69,42l3,0 0,3 -3,0 0,-3z M78,42l3,0 0,3 -3,0 0,-3z M81,42l3,0 0,3 -3,0 0,-3z M84,42l3,0 0,3 -3,0 0,-3z M0,45l3,0 0,3 -3,0 0,-3z M3,45l3,0 0,3 -3,0 0,-3z M6,45l3,0 0,3 -3,0 0,-3z M12,45l3,0 0,3 -3,0 0,-3z M21,45l3,0 0,3 -3,0 0,-3z M27,45l3,0 0,3 -3,0 0,-3z M30,45l3,0 0,3 -3,0 0,-3z M33,45l3,0 0,3 -3,0 0,-3z M42,45l3,0 0,3 -3,0 0,-3z M48,45l3,0 0,3 -3,0 0,-3z M60,45l3,0 0,3 -3,0 0,-3z M63,45l3,0 0,3 -3,0 0,-3z M66,45l3,0 0,3 -3,0 0,-3z M69,45l3,0 0,3 -3,0 0,-3z M72,45l3,0 0,3 -3,0 0,-3z M81,45l3,0 0,3 -3,0 0,-3z M0,48l3,0 0,3 -3,0 0,-3z M3,48l3,0 0,3 -3,0 0,-3z M6,48l3,0 0,3 -3,0 0,-3z M18,48l3,0 0,3 -3,0 0,-3z M21,48l3,0 0,3 -3,0 0,-3z M27,48l3,0 0,3 -3,0 0,-3z M30,48l3,0 0,3 -3,0 0,-3z M36,48l3,0 0,3 -3,0 0,-3z M42,48l3,0 0,3 -3,0 0,-3z M45,48l3,0 0,3 -3,0 0,-3z M57,48l3,0 0,3 -3,0 0,-3z M60,48l3,0 0,3 -3,0 0,-3z M63,48l3,0 0,3 -3,0 0,-3z M69,48l3,0 0,3 -3,0 0,-3z M72,48l3,0 0,3 -3,0 0,-3z M75,48l3,0 0,3 -3,0 0,-3z M81,48l3,0 0,3 -3,0 0,-3z M3,51l3,0 0,3 -3,0 0,-3z M9,51l3,0 0,3 -3,0 0,-3z M12,51l3,0 0,3 -3,0 0,-3z M42,51l3,0 0,3 -3,0 0,-3z M48,51l3,0 0,3 -3,0 0,-3z M51,51l3,0 0,3 -3,0 0,-3z M60,51l3,0 0,3 -3,0 0,-3z M69,51l3,0 0,3 -3,0 0,-3z M75,51l3,0 0,3 -3,0 0,-3z M78,51l3,0 0,3 -3,0 0,-3z M81,51l3,0 0,3 -3,0 0,-3z M0,54l3,0 0,3 -3,0 0,-3z M15,54l3,0 0,3 -3,0 0,-3z M18,54l3,0 0,3 -3,0 0,-3z M21,54l3,0 0,3 -3,0 0,-3z M27,54l3,0 0,3 -3,0 0,-3z M30,54l3,0 0,3 -3,0 0,-3z M36,54l3,0 0,3 -3,0 0,-3z M39,54l3,0 0,3 -3,0 0,-3z M42,54l3,0 0,3 -3,0 0,-3z M45,54l3,0 0,3 -3,0 0,-3z M48,54l3,0 0,3 -3,0 0,-3z M51,54l3,0 0,3 -3,0 0,-3z M60,54l3,0 0,3 -3,0 0,-3z M69,54l3,0 0,3 -3,0 0,-3z M72,54l3,0 0,3 -3,0 0,-3z M78,54l3,0 0,3 -3,0 0,-3z M9,57l3,0 0,3 -3,0 0,-3z M15,57l3,0 0,3 -3,0 0,-3z M21,57l3,0 0,3 -3,0 0,-3z M24,57l3,0 0,3 -3,0 0,-3z M33,57l3,0 0,3 -3,0 0,-3z M39,57l3,0 0,3 -3,0 0,-3z M42,57l3,0 0,3 -3,0 0,-3z M51,57l3,0 0,3 -3,0 0,-3z M78,57l3,0 0,3 -3,0 0,-3z M3,60l3,0 0,3 -3,0 0,-3z M12,60l3,0 0,3 -3,0 0,-3z M15,60l3,0 0,3 -3,0 0,-3z M18,60l3,0 0,3 -3,0 0,-3z M27,60l3,0 0,3 -3,0 0,-3z M33,60l3,0 0,3 -3,0 0,-3z M39,60l3,0 0,3 -3,0 0,-3z M42,60l3,0 0,3 -3,0 0,-3z M48,60l3,0 0,3 -3,0 0,-3z M51,60l3,0 0,3 -3,0 0,-3z M54,60l3,0 0,3 -3,0 0,-3z M57,60l3,0 0,3 -3,0 0,-3z M60,60l3,0 0,3 -3,0 0,-3z M63,60l3,0 0,3 -3,0 0,-3z M66,60l3,0 0,3 -3,0 0,-3z M69,60l3,0 0,3 -3,0 0,-3z M72,60l3,0 0,3 -3,0 0,-3z M75,60l3,0 0,3 -3,0 0,-3z M78,60l3,0 0,3 -3,0 0,-3z M24,63l3,0 0,3 -3,0 0,-3z M27,63l3,0 0,3 -3,0 0,-3z M33,63l3,0 0,3 -3,0 0,-3z M36,63l3,0 0,3 -3,0 0,-3z M48,63l3,0 0,3 -3,0 0,-3z M54,63l3,0 0,3 -3,0 0,-3z M60,63l3,0 0,3 -3,0 0,-3z M72,63l3,0 0,3 -3,0 0,-3z M75,63l3,0 0,3 -3,0 0,-3z M78,63l3,0 0,3 -3,0 0,-3z M81,63l3,0 0,3 -3,0 0,-3z M84,63l3,0 0,3 -3,0 0,-3z M0,66l3,0 0,3 -3,0 0,-3z M3,66l3,0 0,3 -3,0 0,-3z M6,66l3,0 0,3 -3,0 0,-3z M9,66l3,0 0,3 -3,0 0,-3z M12,66l3,0 0,3 -3,0 0,-3z M15,66l3,0 0,3 -3,0 0,-3z M18,66l3,0 0,3 -3,0 0,-3z M24,66l3,0 0,3 -3,0 0,-3z M27,66l3,0 0,3 -3,0 0,-3z M30,66l3,0 0,3 -3,0 0,-3z M33,66l3,0 0,3 -3,0 0,-3z M36,66l3,0 0,3 -3,0 0,-3z M42,66l3,0 0,3 -3,0 0,-3z M57,66l3,0 0,3 -3,0 0,-3z M60,66l3,0 0,3 -3,0 0,-3z M66,66l3,0 0,3 -3,0 0,-3z M72,66l3,0 0,3 -3,0 0,-3z M75,66l3,0 0,3 -3,0 0,-3z M81,66l3,0 0,3 -3,0 0,-3z M0,69l3,0 0,3 -3,0 0,-3z M18,69l3,0 0,3 -3,0 0,-3z M24,69l3,0 0,3 -3,0 0,-3z M36,69l3,0 0,3 -3,0 0,-3z M39,69l3,0 0,3 -3,0 0,-3z M42,69l3,0 0,3 -3,0 0,-3z M45,69l3,0 0,3 -3,0 0,-3z M48,69l3,0 0,3 -3,0 0,-3z M54,69l3,0 0,3 -3,0 0,-3z M60,69l3,0 0,3 -3,0 0,-3z M72,69l3,0 0,3 -3,0 0,-3z M75,69l3,0 0,3 -3,0 0,-3z M84,69l3,0 0,3 -3,0 0,-3z M0,72l3,0 0,3 -3,0 0,-3z M6,72l3,0 0,3 -3,0 0,-3z M9,72l3,0 0,3 -3,0 0,-3z M12,72l3,0 0,3 -3,0 0,-3z M18,72l3,0 0,3 -3,0 0,-3z M27,72l3,0 0,3 -3,0 0,-3z M30,72l3,0 0,3 -3,0 0,-3z M33,72l3,0 0,3 -3,0 0,-3z M36,72l3,0 0,3 -3,0 0,-3z M48,72l3,0 0,3 -3,0 0,-3z M51,72l3,0 0,3 -3,0 0,-3z M60,72l3,0 0,3 -3,0 0,-3z M63,72l3,0 0,3 -3,0 0,-3z M66,72l3,0 0,3 -3,0 0,-3z M69,72l3,0 0,3 -3,0 0,-3z M72,72l3,0 0,3 -3,0 0,-3z M78,72l3,0 0,3 -3,0 0,-3z M81,72l3,0 0,3 -3,0 0,-3z M0,75l3,0 0,3 -3,0 0,-3z M6,75l3,0 0,3 -3,0 0,-3z M9,75l3,0 0,3 -3,0 0,-3z M12,75l3,0 0,3 -3,0 0,-3z M18,75l3,0 0,3 -3,0 0,-3z M24,75l3,0 0,3 -3,0 0,-3z M30,75l3,0 0,3 -3,0 0,-3z M36,75l3,0 0,3 -3,0 0,-3z M39,75l3,0 0,3 -3,0 0,-3z M45,75l3,0 0,3 -3,0 0,-3z M48,75l3,0 0,3 -3,0 0,-3z M63,75l3,0 0,3 -3,0 0,-3z M69,75l3,0 0,3 -3,0 0,-3z M72,75l3,0 0,3 -3,0 0,-3z M75,75l3,0 0,3 -3,0 0,-3z M84,75l3,0 0,3 -3,0 0,-3z M0,78l3,0 0,3 -3,0 0,-3z M6,78l3,0 0,3 -3,0 0,-3z M9,78l3,0 0,3 -3,0 0,-3z M12,78l3,0 0,3 -3,0 0,-3z M18,78l3,0 0,3 -3,0 0,-3z M24,78l3,0 0,3 -3,0 0,-3z M30,78l3,0 0,3 -3,0 0,-3z M33,78l3,0 0,3 -3,0 0,-3z M36,78l3,0 0,3 -3,0 0,-3z M42,78l3,0 0,3 -3,0 0,-3z M48,78l3,0 0,3 -3,0 0,-3z M51,78l3,0 0,3 -3,0 0,-3z M54,78l3,0 0,3 -3,0 0,-3z M69,78l3,0 0,3 -3,0 0,-3z M78,78l3,0 0,3 -3,0 0,-3z M84,78l3,0 0,3 -3,0 0,-3z M0,81l3,0 0,3 -3,0 0,-3z M18,81l3,0 0,3 -3,0 0,-3z M27,81l3,0 0,3 -3,0 0,-3z M30,81l3,0 0,3 -3,0 0,-3z M33,81l3,0 0,3 -3,0 0,-3z M36,81l3,0 0,3 -3,0 0,-3z M48,81l3,0 0,3 -3,0 0,-3z M57,81l3,0 0,3 -3,0 0,-3z M60,81l3,0 0,3 -3,0 0,-3z M75,81l3,0 0,3 -3,0 0,-3z M81,81l3,0 0,3 -3,0 0,-3z M0,84l3,0 0,3 -3,0 0,-3z M3,84l3,0 0,3 -3,0 0,-3z M6,84l3,0 0,3 -3,0 0,-3z M9,84l3,0 0,3 -3,0 0,-3z M12,84l3,0 0,3 -3,0 0,-3z M15,84l3,0 0,3 -3,0 0,-3z M18,84l3,0 0,3 -3,0 0,-3z M24,84l3,0 0,3 -3,0 0,-3z M27,84l3,0 0,3 -3,0 0,-3z M30,84l3,0 0,3 -3,0 0,-3z M33,84l3,0 0,3 -3,0 0,-3z M36,84l3,0 0,3 -3,0 0,-3z M45,84l3,0 0,3 -3,0 0,-3z M57,84l3,0 0,3 -3,0 0,-3z M60,84l3,0 0,3 -3,0 0,-3z M63,84l3,0 0,3 -3,0 0,-3z M69,84l3,0 0,3 -3,0 0,-3z M75,84l3,0 0,3 -3,0 0,-3z M81,84l3,0 0,3 -3,0 0,-3z " stroke="transparent" fill="black"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Multi-Tone Accent Line -->
+            <div class="relative z-10 w-full h-[2mm] bg-gradient-to-r from-[#0891B2] via-[#7C3AED] to-[#10B981]"></div>
+
+        </section>
+    </main>
+
+    <script>
+        const STUDIO_PILLARS = [
+            { head: '<i class="fa-solid fa-code"></i> Web &amp; Cloud', sub: 'Full-Stack &amp; UI/UX' },
+            { head: '<i class="fa-solid fa-database"></i> Data &amp; GCP', sub: 'SQL &amp; Cloud Pipelines' },
+            { head: '<i class="fa-solid fa-chart-simple"></i> BI &amp; Reporting', sub: 'Jasper &amp; Dashboards' },
+            { head: '<i class="fa-solid fa-mobile-screen"></i> Apps &amp; PC', sub: 'Flutter &amp; Go / Wails' }
+        ];
+
+        const GOV_PILLARS = [
+            { head: '<i class="fa-solid fa-building-columns"></i> CIPC &amp; Statutory', sub: 'Company Registration' },
+            { head: '<i class="fa-solid fa-file-invoice-dollar"></i> SARS &amp; Tax', sub: 'Tax Compliance &amp; PIN' },
+            { head: '<i class="fa-solid fa-award"></i> B-BBEE &amp; CSD', sub: 'Supplier &amp; BEE Status' },
+            { head: '<i class="fa-solid fa-shield-halved"></i> Banking &amp; FICA', sub: 'Verified Account &amp; KYC' }
+        ];
+
+        const PRESETS = {
+            proposal: {
+                code: 'PROP-RD-2026-001',
+                confidentiality: 'CONFIDENTIAL • CLIENT & PARTNER EDITION',
+                category: 'PROJECT PROPOSAL & ARCHITECTURE',
+                version: 'v1.0',
+                title: 'Custom Software, Data Engineering & Digital Solution Proposal',
+                subtitle: 'End-to-end architecture, engineering scope, and implementation roadmap tailored for scalable performance, security, and measurable business impact.',
+                status: 'PROPOSAL DRAFT',
+                clientLabel: 'PREPARED FOR',
+                client: 'Client / Organization Name',
+                clientSub: 'Stakeholder / Department / Project Sponsor',
+                authorLabel: 'PREPARED BY',
+                author: 'Neil Reeder',
+                authorRole: 'Principal Engineer • ReederDevelopments',
+                pillars: STUDIO_PILLARS
+            },
+            spec: {
+                code: 'SPEC-RD-2026-001',
+                confidentiality: 'CONFIDENTIAL • TECHNICAL SPECIFICATION',
+                category: 'TECHNICAL ARCHITECTURE SPECIFICATION',
+                version: 'v1.0',
+                title: 'System Architecture, Database Schema & Engineering Specification',
+                subtitle: 'Detailed technical blueprint covering application layers, SQL/GCP data pipelines, security controls, API contracts, and deployment infrastructure.',
+                status: 'APPROVED SPEC',
+                clientLabel: 'PREPARED FOR',
+                client: 'Client / Organization Name',
+                clientSub: 'Engineering & Product Stakeholders',
+                authorLabel: 'PREPARED BY',
+                author: 'Neil Reeder',
+                authorRole: 'Principal Engineer • ReederDevelopments',
+                pillars: STUDIO_PILLARS
+            },
+            bi: {
+                code: 'DATA-RD-2026-001',
+                confidentiality: 'CONFIDENTIAL • EXECUTIVE ANALYTICS',
+                category: 'DATA ENGINEERING & BI REPORT',
+                version: 'v1.0',
+                title: 'Executive Business Intelligence, Analytics & Data Pipeline Report',
+                subtitle: 'Comprehensive data warehouse analysis, automated Jasper reporting metrics, and actionable operational insights.',
+                status: 'FINAL REPORT',
+                clientLabel: 'PREPARED FOR',
+                client: 'Client / Organization Name',
+                clientSub: 'Executive Leadership & Operations',
+                authorLabel: 'PREPARED BY',
+                author: 'Neil Reeder',
+                authorRole: 'Principal Data & BI Engineer • ReederDevelopments',
+                pillars: STUDIO_PILLARS
+            },
+            sla: {
+                code: 'SOW-RD-2026-001',
+                confidentiality: 'CONFIDENTIAL • COMMERCIAL AGREEMENT',
+                category: 'STATEMENT OF WORK & SERVICE AGREEMENT',
+                version: 'v1.0',
+                title: 'Software Development & Engineering Statement of Work (SOW)',
+                subtitle: 'Formal deliverables, milestone schedule, quality assurance standards, and commercial terms of engagement.',
+                status: 'FOR SIGNATURE',
+                clientLabel: 'CLIENT PARTY',
+                client: 'Client / Organization Name',
+                clientSub: 'Authorized Signatory & Representative',
+                authorLabel: 'SERVICE PROVIDER',
+                author: 'ReederDevelopments',
+                authorRole: 'Neil Reeder • Principal & Authorized Signatory',
+                pillars: STUDIO_PILLARS
+            },
+            handover: {
+                code: 'HAND-RD-2026-001',
+                confidentiality: 'RESTRICTED • OPERATIONS & HANDOVER',
+                category: 'PROJECT RELEASE & HANDOVER MANUAL',
+                version: 'v1.0',
+                title: 'Production Deployment, Operations & Technical Handover Guide',
+                subtitle: 'Complete production configuration, environment credentials guide, maintenance workflows, and release documentation.',
+                status: 'PRODUCTION LIVE',
+                clientLabel: 'DELIVERED TO',
+                client: 'Client / Organization Name',
+                clientSub: 'IT Operations & System Administrators',
+                authorLabel: 'ENGINEERED BY',
+                author: 'Neil Reeder',
+                authorRole: 'Principal Engineer • ReederDevelopments',
+                pillars: STUDIO_PILLARS
+            },
+            gov: {
+                code: 'CORP-RD-2026-001',
+                confidentiality: 'OFFICIAL CORPORATE & STATUTORY COMPLIANCE DOSSIER',
+                category: 'BUSINESS, GOVERNMENT & STATUTORY COMPLIANCE',
+                version: '2026 EDITION',
+                title: 'Official Company Registration, Tax & Regulatory Compliance Dossier',
+                subtitle: 'Certified corporate governance records, statutory registrations (CIPC, SARS Tax Compliance, CSD, B-BBEE Affidavit), banking verification, and official business credentials.',
+                status: 'CERTIFIED OFFICIAL',
+                clientLabel: 'SUBMITTED TO / AUTHORITY',
+                client: 'Government Department / Regulatory Institution',
+                clientSub: 'Procurement, Compliance & Vendor Verification Office',
+                authorLabel: 'REGISTERED ENTITY',
+                author: 'ReederDevelopments',
+                authorRole: 'Neil Reeder • Director & Principal Officer',
+                pillars: GOV_PILLARS
+            }
+        };
+
+        function applyPreset(key) {
+            const p = PRESETS[key];
+            if (!p) return;
+
+            document.getElementById('doc-code').textContent = p.code;
+            document.getElementById('doc-confidentiality').textContent = p.confidentiality;
+            document.getElementById('doc-category').textContent = p.category;
+            document.getElementById('doc-version').textContent = p.version;
+            document.getElementById('doc-title').textContent = p.title;
+            document.getElementById('doc-subtitle').textContent = p.subtitle;
+            document.getElementById('meta-status').textContent = p.status;
+
+            document.getElementById('meta-client-label').textContent = p.clientLabel;
+            document.getElementById('meta-client').textContent = p.client;
+            document.getElementById('meta-client-sub').textContent = p.clientSub;
+            document.getElementById('meta-author-label').textContent = p.authorLabel;
+            document.getElementById('meta-author').textContent = p.author;
+            document.getElementById('meta-author-role').textContent = p.authorRole;
+
+            if (p.pillars && p.pillars.length === 4) {
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`pillar-${i + 1}-head`).innerHTML = p.pillars[i].head;
+                    document.getElementById(`pillar-${i + 1}-sub`).innerHTML = p.pillars[i].sub;
+                }
+            }
+
+            ['proposal', 'spec', 'bi', 'sla', 'handover', 'gov'].forEach(k => {
+                const btn = document.getElementById(`preset-${k}`);
+                btn.className = (k === key)
+                    ? 'px-2.5 py-1.5 rounded-md font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition'
+                    : 'px-2.5 py-1.5 rounded-md font-semibold text-gray-400 hover:text-white transition';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current Month & Year automatically
+            const now = new Date();
+            const monthYear = now.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' });
+            document.getElementById('meta-date').textContent = monthYear;
+
+            // Render vector QR for reederdevelopments.co.za
+            if (typeof qrcode !== 'undefined') {
+                const qr = qrcode(0, 'M');
+                qr.addData('https://reederdevelopments.co.za');
+                qr.make();
+                document.getElementById('qr-cover-site').innerHTML = qr.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
+            }
+        });
+    </script>
+</body>
+</html>
