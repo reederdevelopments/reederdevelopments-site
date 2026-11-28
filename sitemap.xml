@@ -427,4 +427,91 @@
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reederdevelopments.co.za/mystall.html"/>
+    <xhtml:link rel="alternate" hreflang="en-za" href="https://reederdevelopments.co.za/mystall.html"/>
+    <xhtml:link rel="alternate" hreflang="af" href="https://reederdevelopments.co.za/mystall/lang/af.html"/>
+    <xhtml:link rel="alternate" hreflang="zu" href="https://reederdevelopments.co.za/mystall/lang/zu.html"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://reederdevelopments.co.za/mystall/lang/sw.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://reederdevelopments.co.za/mystall/lang/es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reederdevelopments.co.za/mystall/lang/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://reederdevelopments.co.za/mystall/lang/de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://reederdevelopments.co.za/mystall/lang/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://reederdevelopments.co.za/mystall/lang/nl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reederdevelopments.co.za/mystall.html"/>
+    <image:image>
+      <image:loc>https://reederdevelopments.co.za/images/mystall-icon.png</image:loc>
+      <image:title>MyStall: POS &amp; Inventory (v1.0.0) — Market Stall Point of Sale &amp; Stock Manager</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/guide.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/privacy.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/tos.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/af.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/zu.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/sw.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/es.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/fr.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/de.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/pt.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reederdevelopments.co.za/mystall/lang/nl.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

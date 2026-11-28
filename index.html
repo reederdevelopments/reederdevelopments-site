@@ -94,7 +94,8 @@
             "https://www.instagram.com/reederdevelopments/",
             "https://www.youtube.com/@ReederDev",
             "https://play.google.com/store/apps/details?id=com.reederdevelopments.shelfmed",
-            "https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza"
+            "https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza",
+            "https://play.google.com/store/apps/details?id=com.reederdevelopments.mystallpos"
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -151,6 +152,17 @@
           "url": "https://reederdevelopments.co.za/sliptrackerza.html",
           "installUrl": "https://play.google.com/store/apps/details?id=com.reederdevelopments.sliptrackerza",
           "description": "Free in South Africa: offline shopping & fuel receipt OCR scanner (snap a slip), restaurant bill splitter with tip & WhatsApp share, live shelf price tag cart calculator, company expense reimbursement tracker, SARS CSV exporter, and grocery price comparison across 150+ SA stores.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ZAR" }
+        },
+        {
+          "@type": "MobileApplication",
+          "name": "MyStall: POS & Inventory",
+          "operatingSystem": "Android 7.0+",
+          "applicationCategory": "BusinessApplication",
+          "softwareVersion": "1.0.0",
+          "url": "https://reederdevelopments.co.za/mystall.html",
+          "installUrl": "https://play.google.com/store/apps/details?id=com.reederdevelopments.mystallpos",
+          "description": "Offline-first market stall, food truck, and pop-up vendor Point-of-Sale (POS) and inventory manager. Features 1-tap rush checkout, multi-stall PIN/Biometric profiles, 3-tier automated BOGO/bundle/combo discounts, WhatsApp & Email receipts, itemized refunds, and AES-256 backups.",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ZAR" }
         },
         {
@@ -338,6 +350,40 @@
                                 </a>
                             </div>
                         </div>
+
+                        <!-- 3rd App: MyStall: POS & Inventory -->
+                        <div class="relative group/mystall rounded-xl hover:bg-slate-900/60 transition p-1 mt-1">
+                            <a href="mystall.html" class="flex items-start gap-3 p-2 rounded-xl hover:bg-orange-500/15 border border-transparent hover:border-orange-500/30 transition">
+                                <img src="images/mystall-icon.png" alt="MyStall: POS & Inventory" class="w-10 h-10 rounded-xl object-cover bg-white p-0.5 shrink-0 shadow-[0_0_15px_rgba(255,107,53,0.45)] border border-orange-500/30">
+                                <div class="flex-grow min-w-0">
+                                    <div class="flex items-center justify-between gap-1">
+                                        <span class="text-sm font-bold text-white group-hover/mystall:text-orange-300 transition">MyStall POS</span>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-300 border border-orange-500/30">v1.0.0</span>
+                                            <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover/mystall:text-orange-300 group-hover/mystall:rotate-180 transition-transform duration-200"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Market Stall POS, Stock &amp; Combo Deals</p>
+                                </div>
+                            </a>
+                            <div class="max-h-0 opacity-0 overflow-hidden group-hover/mystall:max-h-48 group-hover/mystall:opacity-100 group-hover/mystall:mt-1.5 group-hover/mystall:mb-1 transition-all duration-300 pl-3 ml-5 border-l-2 border-orange-500/40 space-y-1">
+                                <a href="mystall.html" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-300 hover:text-white hover:bg-orange-500/15 transition">
+                                    <span><i class="fa-solid fa-cash-register text-orange-400 w-4 mr-1"></i>App Overview</span>
+                                </a>
+                                <a href="mystall/guide.html" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-mono text-cyan-300 hover:text-white hover:bg-orange-500/15 transition">
+                                    <span><i class="fa-solid fa-store text-orange-400 w-4 mr-1"></i>Stall &amp; Vendor POS Guide</span>
+                                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-200">12 Problems</span>
+                                </a>
+                                <a href="mystall/privacy.html" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-300 hover:text-white hover:bg-orange-500/15 transition">
+                                    <span><i class="fa-solid fa-user-shield text-cyan-400 w-4 mr-1"></i>Privacy Policy</span>
+                                    <span class="text-[9px] text-slate-500">9 Langs</span>
+                                </a>
+                                <a href="mystall/tos.html" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-300 hover:text-white hover:bg-orange-500/15 transition">
+                                    <span><i class="fa-solid fa-file-contract text-amber-400 w-4 mr-1"></i>Terms of Service</span>
+                                    <span class="text-[9px] text-slate-500">9 Langs</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -406,6 +452,26 @@
                         <a href="sliptrackerza/guide.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-cyan-300 hover:text-white"><i class="fa-solid fa-book-open text-emerald-400 mr-1.5"></i>10 Grocery Problems Guide</a>
                         <a href="sliptrackerza/privacy.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-user-shield text-cyan-400 mr-1.5"></i>Privacy Policy</a>
                         <a href="sliptrackerza/tos.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-file-contract text-amber-400 mr-1.5"></i>Terms of Service</a>
+                    </div>
+                </div>
+
+                <!-- MyStall POS Mobile Expandable Group -->
+                <div class="space-y-1 pt-1">
+                    <div class="flex items-center justify-between rounded-lg bg-orange-500/10 border border-orange-500/25 px-2.5 py-1.5">
+                        <a href="mystall.html" class="mobile-link text-orange-300 font-bold text-sm flex items-center gap-2 flex-grow">
+                            <img src="images/mystall-icon.png" alt="MyStall POS" class="w-6 h-6 rounded-md bg-white p-0.5">
+                            <span>MyStall POS</span>
+                            <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-200">v1.0.0</span>
+                        </a>
+                        <button type="button" onclick="event.stopPropagation();var el=document.getElementById('mob-mystall-sub');if(el)el.classList.toggle('hidden');" class="px-2 py-1 text-xs text-orange-300 hover:text-white focus:outline-none" aria-label="Toggle MyStall Pages">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="mob-mystall-sub" class="hidden pl-4 space-y-1 border-l border-orange-500/30 ml-3 pt-1">
+                        <a href="mystall.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-cash-register text-orange-400 mr-1.5"></i>App Overview</a>
+                        <a href="mystall/guide.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-cyan-300 hover:text-white"><i class="fa-solid fa-store text-orange-400 mr-1.5"></i>12 Market Stall POS Guide</a>
+                        <a href="mystall/privacy.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-user-shield text-cyan-400 mr-1.5"></i>Privacy Policy</a>
+                        <a href="mystall/tos.html" class="mobile-link block py-1.5 px-2 text-xs font-mono text-slate-300 hover:text-white"><i class="fa-solid fa-file-contract text-amber-400 mr-1.5"></i>Terms of Service</a>
                     </div>
                 </div>
             </div>
@@ -976,7 +1042,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- App 1: ShelfMed -->
                     <a href="shelfmed.html" class="glass-card spotlight-card tilt-card rounded-3xl p-6 border border-cyan-500/30 hover:border-cyan-400 group flex flex-col justify-between reveal">
                         <div>
@@ -1032,10 +1098,38 @@
                             <span class="text-emerald-300 font-bold group-hover:translate-x-1 transition-transform">Explore Slip Tracker ZA &rarr;</span>
                         </div>
                     </a>
+
+                    <!-- App 3: MyStall: POS & Inventory -->
+                    <a href="mystall.html" class="glass-card spotlight-card tilt-card rounded-3xl p-6 border border-orange-500/35 hover:border-orange-400 group flex flex-col justify-between reveal reveal-delay-2">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-4">
+                                <div class="flex items-center gap-3.5">
+                                    <img src="images/mystall-icon.png" alt="MyStall: POS & Inventory App Icon" class="w-14 h-14 rounded-2xl object-contain bg-white p-1 border border-orange-400/50 shadow-[0_0_20px_rgba(255,107,53,0.45)]">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h4 class="text-xl font-extrabold text-white group-hover:text-orange-300 transition">MyStall POS</h4>
+                                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30">v1.0.0 Live</span>
+                                        </div>
+                                        <p class="text-xs font-mono text-orange-300">Market Stall POS • Multi-Profile Stock &amp; Combos</p>
+                                    </div>
+                                </div>
+                                <span class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-400 group-hover:bg-orange-400 group-hover:text-slate-950 transition shrink-0">
+                                    <i class="fa-brands fa-google-play"></i>
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                                100% offline Point-of-Sale &amp; inventory manager for market stalls, food trucks, and pop-up vendors. Features 1-tap rush checkout, multi-stall PIN/Biometric profiles, 3-tier BOGO/bundle/combo deals, WhatsApp receipts, partial refunds, and AES-256 backups.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-mono">
+                            <span class="text-slate-400"><i class="fa-solid fa-cash-register text-orange-400 mr-1.5"></i>1-Tap Rush • WhatsApp Receipts</span>
+                            <span class="text-orange-300 font-bold group-hover:translate-x-1 transition-transform">Explore MyStall POS &rarr;</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Direct App Guides, Video Demos & Multi-Language Hub -->
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
                     <div class="p-4 rounded-2xl bg-slate-900/70 border border-cyan-500/25 flex flex-col gap-2.5">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <span class="text-cyan-300 font-bold"><i class="fa-solid fa-kit-medical mr-1.5"></i>ShelfMed Resources:</span>
@@ -1075,6 +1169,27 @@
                             <a href="sliptrackerza/lang/de.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-emerald-300">DE</a>
                             <a href="sliptrackerza/lang/pt.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-emerald-300">PT</a>
                             <a href="sliptrackerza/lang/nl.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-emerald-300">NL</a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-900/70 border border-orange-500/25 flex flex-col gap-2.5">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-orange-300 font-bold"><i class="fa-solid fa-cash-register mr-1.5"></i>MyStall POS Resources:</span>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <a href="mystall/guide.html" class="px-2.5 py-1 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-200 hover:bg-orange-500/25 transition">12 Market Stall POS Guide</a>
+                                <a href="mystall.html" class="px-2.5 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-200 hover:bg-cyan-500/25 transition">Interactive POS Demo</a>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                            <span class="text-slate-400 mr-1">Languages:</span>
+                            <a href="mystall/lang/af.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">AF</a>
+                            <a href="mystall/lang/zu.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">ZU</a>
+                            <a href="mystall/lang/sw.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">SW</a>
+                            <a href="mystall/lang/es.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">ES</a>
+                            <a href="mystall/lang/fr.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">FR</a>
+                            <a href="mystall/lang/de.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">DE</a>
+                            <a href="mystall/lang/pt.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">PT</a>
+                            <a href="mystall/lang/nl.html" class="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-orange-300">NL</a>
                         </div>
                     </div>
                 </div>
@@ -1342,6 +1457,8 @@
                         <li><a href="sliptrackerza.html" class="text-emerald-400 hover:underline transition">Slip Tracker ZA App</a></li>
                         <li><a href="sliptrackerza/guide.html" class="text-cyan-400 hover:underline transition">14 SA Grocery &amp; Slip Problems Guide</a></li>
                         <li><a href="sliptrackerza/watch.html" class="text-rose-400 hover:underline transition">Slip Tracker ZA Video Demo</a></li>
+                        <li><a href="mystall.html" class="text-orange-400 hover:underline transition">MyStall: POS &amp; Inventory App</a></li>
+                        <li><a href="mystall/guide.html" class="text-cyan-400 hover:underline transition">12 Market Stall POS Problems Guide</a></li>
                         <li><a href="#contact" class="hover:text-cyan-400 transition">Contact for Pricing</a></li>
                     </ul>
                 </div>
